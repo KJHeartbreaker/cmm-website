@@ -78,6 +78,7 @@ export default defineType({
 					options: { hotspot: true },
 				}),
 				defineArrayMember({ type: 'iconCard' }),
+				defineArrayMember({ type: 'imageButtonCard' }),
 			],
 		}),
 
@@ -115,6 +116,8 @@ export default defineType({
 						: sub._type === 'mainImage'
 						? sub.alt
 						: sub._type === 'iconCard'
+						? sub.heading
+						: sub._type === 'imageButtonCard'
 						? sub.heading
 						: 'Update this!'
 

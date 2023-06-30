@@ -2,15 +2,15 @@ import { FcFlashOn as icon } from 'react-icons/fc'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-	title: 'Icon Card',
-	name: 'iconCard',
+	title: 'Image Button Card',
+	name: 'imageButtonCard',
 	type: 'object',
 	icon,
 	fields: [
 		defineField({
-			name: 'icon',
-			type: 'icon',
-			title: 'Icon',
+			name: 'image',
+			type: 'mainImage',
+			title: 'Background Image',
 		}),
 		defineField({
 			name: 'heading',
@@ -24,22 +24,22 @@ export default defineType({
 			type: 'simplePortableText',
 		}),
 		defineField({
-			name: 'cta',
-			title: 'CTA',
-			type: 'cta',
+			title: 'Landing page',
+			name: 'landingPageRoute',
+			type: 'reference',
+			description: 'This links to another page within the site',
+			to: [{ type: 'page' }],
 		}),
 	],
 	preview: {
 		select: {
 			title: 'heading',
 			subtitle: 'subheading',
-			photo: 'icon',
-			content: 'content.0.children',
+			photo: 'image',
 		},
-		prepare({ title, photo, content }) {
+		prepare({ title, photo }) {
 			return {
-				title: `Icon Card: ${title}`,
-				subtitle: content && content[0]?.text,
+				title: `Image Card: ${title}`,
 				media: photo,
 			}
 		},

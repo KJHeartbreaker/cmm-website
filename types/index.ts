@@ -55,6 +55,8 @@ export type PanelContent = {
 	icon?: SanityIconProps
 	cta?: CTAProps
 	asset?: SanityImageProps
+	image?: SanityImageProps
+	landingPageRoute?: LandingPageRouteProps
 }
 
 export interface SanityIconProps {
