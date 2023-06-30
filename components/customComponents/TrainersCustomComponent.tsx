@@ -38,6 +38,7 @@ export default function TrainersCustomComponent({ trainerRefs }: TrainersCustomC
 								<h3 className="text-lightBlue">Certifications</h3>
 								<div className="mt-5">
 									{tr.certifications ? (
+										// @ts-ignore
 										<SimplePortableText value={tr.certifications.portableTextBlock} />
 									) : null}
 								</div>
@@ -46,7 +47,10 @@ export default function TrainersCustomComponent({ trainerRefs }: TrainersCustomC
 								<h2 className="text-grey33">{tr.name}</h2>
 								<h3 className="text-orange">{tr.role}</h3>
 								<div className="mt-5">
-									{tr.bio ? <SimplePortableText value={tr.bio.portableTextBlock} /> : null}
+									{tr.bio ? (
+										// @ts-ignore
+										<SimplePortableText value={tr.bio.portableTextBlock} />
+									) : null}
 								</div>
 							</div>
 						</div>

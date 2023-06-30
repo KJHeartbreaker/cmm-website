@@ -63,6 +63,7 @@ export default function GroupClassCustomComponent(props: GroupClassCustomCompone
 									<h4 className="font-sans font-bold text-orange">{`$${gc.price.toFixed(
 										2
 									)} (includes GST)`}</h4>
+									{/* @ts-ignore */}
 									<SimplePortableText value={gc.description.portableTextBlock} />
 									<CTAButton
 										title={gc.cta.title}
@@ -77,6 +78,7 @@ export default function GroupClassCustomComponent(props: GroupClassCustomCompone
 												<h2>{gc.oDName}:</h2>
 												<h4>On Demand</h4>
 											</div>
+											{/* @ts-ignore */}
 											<SimplePortableText value={gc.description.portableTextBlock} />
 											<CTAButton
 												title={gc.cta.title}
