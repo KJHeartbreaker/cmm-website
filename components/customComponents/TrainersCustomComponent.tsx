@@ -5,6 +5,7 @@ import { getTrainers } from 'lib/sanity.queries'
 import { useEffect, useState } from 'react'
 import { Refs, Trainer } from 'types'
 
+import { PortableTextBlock } from 'sanity'
 import SanityComponentImage from '../images/SanityComponentImage'
 
 interface TrainersCustomComponentProps {
@@ -38,8 +39,9 @@ export default function TrainersCustomComponent({ trainerRefs }: TrainersCustomC
 								<h3 className="text-lightBlue">Certifications</h3>
 								<div className="mt-5">
 									{tr.certifications ? (
-										// @ts-ignore
-										<SimplePortableText value={tr.certifications.portableTextBlock} />
+										<SimplePortableText
+											value={tr.certifications.portableTextBlock as PortableTextBlock[]}
+										/>
 									) : null}
 								</div>
 							</div>
@@ -48,8 +50,7 @@ export default function TrainersCustomComponent({ trainerRefs }: TrainersCustomC
 								<h3 className="text-orange">{tr.role}</h3>
 								<div className="mt-5">
 									{tr.bio ? (
-										// @ts-ignore
-										<SimplePortableText value={tr.bio.portableTextBlock} />
+										<SimplePortableText value={tr.bio.portableTextBlock as PortableTextBlock[]} />
 									) : null}
 								</div>
 							</div>

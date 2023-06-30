@@ -23,7 +23,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = (props) => {
 				/>
 			</div>
 			<div className="mt-8 flex flex-col items-center text-center">
-				<SimplePortableText value={copy.portableTextBlock} />
+				<SimplePortableText value={copy.portableTextBlock as PortableTextBlock[]} />
 				<h5 className="my-5">{heading}</h5>
 			</div>
 		</div>

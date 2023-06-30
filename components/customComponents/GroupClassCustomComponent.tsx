@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { GroupClass, Refs } from 'types'
 
+import { PortableTextBlock } from 'sanity'
 import CTAButton from '../CTA/CTAButton'
 import SanityComponentImage from '../images/SanityComponentImage'
 
@@ -63,8 +64,9 @@ export default function GroupClassCustomComponent(props: GroupClassCustomCompone
 									<h4 className="font-sans font-bold text-orange">{`$${gc.price.toFixed(
 										2
 									)} (includes GST)`}</h4>
-									{/* @ts-ignore */}
-									<SimplePortableText value={gc.description.portableTextBlock} />
+									<SimplePortableText
+										value={gc.description.portableTextBlock as PortableTextBlock[]}
+									/>
 									<CTAButton
 										title={gc.cta.title}
 										kind={gc.cta.kind}
@@ -78,8 +80,9 @@ export default function GroupClassCustomComponent(props: GroupClassCustomCompone
 												<h2>{gc.oDName}:</h2>
 												<h4>On Demand</h4>
 											</div>
-											{/* @ts-ignore */}
-											<SimplePortableText value={gc.description.portableTextBlock} />
+											<SimplePortableText
+												value={gc.description.portableTextBlock as PortableTextBlock[]}
+											/>
 											<CTAButton
 												title={gc.cta.title}
 												kind={gc.oDCTA.kind}

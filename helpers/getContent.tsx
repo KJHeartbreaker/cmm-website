@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import HeroBanner from 'components/banners/HeroBanner'
 import CustomComponentContainer from 'components/customComponents/CustomComponentContainer'
 import ProductGrid from 'components/grids/ProductGrid'
@@ -88,6 +89,16 @@ export function getContent(content: PageContent[]) {
 					)
 					break
 				case 'Testimonials':
+					const transformedTestimonials = c.testimonialsArr.map((testimonial) => ({
+						...testimonial,
+						copy: {
+							portableTextBlock: testimonial.copy.portableTextBlock.map((block) => ({
+								...block,
+								_key: block._key || '',
+							})),
+						},
+					}))
+
 					el = (
 						<ContentBlock
 							classes="border-2 border-[#0077ff]"
@@ -95,8 +106,7 @@ export function getContent(content: PageContent[]) {
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.bottomPadding}
 						>
-							{/* @ts-ignore */}
-							<TestimonialsGrid panels={c.testimonialsArr} />
+							<TestimonialsGrid panels={transformedTestimonials} />
 						</ContentBlock>
 					)
 					break

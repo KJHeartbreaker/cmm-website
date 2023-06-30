@@ -1,6 +1,7 @@
 import React from 'react'
 import { HeroBannerProps } from 'types'
 
+import { PortableTextBlock } from 'sanity'
 import SanityBackgroundImage from '../images/SanityBackgroundImage'
 import { SimplePortableText } from '../portableText/SimplePortableText'
 
@@ -27,8 +28,12 @@ const HeroBanner: React.FC<HeroBannerProps> = (props) => {
 			<div className={`absolute z-10 flex w-8/12 flex-col items-center justify-center text-center ${copyBlock}`}>
 				<h2 className={`text-${subHeadingColor} font-mono`}>{subheading}</h2>
 				<h1 className={`text-${headingColor} pb-8 font-mono leading-[1] lg:leading-[0.8]`}>{heading}</h1>
-				{/* @ts-ignore */}
-				{copy && <SimplePortableText value={copy.portableTextBlock} paragraphClasses={`text-${copyColor}`} />}
+				{copy && (
+					<SimplePortableText
+						value={copy.portableTextBlock as PortableTextBlock[]}
+						paragraphClasses={`text-${copyColor}`}
+					/>
+				)}
 			</div>
 		</section>
 	)
