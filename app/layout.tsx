@@ -24,6 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 		<html lang="en" className={`${paytone_one.variable} ${montserrat.variable}`}>
 			<head>
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
+				{/* @ts-ignore */}
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 				<link
 					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Paytone+One&display=swap"
