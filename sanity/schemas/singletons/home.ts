@@ -1,11 +1,11 @@
-import { HomeIcon } from '@sanity/icons'
+import { GoHome } from 'react-icons/go'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'home',
 	title: 'Home',
 	type: 'document',
-	icon: HomeIcon,
+	icon: GoHome,
 	// Uncomment below to have edits publish automatically as you type
 	// liveEdit: true,
 	fields: [
@@ -56,6 +56,38 @@ export default defineType({
 				}),
 			],
 			validation: (rule) => rule.max(155).required(),
+		}),
+		defineField({
+			name: 'content',
+			type: 'array',
+			title: 'Page sections',
+			description: 'Add, edit, and reorder sections',
+			of: [
+				defineArrayMember({
+					name: 'Hero Banner',
+					type: 'heroBanner',
+				}),
+				defineArrayMember({
+					name: 'Single Column Content Row',
+					type: 'singleColumnRowContainer',
+				}),
+				defineArrayMember({
+					name: 'Content Rows',
+					type: 'rowContainer',
+				}),
+				defineArrayMember({
+					name: 'Product Grid',
+					type: 'productGridContainer',
+				}),
+				defineArrayMember({
+					name: 'Testimonials',
+					type: 'testimonialGridContainer',
+				}),
+				defineArrayMember({
+					name: 'Custom Component',
+					type: 'customComponent',
+				}),
+			],
 		}),
 	],
 	preview: {
