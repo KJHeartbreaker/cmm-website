@@ -95,6 +95,7 @@ export function getContent(content: PageContent[]) {
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.bottomPadding}
 						>
+							{/* @ts-ignore */}
 							<TestimonialsGrid panels={c.testimonialsArr} />
 						</ContentBlock>
 					)
