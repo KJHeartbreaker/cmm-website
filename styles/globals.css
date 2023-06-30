@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+/* Portable Text Helpers */
+.cmmYellow span {
+  color: #feca2d;
+}
+
+.cmmBlue span {
+  color: #057198;
+}
+
+.cmmOrange span {
+  color: #ee6d08;
+}
+
+.cmmWhite {
+  color: #ffffff;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply text-grey33;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h1 > span,
+  h2 > span,
+  h3 > span,
+  h4 > span,
+  h5 > span {
+    line-height: normal;
+    @apply font-mono;
+    @apply text-grey33;
+  }
+
+  h1 {
+    @apply text-4xl;
+
+    /* @media screen(md) {
+      @apply text-5xl;
+    }
+
+    @media screen(xl) {
+      @apply text-6xl;
+    } */
+  }
+
+  h2 {
+    @apply text-xl;
+
+    /* @media screen(md) {
+      @apply text-2xl;
+    }
+
+    @media screen(xl) {
+      @apply text-4xl;
+    } */
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  h4 {
+    font-size: 26px;
+  }
+
+  h5 {
+    font-size: 24px;
+  }
+
+  p,
+  span,
+  a,
+  ul,
+  li {
+    @apply font-sans;
+  }
+
+  p,
+  span,
+  ul,
+  li,
+  hr {
+    @apply text-grey33;
+  }
+
+  p {
+    margin-bottom: 12px;
+  }
+
+  a {
+    @apply text-orange;
+    text-decoration: none !important;
+    font-weight: 700;
+  }
+
+  ol,
+  ul {
+    @apply list-disc;
+    margin-bottom: 12px;
+  }
+
+  li {
+    margin-inline-start: 2em;
+  }
+}

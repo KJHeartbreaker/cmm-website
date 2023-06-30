@@ -1,9 +1,25 @@
 {
-  "extends": "next",
-  "plugins": ["simple-import-sort"],
+  "extends": ["wesbos", "next/core-web-vitals"],
+  "plugins": ["prettier"],
   "rules": {
-    "simple-import-sort/imports": "warn",
-    "simple-import-sort/exports": "warn",
-    "react-hooks/exhaustive-deps": "error"
-  }
+    // "no-console": 2,
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 120,
+        "semi": false,
+        "useTabs": true,
+        "tabWidth": 4
+      }
+    ],
+    "react/no-unstable-nested-components": [
+      "error",
+      {
+        "allowAsProps": true
+      }
+    ],
+    "no-nested-ternary": "off"
+	}
 }

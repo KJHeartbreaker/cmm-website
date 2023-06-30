@@ -1,36 +1,40 @@
+/* eslint-disable camelcase */
 import 'tailwindcss/tailwind.css'
 
-import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
+import { Montserrat, Paytone_One } from 'next/font/google'
+import React from 'react'
+import StyledComponentsRegistry from 'lib/registry'
+import { Providers } from 'lib/providers'
 
-const serif = PT_Serif({
-  variable: '--font-serif',
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  weight: ['400', '700'],
-})
-const sans = Inter({
-  variable: '--font-sans',
-  subsets: ['latin'],
-  // @todo: understand why extrabold (800) isn't being respected when explicitly specified in this weight array
-  // weight: ['500', '700', '800'],
-})
-const mono = IBM_Plex_Mono({
-  variable: '--font-mono',
-  subsets: ['latin'],
-  weight: ['500', '700'],
+const montserrat = Montserrat({
+	subsets: ['latin'],
+	display: 'swap',
+	variable: '--font-montserrat',
 })
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html
-      lang="en"
-      className={`${mono.variable} ${sans.variable} ${serif.variable}`}
-    >
-      <body>{children}</body>
-    </html>
-  )
+const paytone_one = Paytone_One({
+	subsets: ['latin'],
+	display: 'swap',
+	variable: '--font-paytone-one',
+	weight: '400',
+})
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+	return (
+		<html lang="en" className={`${paytone_one.variable} ${montserrat.variable}`}>
+			<head>
+				<link rel="preconnect" href="https://fonts.googleapis.com" />
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+				<link
+					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Paytone+One&display=swap"
+					rel="stylesheet"
+				/>
+			</head>
+			<StyledComponentsRegistry>
+				<Providers>
+					<body>{children}</body>
+				</Providers>
+			</StyledComponentsRegistry>
+		</html>
+	)
 }
