@@ -1,4 +1,5 @@
 import { CustomPortableText } from 'components/portableText/CustomPortableText'
+import { PortableTextBlock } from 'sanity'
 import { PanelContent } from 'types'
 
 interface SingleColumnRowContainerProps {
@@ -13,7 +14,8 @@ export default function SingleColumnRowContainer(props: SingleColumnRowContainer
 	return (
 		<div className="flex w-full max-w-screen-xl flex-col gap-x-5">
 			<div className={`flex flex-col ${centerContent ? 'justify-center text-center' : 'justify-start'}`}>
-				<CustomPortableText value={portableTextBlock!} />
+				{/* @ts-ignore */}
+				<CustomPortableText value={portableTextBlock! as PortableTextBlock[]} />
 			</div>
 		</div>
 	)

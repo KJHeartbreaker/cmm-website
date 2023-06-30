@@ -86,7 +86,9 @@ export interface HeroBannerProps {
 	heading: string
 	subheading: string
 	image?: SanityImageProps
-	copy: { portableTextBlock: PortableTextBlock[] }
+	copy: {
+		portableTextBlock: PortableTextBlock[]
+	}
 	size: 'standard' | 'x-large'
 	cta: CTAProps
 	copyColor: string

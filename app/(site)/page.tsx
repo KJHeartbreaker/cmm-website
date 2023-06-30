@@ -1,6 +1,6 @@
+import { Page } from '@/components/pages/page/Page'
+import PagePreview from '@/components/pages/page/PagePreview'
 import { toPlainText } from '@portabletext/react'
-import { HomePage } from 'components/pages/home/HomePage'
-import HomePagePreview from 'components/pages/home/HomePagePreview'
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
 import { homePageQuery, settingsQuery } from 'lib/sanity.queries'
@@ -35,5 +35,5 @@ export default async function IndexRoute() {
 		notFound()
 	}
 
-	return preview ? <HomePagePreview data={data} /> : <HomePage data={data} />
+	return preview ? <PagePreview data={data} /> : <Page data={data} />
 }

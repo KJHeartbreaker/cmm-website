@@ -3,7 +3,6 @@ import { createGlobalStyle } from 'styled-components'
 import { device } from './Breakpoints'
 
 const Typography = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Paytone+One&display=swap');
     html {
         font-size: var(--font-base-size);
         color: var(--dark-grey);
