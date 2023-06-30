@@ -11,11 +11,15 @@ export default function RowColumn(panel: PanelContent) {
 		<>
 			{_type === 'mainPortableText' && (
 				<div className="flex flex-col justify-center">
+					{/* @ts-ignore */}
 					<CustomPortableText value={portableTextBlock!} />
 				</div>
 			)}
 			{_type === 'mainImage' && <SanityComponentImage asset={asset} alt={asset!.alt} />}
-			{_type === 'iconCard' && <IconCard icon={icon!} heading={heading!} copy={copy!} cta={cta!} />}
+			{_type === 'iconCard' && (
+				// @ts-ignore
+				<IconCard icon={icon!} heading={heading!} copy={copy!} cta={cta!} />
+			)}
 		</>
 	)
 }

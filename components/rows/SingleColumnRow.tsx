@@ -13,6 +13,7 @@ export default function SingleColumnRowContainer(props: SingleColumnRowContainer
 	return (
 		<div className="flex w-full max-w-screen-xl flex-col gap-x-5">
 			<div className={`flex flex-col ${centerContent ? 'justify-center text-center' : 'justify-start'}`}>
+				{/* @ts-ignore */}
 				<CustomPortableText value={portableTextBlock!} />
 			</div>
 		</div>
