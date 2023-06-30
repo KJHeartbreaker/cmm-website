@@ -1,4 +1,5 @@
 export { default as iconCard } from './cards/iconCard'
+export { default as imageButtonCard } from './cards/imageButtonCard'
 export { default as testimonial } from './cards/testimonialCard'
 export { default as classRows } from './customComponents/classRows'
 export { default as customComponent } from './customComponents/customComponentContainer'

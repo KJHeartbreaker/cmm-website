@@ -4,9 +4,10 @@ import { PanelContent } from 'types'
 import { PortableTextBlock } from 'sanity'
 import IconCard from '../cards/IconCard'
 import SanityComponentImage from '../images/SanityComponentImage'
+import ImageButton from '../cards/ImageButtonCard'
 
 export default function RowColumn(panel: PanelContent) {
-	const { _type, icon, heading, copy, portableTextBlock, asset, cta } = panel
+	const { _type, icon, heading, copy, portableTextBlock, asset, cta, landingPageRoute, image } = panel
 
 	return (
 		<>
@@ -19,6 +20,10 @@ export default function RowColumn(panel: PanelContent) {
 			{_type === 'iconCard' && (
 				// @ts-ignore
 				<IconCard icon={icon!} heading={heading!} copy={copy!} cta={cta!} />
+			)}
+			{_type === 'imageButtonCard' && (
+				// @ts-ignore
+				<ImageButton image={image!} heading={heading!} copy={copy!} landingPageRoute={landingPageRoute!} />
 			)}
 		</>
 	)

@@ -102,6 +102,24 @@ export const homePageQuery = groq`
                   lqip
               }
           },
+        'landingPageRoute': landingPageRoute-> {
+            slug {
+            current
+            },
+        },
+            'image': image {
+            alt,
+            width,
+            height,
+            crop,
+            hotspot,
+            asset-> {
+                _id,
+                metadata {
+                    lqip
+                }
+            }
+        },
           portableTextBlock[]{
               ...,
               'fileDownload': fileDownload {
@@ -229,6 +247,24 @@ export const pagesBySlugQuery = groq`
                   lqip
               }
           },
+                  'landingPageRoute': landingPageRoute-> {
+            slug {
+            current
+            },
+        },
+            'image': image {
+            alt,
+            width,
+            height,
+            crop,
+            hotspot,
+            asset-> {
+                _id,
+                metadata {
+                    lqip
+                }
+            }
+        },
           portableTextBlock[]{
               ...,
               'fileDownload': fileDownload {
