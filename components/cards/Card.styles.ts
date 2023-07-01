@@ -31,6 +31,7 @@ export const TestimonialCardContainer = styled.div`
 
 export const ImageButtonCardContainer = styled.div`
 	position: relative;
+	width: 100%;
 	height: 220px;
 
 	a {

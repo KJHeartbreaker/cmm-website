@@ -7,6 +7,13 @@ import { Refs, Trainer } from 'types'
 
 import { PortableTextBlock } from 'sanity'
 import SanityComponentImage from '../images/SanityComponentImage'
+import {
+	TrainerRow,
+	TrainerRowLSCopy,
+	TrainerRowLeftSide,
+	TrainerRowRightSide,
+	TrainersPageContainer,
+} from './CustomComponent.styles'
 
 interface TrainersCustomComponentProps {
 	trainerRefs: Refs[]
@@ -27,25 +34,27 @@ export default function TrainersCustomComponent({ trainerRefs }: TrainersCustomC
 	}, [trainerRefs])
 
 	return (
-		<div>
+		<TrainersPageContainer>
 			{loading ? (
 				<h1>Content is loading...</h1>
 			) : (
 				<>
 					{trainers.map((tr) => (
-						<div key={tr._id} className="grid grid-cols-2 items-center justify-center">
-							<div>
+						<TrainerRow key={tr._id}>
+							<TrainerRowLeftSide>
 								<SanityComponentImage asset={tr.picture.asset} alt={tr.picture.alt} />
-								<h3 className="text-lightBlue">Certifications</h3>
-								<div className="mt-5">
-									{tr.certifications ? (
-										<SimplePortableText
-											value={tr.certifications.portableTextBlock as PortableTextBlock[]}
-										/>
-									) : null}
-								</div>
-							</div>
-							<div>
+								<TrainerRowLSCopy>
+									{tr.certifications && <h3>Certifications</h3>}
+									<div className="mt-5">
+										{tr.certifications ? (
+											<SimplePortableText
+												value={tr.certifications.portableTextBlock as PortableTextBlock[]}
+											/>
+										) : null}
+									</div>
+								</TrainerRowLSCopy>
+							</TrainerRowLeftSide>
+							<TrainerRowRightSide>
 								<h2 className="text-grey33">{tr.name}</h2>
 								<h3 className="text-orange">{tr.role}</h3>
 								<div className="mt-5">
@@ -53,11 +62,11 @@ export default function TrainersCustomComponent({ trainerRefs }: TrainersCustomC
 										<SimplePortableText value={tr.bio.portableTextBlock as PortableTextBlock[]} />
 									) : null}
 								</div>
-							</div>
-						</div>
+							</TrainerRowRightSide>
+						</TrainerRow>
 					))}
 				</>
 			)}
-		</div>
+		</TrainersPageContainer>
 	)
 }

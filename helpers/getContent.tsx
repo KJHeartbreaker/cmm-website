@@ -45,11 +45,7 @@ export function getContent(content: PageContent[]) {
 					break
 				case 'Single Column Content Row':
 					el = (
-						<ContentBlock
-							classes="border-2 border-[#ff0000]"
-							bgColor={c.backgroundColor}
-							removeBottomPadding={c.bottomPadding}
-						>
+						<ContentBlock bgColor={c.backgroundColor} removeBottomPadding={c.bottomPadding}>
 							<RowContainer
 								key={c._key}
 								content={c.rowContent!}
@@ -62,7 +58,6 @@ export function getContent(content: PageContent[]) {
 				case 'Content Rows':
 					el = (
 						<ContentBlock
-							classes="border-2 border-[#ff0077]"
 							bgImage={c.image ? c.image : null}
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.bottomPadding}
@@ -79,7 +74,6 @@ export function getContent(content: PageContent[]) {
 				case 'Product Grid':
 					el = (
 						<ContentBlock
-							classes="border-2 border-[#0077ff]"
 							bgImage={c.image ? c.image : null}
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.bottomPadding}
@@ -101,7 +95,6 @@ export function getContent(content: PageContent[]) {
 
 					el = (
 						<ContentBlock
-							classes="border-2 border-[#0077ff]"
 							bgImage={c.image ? c.image : null}
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.bottomPadding}
@@ -112,11 +105,7 @@ export function getContent(content: PageContent[]) {
 					break
 				case 'Custom Component':
 					el = (
-						<ContentBlock
-							classes="border-2 border-[#7777ff]"
-							bgColor={c.backgroundColor}
-							removeBottomPadding={c.bottomPadding}
-						>
+						<ContentBlock bgColor={c.backgroundColor} removeBottomPadding={c.bottomPadding}>
 							<CustomComponentContainer key={c._key} rows={c.rows!} />
 						</ContentBlock>
 					)
