@@ -14,14 +14,11 @@ export function Page({ data }: PageProps) {
 
 	return (
 		<div>
-			<div className="mb-14">
-				{/* Body */}
-				{bodyContent}
+			{/* Body */}
+			{bodyContent}
 
-				{/* Workaround: scroll to top on route change */}
-				<ScrollUp />
-			</div>
-			<div className="absolute left-0 w-screen border-t" />
+			{/* Workaround: scroll to top on route change */}
+			<ScrollUp />
 		</div>
 	)
 }

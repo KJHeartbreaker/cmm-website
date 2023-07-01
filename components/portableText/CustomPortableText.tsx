@@ -27,6 +27,7 @@ export function CustomPortableText({
 			cmmYellow: ({ children }) => <span className="text-yellow">{children}</span>,
 			cmmBlue: ({ children }) => <span className="text-blue">{children}</span>,
 			cmmOrange: ({ children }) => <span className="text-orange">{children}</span>,
+			cmmWhite: ({ children }) => <span className="text-white">{children}</span>,
 		},
 		types: {
 			image: ({ value }: { value: SanityImageProps }) => (
