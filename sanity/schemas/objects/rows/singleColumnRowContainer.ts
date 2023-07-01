@@ -40,6 +40,7 @@ export default defineType({
 					{ title: 'White', value: '#ffffff' },
 					{ title: 'Grey', value: '#e2e2e2' },
 					{ title: 'Blue', value: '#61c8e9' },
+					{ title: 'Dark Blue', value: '#013b63' },
 					{ title: 'Yellow', value: '#feca2d' },
 				],
 				layout: 'radio',

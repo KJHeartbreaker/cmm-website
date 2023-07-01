@@ -1,5 +1,5 @@
 /* eslint-disable react/destructuring-assignment */
-import { BsCardText, BsCircleFill } from 'react-icons/bs'
+import { BsCardText, BsCircle, BsCircleFill } from 'react-icons/bs'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 const cmmYellowIcon = () => <BsCircleFill color="#feca2d" />
@@ -10,6 +10,9 @@ const cmmBlueDecorator = (props: any) => <span className="cmmBlue">{props.childr
 
 const cmmOrangeIcon = () => <BsCircleFill color="#ee6d08" />
 const cmmOrangeDecorator = (props: any) => <span className="cmmOrange">{props.children}</span>
+
+const cmmWhiteIcon = () => <BsCircle />
+const cmmWhiteDecorator = (props: any) => <span className="cmmWhite">{props.children}</span>
 
 const HighlightIcon = () => <span style={{ fontWeight: 'bold', color: 'yellow' }}> H </span>
 const HighlightDecorator = (props: any) => <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>
@@ -61,6 +64,12 @@ export default defineType({
 								value: 'cmmOrange',
 								icon: cmmOrangeIcon,
 								component: cmmOrangeDecorator,
+							},
+							{
+								title: 'White',
+								value: 'cmmWhite',
+								icon: cmmWhiteIcon,
+								component: cmmWhiteDecorator,
 							},
 							{ title: 'Underline', value: 'underline' },
 							{

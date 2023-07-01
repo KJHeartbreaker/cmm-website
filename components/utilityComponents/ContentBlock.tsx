@@ -17,8 +17,15 @@ const ContentBlock: React.FC<ContentBlockProps> = (props) => {
 
 	return (
 		<section
-			className={`relative flex flex-row items-center justify-center ${
-				bgImage ? 'pb-40 pt-40' : removeBottomPadding ? 'pb-8 pt-16' : 'pb-32 pt-16'
+			className={`relative flex flex-row items-center justify-center pl-16 pr-16
+			${
+				bgImage
+					? 'pb-40 pt-40'
+					: removeBottomPadding
+					? 'pb-8 pt-16'
+					: bgColor === '#013b63'
+					? 'border-y-2 border-[#ee6d08] pb-16 pt-16 '
+					: 'pb-32 pt-16'
 			} ${classes || ''}`}
 			id={id || ''}
 			style={{ backgroundColor: bgColor }}
