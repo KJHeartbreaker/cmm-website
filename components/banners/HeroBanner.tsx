@@ -12,10 +12,10 @@ const HeroBanner: React.FC<HeroBannerProps> = (props) => {
 	let copyBlock
 
 	if (size === 'standard') {
-		bgSize = 'h-[400px] lg:h-[500px]'
+		bgSize = 'h-[300px] lg:h-[400px]'
 		copyBlock = ''
 	} else if (size === 'x-large') {
-		bgSize = 'h-[600px] lg:h-[600px] 2xl:h-[800px]'
+		bgSize = 'h-[500px] lg:h-[600px]'
 		copyBlock = 'mt-[100px] lg:mt-[300px]'
 	} else {
 		bgSize = ''

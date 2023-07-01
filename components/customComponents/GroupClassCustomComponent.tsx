@@ -45,7 +45,7 @@ export default function GroupClassCustomComponent(props: GroupClassCustomCompone
 				<>
 					<section className="flex w-full flex-row justify-between xl:max-w-7xl">
 						{groupClasses.map((link) => (
-							<Link key={`link-${link._id}`} href={`/group-training-classes#${link.slug.current}`}>
+							<Link key={`link-${link._id}`} href={`/group-training#${link.slug.current}`}>
 								{link.subMenuTitle}
 							</Link>
 						))}
@@ -57,7 +57,7 @@ export default function GroupClassCustomComponent(props: GroupClassCustomCompone
 							id={gc.slug.current}
 							removeBottomPadding={false}
 						>
-							<div className="grid w-full grid-cols-2 border-2 border-[#7700ff] xl:max-w-7xl">
+							<div className="grid w-full grid-cols-2 xl:max-w-7xl">
 								<div>
 									<h3 className="text-orange">{gc.subheadline}</h3>
 									<h2 className="py-4 pt-1">{gc.name}</h2>

@@ -20,7 +20,7 @@ export function CustomPortableText({
 		},
 		marks: {
 			link: ({ children, value }) => (
-				<a className="underline transition hover:opacity-50" href={value?.href} rel="noreferrer noopener">
+				<a className="transition hover:opacity-50" href={value?.href} rel="noreferrer noopener">
 					{children}
 				</a>
 			),

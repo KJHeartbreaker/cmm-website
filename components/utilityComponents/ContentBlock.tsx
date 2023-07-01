@@ -8,7 +8,7 @@ interface ContentBlockProps {
 	bgImage?: ImageAsset | null
 	removeBottomPadding: boolean
 	children: React.JSX.Element
-	classes: string
+	classes?: string
 	id?: string
 }
 

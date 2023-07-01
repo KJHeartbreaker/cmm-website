@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import { BsCardText, BsCircleFill } from 'react-icons/bs'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
