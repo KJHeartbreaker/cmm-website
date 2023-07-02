@@ -15,7 +15,12 @@ const config = {
 		ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
 	},
 	compiler: {
-		styledComponents: true,
+		// see https://styled-components.com/docs/tooling#babel-plugin for more info on the options.
+		styledComponents: {
+			displayName: true,
+			ssr: true,
+			fileName: true,
+		},
 	},
 }
 

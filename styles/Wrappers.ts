@@ -2,6 +2,57 @@ import styled from 'styled-components'
 
 import { device } from './Breakpoints'
 
+export const Section = styled.section`
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	padding-top: 40px;
+	padding-bottom: 60px;
+
+	&.has-bg {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	&.even {
+		padding-bottom: 40px;
+	}
+
+	&.short {
+		padding-bottom: 0;
+	}
+
+	@media ${device.sm} {
+		padding-top: 60px;
+		padding-bottom: 80px;
+
+		&.has-bg {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+
+		&.even {
+			padding-bottom: 60px;
+		}
+	}
+
+	@media ${device.md} {
+		padding-top: 100px;
+		padding-bottom: 140px;
+
+		&.has-bg {
+			padding-top: 140px;
+			padding-bottom: 140px;
+		}
+
+		&.even {
+			padding-bottom: 100px;
+		}
+	}
+`
+
 export const ContentContainer = styled.div`
 	margin-left: auto;
 	margin-right: auto;

@@ -1,5 +1,5 @@
 import { FcFlashOn as icon } from 'react-icons/fc'
-import { defineArrayMember, defineConfig, defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
 	title: 'Hero Banner',
