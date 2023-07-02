@@ -15,6 +15,16 @@ export const IconContainer = styled.div`
 	}
 `
 
+export const IconCardContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	background-color: var(--white);
+	padding: 60px 20px;
+`
+
 export const TestimonialCardContainer = styled.div`
 	display: flex;
 	flex-direction: column;

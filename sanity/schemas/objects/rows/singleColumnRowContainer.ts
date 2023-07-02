@@ -1,4 +1,4 @@
-import { BsFillFileRichtextFill as icon } from 'react-icons/bs'
+import { GiHamburgerMenu as icon } from 'react-icons/gi'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({

@@ -23,7 +23,7 @@ const SanityComponentImage = (props: SanityImageProps) => {
 	}
 
 	return (
-		<div>
+		<div className="image-container">
 			{imageId && (
 				<SanityImage
 					id={imageId}
