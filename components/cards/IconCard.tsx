@@ -6,6 +6,7 @@ import { CTAProps, SanityIconProps } from 'types'
 
 import CTAButton from '../CTA/CTAButton'
 import SanityIcon from '../images/SanityIcon'
+import { IconCardContainer } from './Card.styles'
 
 interface IconCardProps {
 	icon: SanityIconProps
@@ -20,7 +21,7 @@ const IconCard: React.FC<IconCardProps> = (props) => {
 	const { icon, heading, copy, cta } = props
 
 	return (
-		<div className="flex h-full flex-col items-center bg-white px-20 py-20">
+		<IconCardContainer>
 			<Link href={cta.landingPageRoute!.slug.current}>
 				<SanityIcon {...icon} />
 			</Link>
@@ -34,7 +35,7 @@ const IconCard: React.FC<IconCardProps> = (props) => {
 					arrow={cta.arrow}
 				/>
 			</div>
-		</div>
+		</IconCardContainer>
 	)
 }
 

@@ -1,27 +1,27 @@
-import { device } from '@/styles/Breakpoints'
-import { ContentContainer } from '@/styles/Wrappers'
+import { device } from 'styles/Breakpoints'
+import { ContentContainer } from 'styles/Wrappers'
 import styled from 'styled-components'
-
-export const StyledRowContainer = styled.div`
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	justify-content: center;
-	align-items: center;
-	z-index: 1;
-
-	/* @media ${device.xs} {
-		width: 70%;
-	} */
-`
 
 export const StyledRowColumn = styled.div`
 	display: flex;
 	width: 100%;
 	height: 100%;
 
-	img {
+	div.image-container {
+		display: flex;
 		width: 100%;
+		max-height: 600px;
+
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	@media ${device.lg} {
+		div.image-container {
+			max-height: 750px;
+		}
 	}
 `
 
@@ -32,9 +32,27 @@ export const RowColumnCopy = styled.div`
 	width: 100%;
 
 	h2 {
-		font-size: var(--font-title1-size);
-		line-height: var(--font-title1-line-height);
 		margin: 0 0 20px 0;
+		font-size: var(--font-title1-mobile-size);
+		line-height: var(--font-title1-line-height);
+		font-weight: 600;
+
+		@media ${device.sm} {
+			font-size: var(--font-title1-size);
+			line-height: var(--font-title1-line-height);
+		}
+	}
+`
+
+export const TwoColumnRowContainer = styled(ContentContainer)`
+	display: grid;
+	grid-template-columns: 1;
+	justify-content: center;
+	gap: 20px;
+	z-index: 1;
+
+	@media ${device.xs} {
+		grid-template-columns: repeat(2, 1fr);
 	}
 `
 
@@ -43,8 +61,13 @@ export const ThreeColumnRowContainer = styled(ContentContainer)`
 	grid-template-columns: 1;
 	justify-content: center;
 	gap: 20px;
+	z-index: 1;
 
 	@media ${device.xs} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media ${device.md} {
 		grid-template-columns: repeat(3, 1fr);
 	}
 `
