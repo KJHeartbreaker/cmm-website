@@ -4,14 +4,15 @@ import RowColumn from './RowColumn'
 import { TwoColumnRowContainer } from './Row.styles'
 
 interface TwoColumnRowProps {
+	id?: string
 	panels: PanelContent[]
 }
 
 export default function TwoColumnRow(props: TwoColumnRowProps) {
-	const { panels } = props
+	const { id, panels } = props
 
 	return (
-		<TwoColumnRowContainer>
+		<TwoColumnRowContainer id={id}>
 			{panels.map((panel) => (
 				<RowColumn key={panel._key} {...panel} />
 			))}

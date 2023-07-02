@@ -5,7 +5,7 @@
     "dev": "next",
     "format": "prettier-eslint --write \"**/*.ts\" \"**/*.tsx\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
     "lint": "next lint -- --ignore-path .gitignore",
-    "lint:fix": "npm run format && npm run lint -- --fix",
+    "lint:fix": "yarn format && yarn lint -- --fix",
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
@@ -17,7 +17,6 @@
     "@portabletext/react": "3.0.4",
     "@sanity/client": "^6.1.5",
     "@sanity/dashboard": "^3.1.4",
-    "@sanity/demo": "1.0.2",
     "@sanity/image-url": "1.0.2",
     "@sanity/preview-kit": "^2.3.0",
     "@sanity/ui": "^1.7.0",
