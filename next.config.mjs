@@ -15,10 +15,7 @@ const config = {
 		ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
 	},
 	compiler: {
-		styledComponents: {
-			displayName: true,
-			ssr: true,
-		},
+		styledComponents: true,
 	},
 }
 

@@ -1,3 +1,4 @@
+import { device } from '@/styles/Breakpoints'
 import styled from 'styled-components'
 
 export const IconContainer = styled.div`
@@ -55,4 +56,26 @@ export const ImageButtonCardContainerCopyBlock = styled.div`
 	position: relative;
 	width: 60%;
 	z-index: 10;
+`
+
+export const TrainerCardContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	background-color: var(--white);
+
+	p {
+		margin-bottom: 5px;
+	}
+
+	img {
+		width: 100%;
+		max-height: 200px;
+		object-fit: cover;
+	}
+
+	@media ${device.lg} {
+		img {
+			max-height: 300px;
+		}
+	}
 `

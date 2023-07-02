@@ -1,7 +1,5 @@
 /* eslint-disable camelcase */
 
-// import '../../styles/globals.css'
-
 import React from 'react'
 
 import { Footer } from 'components/global/footer/Footer'

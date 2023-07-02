@@ -1,4 +1,5 @@
 /* eslint-disable no-case-declarations */
+import TrainersGrid from 'components/grids/TrainersGrid'
 import HeroBanner from 'components/banners/HeroBanner'
 import CustomComponentContainer from 'components/customComponents/CustomComponentContainer'
 import ProductGrid from 'components/grids/ProductGrid'
@@ -6,7 +7,7 @@ import TestimonialsGrid from 'components/grids/TestimonialsGrid'
 import RowContainer from 'components/rows/RowContainer'
 import ContentBlock from 'components/utilityComponents/ContentBlock'
 import React from 'react'
-import { PanelContent, ProductCardProps, TestimonialCardProps } from 'types'
+import { PanelContent, ProductCardProps, TestimonialCardProps, Trainer } from 'types'
 
 interface PageContent {
 	_key: string
@@ -29,6 +30,7 @@ interface PageContent {
 	bottomPadding: boolean
 	productsArr: ProductCardProps[]
 	testimonialsArr: TestimonialCardProps[]
+	trainers: Trainer[]
 }
 
 export function getContent(content: PageContent[]) {
@@ -79,6 +81,18 @@ export function getContent(content: PageContent[]) {
 							removeBottomPadding={c.bottomPadding}
 						>
 							<ProductGrid panels={c.productsArr} />
+						</ContentBlock>
+					)
+					break
+				case 'Trainers Grid':
+					el = (
+						<ContentBlock
+							bgImage={null}
+							bgColor={c.backgroundColor}
+							removeBottomPadding={c.bottomPadding}
+							classes="even-padding"
+						>
+							<TrainersGrid trainers={c.trainers} />
 						</ContentBlock>
 					)
 					break
