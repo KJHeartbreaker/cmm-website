@@ -1,11 +1,11 @@
-import { DocumentIcon, ImageIcon } from '@sanity/icons'
+import { GrDocument as icon } from 'react-icons/gr'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
 	type: 'document',
 	name: 'page',
 	title: 'Page',
-	icon: DocumentIcon,
+	icon,
 	fields: [
 		defineField({
 			type: 'string',
@@ -71,6 +71,10 @@ export default defineType({
 				defineArrayMember({
 					name: 'Product Grid',
 					type: 'productGridContainer',
+				}),
+				defineArrayMember({
+					name: 'Trainers Grid',
+					type: 'trainersGridContainer',
 				}),
 				defineArrayMember({
 					name: 'Testimonials',

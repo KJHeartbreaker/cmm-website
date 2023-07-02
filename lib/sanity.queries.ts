@@ -62,7 +62,7 @@ export const homePageQuery = groq`
       'rows': rows[] {
           ...,
           'trainers': trainers[]{
-              ...
+              _type == 'reference' => @->
           },
           'classes': classesArr[]{
               ...
@@ -199,6 +199,26 @@ export const pagesBySlugQuery = groq`
               }
           },
       },
+        'trainers': trainers[]{
+            _type == 'reference' => @-> {
+                _id,
+                name,
+                certifications,
+                picture {
+                    alt,
+                    width,
+                    height,
+                    crop,
+                    hotspot,
+                    asset-> {
+                        _id,
+                        metadata {
+                            lqip
+                        }
+                    }
+                }
+            }
+        },
       'testimonialsArr': testimonialsArr[] -> {
           _key,
           heading,
@@ -206,8 +226,27 @@ export const pagesBySlugQuery = groq`
       },
       'rows': rows[] {
           ...,
-          'trainers': trainers[]{
-              ...
+            'trainers': trainers[]{
+                _type == 'reference' => @-> {
+                    _id,
+                    name,
+                    certifications,
+                    role,
+                    bio,
+                    picture {
+                        alt,
+                        width,
+                        height,
+                        crop,
+                        hotspot,
+                        asset-> {
+                            _id,
+                            metadata {
+                                lqip
+                            }
+                        }
+                    }
+                }
           },
           'classes': classesArr[]{
               ...
@@ -320,32 +359,28 @@ export const settingsQuery = groq`
   }
 `
 
-export async function getTrainers(id: string): Promise<Trainer> {
-	return createClient(config).fetch(
-		groq`*[_type == 'trainer' && _id == $id][0]{
-		    _id,
-		    bio,
-		    'picture': picture {
-                alt,
-                width,
-                height,
-                crop,
-                hotspot,
-                asset-> {
-                    _id,
-                    metadata {
-                        lqip
-                    }
+export const trainersQuery = groq`
+    *[_type == 'trainer']{
+        _id,
+        bio,
+        'picture': picture {
+            alt,
+            width,
+            height,
+            crop,
+            hotspot,
+            asset-> {
+                _id,
+                metadata {
+                    lqip
                 }
-            },
-		    certifications,
-		    name,
-		    role
-        }
-        `,
-		{ id }
-	)
-}
+            }
+        },
+        certifications,
+        name,
+        role
+    }
+`
 
 export async function getGroupClasses(id: string): Promise<GroupClass> {
 	return createClient(config).fetch(

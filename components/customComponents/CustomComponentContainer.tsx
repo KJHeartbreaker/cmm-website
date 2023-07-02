@@ -1,4 +1,4 @@
-import { Refs } from 'types'
+import { Refs, Trainer } from 'types'
 
 import GalleryGrid from './gallery/GalleryGrid'
 import GroupClassRows from './GroupClassCustomComponent'
@@ -8,7 +8,7 @@ interface CustomComponentProps {
 	_key: string
 	_type: string
 	classes?: Refs[]
-	trainers?: Refs[]
+	trainers?: Trainer[]
 	galleryArr?: any
 }
 
@@ -25,7 +25,7 @@ export default function CustomComponentContainer(props: CustomComponentContainer
 				let component
 				switch (row._type) {
 					case 'trainerRows':
-						component = <TrainersCustomComponent key={row._key} trainerRefs={row.trainers!} />
+						component = <TrainersCustomComponent key={row._key} trainers={row.trainers!} />
 						break
 					case 'classRows':
 						component = <GroupClassRows key={row._key} classRefs={row.classes!} />
