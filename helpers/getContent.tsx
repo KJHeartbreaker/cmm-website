@@ -27,7 +27,7 @@ interface PageContent {
 	image: any
 	backgroundColor: string | undefined
 	centerContent: boolean
-	bottomPadding: boolean
+	removeBottomPadding: boolean
 	productsArr: ProductCardProps[]
 	testimonialsArr: TestimonialCardProps[]
 	trainers: Trainer[]
@@ -47,7 +47,7 @@ export function getContent(content: PageContent[]) {
 					break
 				case 'Single Column Content Row':
 					el = (
-						<ContentBlock bgColor={c.backgroundColor} removeBottomPadding={c.bottomPadding}>
+						<ContentBlock bgColor={c.backgroundColor} removeBottomPadding={c.removeBottomPadding}>
 							<RowContainer
 								key={c._key}
 								content={c.rowContent!}
@@ -62,7 +62,7 @@ export function getContent(content: PageContent[]) {
 						<ContentBlock
 							bgImage={c.image ? c.image : null}
 							bgColor={c.backgroundColor}
-							removeBottomPadding={c.bottomPadding}
+							removeBottomPadding={c.removeBottomPadding}
 						>
 							<RowContainer
 								key={c._key}
@@ -78,7 +78,7 @@ export function getContent(content: PageContent[]) {
 						<ContentBlock
 							bgImage={c.image ? c.image : null}
 							bgColor={c.backgroundColor}
-							removeBottomPadding={c.bottomPadding}
+							removeBottomPadding={c.removeBottomPadding}
 						>
 							<ProductGrid panels={c.productsArr} />
 						</ContentBlock>
@@ -89,8 +89,8 @@ export function getContent(content: PageContent[]) {
 						<ContentBlock
 							bgImage={null}
 							bgColor={c.backgroundColor}
-							removeBottomPadding={c.bottomPadding}
-							classes="even-padding"
+							removeBottomPadding={c.removeBottomPadding}
+							classes="balls"
 						>
 							<TrainersGrid trainers={c.trainers} />
 						</ContentBlock>
@@ -111,7 +111,7 @@ export function getContent(content: PageContent[]) {
 						<ContentBlock
 							bgImage={c.image ? c.image : null}
 							bgColor={c.backgroundColor}
-							removeBottomPadding={c.bottomPadding}
+							removeBottomPadding={c.removeBottomPadding}
 						>
 							<TestimonialsGrid panels={transformedTestimonials} />
 						</ContentBlock>
@@ -119,7 +119,7 @@ export function getContent(content: PageContent[]) {
 					break
 				case 'Custom Component':
 					el = (
-						<ContentBlock bgColor={c.backgroundColor} removeBottomPadding={c.bottomPadding}>
+						<ContentBlock bgColor={c.backgroundColor} removeBottomPadding={c.removeBottomPadding}>
 							<CustomComponentContainer key={c._key} rows={c.rows!} />
 						</ContentBlock>
 					)
