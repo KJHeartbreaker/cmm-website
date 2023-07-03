@@ -18,7 +18,8 @@ export function Page({ data }: PageProps) {
 			{bodyContent}
 
 			{/* Workaround: scroll to top on route change */}
-			<ScrollUp />
+			{/* Temporarily disabled due to redirects pointing to anchor links */}
+			{/* <ScrollUp /> */}
 		</div>
 	)
 }
