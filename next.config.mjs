@@ -60,6 +60,11 @@ const config = {
 				destination: '/resources',
 				permanent: true,
 			},
+			{
+				source: '/home.html',
+				destination: '/',
+				permanent: true,
+			},
 		]
 	},
 	images: {
