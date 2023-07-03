@@ -1,23 +1,27 @@
-import { Refs, Trainer } from 'types'
+import { GroupClass, ImageAsset, SanityImageProps, Trainer } from 'types'
 
 import GalleryGrid from './gallery/GalleryGrid'
-import GroupClassRows from './GroupClassCustomComponent'
+import GroupClassCustomComponent from './GroupClassCustomComponent'
 import TrainersCustomComponent from './TrainersCustomComponent'
+import ContentBlock from '../utilityComponents/ContentBlock'
 
 interface CustomComponentProps {
 	_key: string
 	_type: string
-	classes?: Refs[]
+	groupClasses?: GroupClass[]
 	trainers?: Trainer[]
 	galleryArr?: any
 }
 
 interface CustomComponentContainerProps {
 	rows: CustomComponentProps[]
+	bgImage?: ImageAsset
+	bgColor?: string
+	removeBottomPadding?: boolean
 }
 
 export default function CustomComponentContainer(props: CustomComponentContainerProps) {
-	const { rows } = props
+	const { rows, bgImage, bgColor, removeBottomPadding } = props
 
 	return (
 		<>
@@ -28,10 +32,18 @@ export default function CustomComponentContainer(props: CustomComponentContainer
 						component = <TrainersCustomComponent key={row._key} trainers={row.trainers!} />
 						break
 					case 'classRows':
-						component = <GroupClassRows key={row._key} classRefs={row.classes!} />
+						component = <GroupClassCustomComponent key={row._key} groupClasses={row.groupClasses!} />
 						break
 					case 'galleryGrid':
-						component = <GalleryGrid images={row.galleryArr} />
+						component = (
+							<ContentBlock
+								bgImage={bgImage || null}
+								bgColor={bgColor || undefined}
+								removeBottomPadding={removeBottomPadding || false}
+							>
+								<GalleryGrid images={row.galleryArr} />
+							</ContentBlock>
+						)
 						break
 					default:
 						component = null

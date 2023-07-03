@@ -1,6 +1,7 @@
 import { device } from '@/styles/Breakpoints'
-import { ContentContainer } from '@/styles/Wrappers'
+import { ContentContainer, Section } from '@/styles/Wrappers'
 import styled from 'styled-components'
+import ContentBlock from '../utilityComponents/ContentBlock'
 
 // Trainers Page
 export const TrainersPageContainer = styled(ContentContainer)``
@@ -51,5 +52,40 @@ export const TrainerRowLSCopy = styled.div`
 
 	@media ${device.sm} {
 		margin-top: 30px;
+	}
+`
+
+export const GroupClassesContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0;
+`
+
+export const GCContentBlock = styled(Section)`
+	&:nth-child(odd) {
+		background-color: var(--grey-22);
+	}
+`
+
+export const GroupClassLinks = styled(ContentContainer)`
+	display: grid;
+	grid-template-columns: 1fr;
+	width: 100%;
+
+	@media ${device.xs} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media ${device.md} {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	a {
+		color: var(--blue-33);
+
+		&:hover {
+			color: var(--orange);
+		}
 	}
 `

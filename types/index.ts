@@ -46,6 +46,7 @@ export type GroupClass = {
 export type PanelContent = {
 	_type: string
 	_key: string
+	_id?: string
 	title?: string
 	heading?: string
 	subheading?: string

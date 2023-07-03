@@ -40,7 +40,6 @@ export function getContent(content: PageContent[]) {
 		.filter((c) => !c.disabled)
 		.map((c) => {
 			let el
-
 			switch (c._type) {
 				case 'Hero Banner':
 					el = <HeroBanner key={c._key} {...c} />
@@ -90,7 +89,6 @@ export function getContent(content: PageContent[]) {
 							bgImage={null}
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.removeBottomPadding}
-							classes="balls"
 						>
 							<TrainersGrid trainers={c.trainers} />
 						</ContentBlock>
@@ -119,9 +117,13 @@ export function getContent(content: PageContent[]) {
 					break
 				case 'Custom Component':
 					el = (
-						<ContentBlock bgColor={c.backgroundColor} removeBottomPadding={c.removeBottomPadding}>
-							<CustomComponentContainer key={c._key} rows={c.rows!} />
-						</ContentBlock>
+						<CustomComponentContainer
+							key={c._key}
+							rows={c.rows!}
+							bgImage={c.image || null}
+							bgColor={c.backgroundColor || undefined}
+							removeBottomPadding={c.removeBottomPadding || false}
+						/>
 					)
 					break
 				default:
