@@ -5,9 +5,7 @@ import GalleryGrid from './gallery/GalleryGrid'
 import GroupClassCustomComponent from './GroupClassCustomComponent'
 import TrainersCustomComponent from './TrainersCustomComponent'
 import ContentBlock from '../utilityComponents/ContentBlock'
-
-import { IconCardProps } from '../cards/IconCard'
-import AboutUsSection from './AboutUsContainer'
+import AboutUsSection, { IterableIconCardProps } from './AboutUsContainer'
 
 interface CustomComponentProps {
 	_key: string
@@ -15,7 +13,7 @@ interface CustomComponentProps {
 	groupClasses?: GroupClass[]
 	trainers?: Trainer[]
 	galleryArr?: any
-	iconCards?: IconCardProps[]
+	iconCards?: IterableIconCardProps[]
 	copy?: PortableTextBlock[]
 }
 

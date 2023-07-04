@@ -11,7 +11,7 @@ export interface AboutUsSectionProps {
 	copy: any
 }
 
-interface IterableIconCardProps extends IconCardProps {
+export interface IterableIconCardProps extends IconCardProps {
 	iconCards: IconCardProps[]
 	_key: string
 }
