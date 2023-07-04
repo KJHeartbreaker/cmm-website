@@ -47,6 +47,7 @@ export const ImageButtonCardContainer = styled.div`
 
 	a {
 		height: 100%;
+		color: var(--grey-44);
 	}
 
 	img {

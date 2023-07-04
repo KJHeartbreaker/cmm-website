@@ -2,6 +2,7 @@ import { device } from '@/styles/Breakpoints'
 import { ContentContainer, Section } from '@/styles/Wrappers'
 import styled from 'styled-components'
 import ContentBlock from '../utilityComponents/ContentBlock'
+import { IconCardContainer } from '../cards/Card.styles'
 
 // Trainers Page
 export const TrainersPageContainer = styled(ContentContainer)``
@@ -87,5 +88,40 @@ export const GroupClassLinks = styled(ContentContainer)`
 		&:hover {
 			color: var(--orange);
 		}
+	}
+`
+
+export const AboutUsSectionContainer = styled.div`
+	display: flex;
+	width: 100%;
+`
+
+export const AboutUsContentContainer = styled(ContentContainer)`
+	display: grid;
+	grid-template-columns: 100%;
+	padding: 0;
+
+	@media ${device.sm} {
+		grid-template-columns: 40% 60%;
+	}
+
+	img {
+		width: 50px;
+		height: auto;
+	}
+`
+
+export const IconCardColumn = styled.div`
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto;
+
+	@media ${device.xs} {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, auto);
+	}
+
+	${IconCardContainer} {
+		background-color: var(--grey-22);
 	}
 `

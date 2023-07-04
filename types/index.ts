@@ -51,7 +51,7 @@ export type PanelContent = {
 	heading?: string
 	subheading?: string
 	disabled?: boolean
-	copy?: { portableTextBlock: PortableTextBlock[] }
+	copy?: any
 	portableTextBlock?: PortableTextBlock[]
 	icon?: SanityIconProps
 	cta?: CTAProps
