@@ -76,6 +76,42 @@ export const homePageQuery = groq`
             },
             'rows': rows[] {
                 ...,
+                portableTextBlock[]{
+                    ...,
+                    'fileDownload': fileDownload {
+                        ...select(
+                            _type == 'file' => {
+                                ...,
+                                asset->
+                            },
+                            @
+                        )
+                    },
+                    'asset': asset-> {
+                        ...,
+                        _id,
+                        metadata {
+                            lqip
+                        }
+                    },
+                    'landingPageRoute': landingPageRoute->
+                },
+                'copy': copy {
+                    portableTextBlock[]{
+                        ...,
+                        'landingPageRoute': landingPageRoute->
+                    }
+                },
+                'iconCards': iconCards[] {
+                    copy,
+                    heading,
+                    'icon': icon {
+                        alt,
+                        asset -> {
+                            _id
+                        }
+                    },
+                },
                 'trainers': trainers[]{
                     _type == 'reference' => @-> {
                         _id,
@@ -100,32 +136,32 @@ export const homePageQuery = groq`
                 },
                 'groupClasses': classesArr[]{
                     _type == 'reference' => @-> {
-                    _id,
-                    name,
-                    subheadline,
-                    price,
-                    description,
-                    subMenuTitle,
-                    'slug': slug {
-                        current
-                    },
-                    'cta': cta {
-                        title,
-                        arrow,
-                        kind,
-                        landingPageRoute ->
-                    },
-                    'picture': picture {
-                        alt,
-                        width,
-                        height,
-                        crop,
-                        hotspot,
-                        asset -> {
                         _id,
-                        metadata {
-                            lqip
-                        }
+                        name,
+                        subheadline,
+                        price,
+                        description,
+                        subMenuTitle,
+                        'slug': slug {
+                            current
+                        },
+                        'cta': cta {
+                            title,
+                            arrow,
+                            kind,
+                            landingPageRoute ->
+                        },
+                        'picture': picture {
+                            alt,
+                            width,
+                            height,
+                            crop,
+                            hotspot,
+                            asset -> {
+                            _id,
+                            metadata {
+                                lqip
+                            }
                         }
                     },
                     oDName,
@@ -291,6 +327,32 @@ export const pagesBySlugQuery = groq`
             },
             'rows': rows[] {
                 ...,
+                portableTextBlock[]{
+                    ...,
+                    'fileDownload': fileDownload {
+                        ...select(
+                            _type == 'file' => {
+                                ...,
+                                asset->
+                            },
+                            @
+                        )
+                    },
+                    'asset': asset-> {
+                        ...,
+                        _id,
+                        metadata {
+                            lqip
+                        }
+                    },
+                    'landingPageRoute': landingPageRoute->
+                },
+                'copy': copy {
+                    portableTextBlock[]{
+                        ...,
+                        'landingPageRoute': landingPageRoute->
+                    }
+                },
                 'trainers': trainers[]{
                     _type == 'reference' => @-> {
                         _id,

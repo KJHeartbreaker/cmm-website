@@ -1,9 +1,13 @@
-import { GroupClass, ImageAsset, SanityImageProps, Trainer } from 'types'
+import { GroupClass, ImageAsset, Trainer } from 'types'
 
+import { PortableTextBlock } from 'sanity'
 import GalleryGrid from './gallery/GalleryGrid'
 import GroupClassCustomComponent from './GroupClassCustomComponent'
 import TrainersCustomComponent from './TrainersCustomComponent'
 import ContentBlock from '../utilityComponents/ContentBlock'
+
+import { IconCardProps } from '../cards/IconCard'
+import AboutUsSection from './AboutUsContainer'
 
 interface CustomComponentProps {
 	_key: string
@@ -11,6 +15,8 @@ interface CustomComponentProps {
 	groupClasses?: GroupClass[]
 	trainers?: Trainer[]
 	galleryArr?: any
+	iconCards?: IconCardProps[]
+	copy?: PortableTextBlock[]
 }
 
 interface CustomComponentContainerProps {
@@ -42,6 +48,17 @@ export default function CustomComponentContainer(props: CustomComponentContainer
 								removeBottomPadding={removeBottomPadding || false}
 							>
 								<GalleryGrid images={row.galleryArr} />
+							</ContentBlock>
+						)
+						break
+					case 'aboutUsContainer':
+						component = (
+							<ContentBlock
+								bgImage={bgImage || null}
+								bgColor={bgColor || undefined}
+								removeBottomPadding={removeBottomPadding || false}
+							>
+								<AboutUsSection iconCards={row.iconCards!} copy={row.copy} />
 							</ContentBlock>
 						)
 						break

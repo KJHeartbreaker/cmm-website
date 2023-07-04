@@ -18,7 +18,7 @@ const SanityIcon = (icon: SanityIconProps) => {
 			height={40}
 			mode="cover"
 			alt={alt}
-			loading="lazy"
+			loading="eager"
 		/>
 	)
 }

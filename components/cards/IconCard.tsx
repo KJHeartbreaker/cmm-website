@@ -6,15 +6,15 @@ import { CTAProps, SanityIconProps } from 'types'
 
 import CTAButton from '../CTA/CTAButton'
 import SanityIcon from '../images/SanityIcon'
-import { IconCardContainer } from './Card.styles'
+import { IconCardContainer, IconContainer } from './Card.styles'
 
-interface IconCardProps {
+export type IconCardProps = {
 	icon: SanityIconProps
 	heading: string
 	copy: {
 		portableTextBlock: PortableTextBlock[]
 	}
-	cta: CTAProps
+	cta?: CTAProps
 }
 
 const IconCard: React.FC<IconCardProps> = (props) => {
@@ -22,18 +22,26 @@ const IconCard: React.FC<IconCardProps> = (props) => {
 
 	return (
 		<IconCardContainer>
-			<Link href={cta.landingPageRoute!.slug.current}>
-				<SanityIcon {...icon} />
-			</Link>
+			{cta?.landingPageRoute!.slug.current ? (
+				<Link href={cta.landingPageRoute!.slug.current}>
+					<SanityIcon {...icon} />
+				</Link>
+			) : (
+				<IconContainer>
+					<SanityIcon {...icon} />
+				</IconContainer>
+			)}
 			<div className="flex flex-col items-center text-center">
 				<h4 className="my-5 font-mono text-blue33">{heading}</h4>
 				<SimplePortableText value={copy.portableTextBlock} />
-				<CTAButton
-					title={cta.title}
-					kind={cta.kind}
-					landingPageRoute={cta.landingPageRoute}
-					arrow={cta.arrow}
-				/>
+				{cta?.landingPageRoute!.slug.current && (
+					<CTAButton
+						title={cta.title}
+						kind={cta.kind}
+						landingPageRoute={cta.landingPageRoute}
+						arrow={cta.arrow}
+					/>
+				)}
 			</div>
 		</IconCardContainer>
 	)
