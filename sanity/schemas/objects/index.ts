@@ -14,6 +14,7 @@ export { default as navDropdownCTA } from './navigationComponents/navDropdownCTA
 export { default as navMenu } from './navigationComponents/navMenu'
 export { default as primaryNavigation } from './navigationComponents/primaryNavigation'
 export { default as cta } from './pageElements/cta'
+export { default as form } from './pageElements/form'
 export { default as heroBanner } from './pageElements/heroBanner'
 export { default as icon } from './pageElements/icon'
 export { default as mainImage } from './pageElements/mainImage'

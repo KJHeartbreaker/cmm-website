@@ -16,7 +16,8 @@ const GlobalStyles = createGlobalStyle`
 			--grey-55: #333333;
 
 			--orange: #ee6d08;
-			--red: #cd4008;
+            --orange-hover: #f39852;
+			--red: #ff001c;
 			--white: #ffffff;
 			--yellow: #feca2d;
 

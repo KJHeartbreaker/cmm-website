@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 export const StyledRowColumn = styled.div`
 	display: flex;
+	flex-direction: column;
 	width: 100%;
 	height: 100%;
 
@@ -50,6 +51,7 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 	justify-content: center;
 	gap: 20px;
 	z-index: 1;
+	width: 100%;
 
 	@media ${device.xs} {
 		grid-template-columns: repeat(2, 1fr);

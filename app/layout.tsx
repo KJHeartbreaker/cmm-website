@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import 'tailwindcss/tailwind.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { Montserrat, Paytone_One } from 'next/font/google'
 import React from 'react'
