@@ -1,7 +1,6 @@
 import { device } from '@/styles/Breakpoints'
 import { ContentContainer, Section } from '@/styles/Wrappers'
 import styled from 'styled-components'
-import ContentBlock from '../utilityComponents/ContentBlock'
 import { IconCardContainer } from '../cards/Card.styles'
 
 // Trainers Page

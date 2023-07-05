@@ -77,6 +77,7 @@ export default defineType({
 					type: 'mainImage',
 					options: { hotspot: true },
 				}),
+				defineArrayMember({ type: 'form' }),
 				defineArrayMember({ type: 'iconCard' }),
 				defineArrayMember({ type: 'imageButtonCard' }),
 			],
@@ -119,6 +120,8 @@ export default defineType({
 						? sub.heading
 						: sub._type === 'imageButtonCard'
 						? sub.heading
+						: sub._type === 'form'
+						? sub.title
 						: 'Update this!'
 
 				return conditionalSub

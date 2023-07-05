@@ -6,9 +6,10 @@ import IconCard from '../cards/IconCard'
 import SanityComponentImage from '../images/SanityComponentImage'
 import ImageButton from '../cards/ImageButtonCard'
 import { RowColumnCopy, StyledRowColumn } from './Row.styles'
+import ContactFormPanel from '../forms/ContactFormPanel'
 
 export default function RowColumn(panel: PanelContent) {
-	const { _type, icon, heading, copy, portableTextBlock, asset, cta, landingPageRoute, image } = panel
+	const { _type, title, icon, heading, copy, portableTextBlock, asset, cta, landingPageRoute, image } = panel
 
 	return (
 		<StyledRowColumn>
@@ -26,6 +27,7 @@ export default function RowColumn(panel: PanelContent) {
 				// @ts-ignore
 				<ImageButton image={image!} heading={heading!} copy={copy!} landingPageRoute={landingPageRoute!} />
 			)}
+			{_type === 'form' && <ContactFormPanel title={title} copy={copy} />}
 		</StyledRowColumn>
 	)
 }

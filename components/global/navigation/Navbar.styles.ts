@@ -168,11 +168,12 @@ export const SubMenu = styled.ul`
 	box-shadow: rgb(0 0 0 / 20%) 0px 3px 7px, rgb(0 0 0 / 30%) 0px 0.6px 2px;
 	border-radius: 5px;
 	position: absolute;
-	top: 25px;
+	top: 20px;
 	width: 200px;
 	padding: 6px 0;
 	background-color: var(--white);
 	z-index: 2;
+	margin: 0;
 
 	${MenuLink} {
 		display: flex;
