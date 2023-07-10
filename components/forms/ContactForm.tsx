@@ -41,8 +41,6 @@ const ContactForm = () => {
 			resetForm: () => void
 		}
 	) => {
-		console.log('values: ', values)
-
 		try {
 			setIsLoading(true)
 			// Send email using Nodemailer
@@ -58,7 +56,6 @@ const ContactForm = () => {
 			resetForm()
 
 			// Show success message or redirect to a thank you page
-			console.log('Email sent successfully!')
 		} catch (error) {
 			// Handle error
 			console.error('Failed to send email:', error)

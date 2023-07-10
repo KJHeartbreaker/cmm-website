@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'classes',
@@ -38,6 +38,9 @@ export default defineType({
 			},
 		},
 	],
+	initialValue: {
+		trainingType: 'group',
+	},
 	fields: [
 		defineField({
 			name: 'name',
@@ -55,6 +58,21 @@ export default defineType({
 			validation: (rule) => rule.required(),
 		}),
 		defineField({
+			title: 'Which type of training is this?',
+			type: 'string',
+			name: 'trainingType',
+			options: {
+				list: [
+					{ title: 'Group', value: 'group' },
+					{ title: 'Private', value: 'private' },
+					{ title: 'On Demand', value: 'onDemand' },
+				],
+				layout: 'radio',
+				direction: 'horizontal',
+			},
+			validation: (rule) => rule.required(),
+		}),
+		defineField({
 			name: 'subheadline',
 			title: 'Sub Headline',
 			type: 'string',
@@ -67,6 +85,20 @@ export default defineType({
 			type: 'number',
 			validation: (rule) => rule.required(),
 			fieldset: 'textFields',
+		}),
+		defineField({
+			name: 'upcoming',
+			type: 'array',
+			title: 'Upcoming Classes',
+			of: [defineArrayMember({ type: 'dateRange' })],
+			validation: (rule) => rule.max(8),
+		}),
+		defineField({
+			title: 'Key Takeaways',
+			name: 'takeaways',
+			type: 'array',
+			of: [{ type: 'string' }],
+			validation: (Rule) => Rule.max(4),
 		}),
 		defineField({
 			name: 'subMenuTitle',
