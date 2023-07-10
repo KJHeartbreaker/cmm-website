@@ -28,6 +28,7 @@
     "date-fns": "2.30.0",
     "formik": "^2.4.2",
     "intl-segmenter-polyfill": "0.4.4",
+    "moment": "^2.29.4",
     "next": "13.4.7",
     "next-google-fonts": "2.2.0",
     "next-sanity": "5.0.2",

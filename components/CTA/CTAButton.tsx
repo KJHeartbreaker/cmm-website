@@ -58,7 +58,7 @@ const CTAButton: React.FC<CTAProps> = ({ title, kind, landingPageRoute, link, fi
 
 	if (kind === 'button') {
 		return (
-			<Link href={link || '#'} passHref rel="noopener noreferrer">
+			<Link href={link || '#'} passHref>
 				<button
 					type="button"
 					className="flex flex-row items-center justify-center rounded bg-orange px-4 py-2 font-bold text-white transition-colors hover:bg-grey33"
@@ -70,7 +70,7 @@ const CTAButton: React.FC<CTAProps> = ({ title, kind, landingPageRoute, link, fi
 	}
 
 	return (
-		<Link href={link || '#'} passHref>
+		<Link href={link || '#'} passHref target="_blank" rel="noopener noreferrer">
 			<button
 				type="button"
 				className="flex flex-row items-center justify-center rounded bg-orange px-4 py-2 font-bold text-white transition-colors hover:bg-grey33"
