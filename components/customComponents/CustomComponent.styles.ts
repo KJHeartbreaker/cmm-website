@@ -98,15 +98,12 @@ export const AboutUsSectionContainer = styled.div`
 export const AboutUsContentContainer = styled(ContentContainer)`
 	display: grid;
 	grid-template-columns: 100%;
-	padding: 0;
+	padding-top: 0;
+	padding-bottom: 0;
 
 	@media ${device.sm} {
-		grid-template-columns: 40% 60%;
-	}
-
-	img {
-		width: 50px;
-		height: auto;
+		grid-template-columns: 40% 1fr;
+		gap: 20px;
 	}
 `
 
@@ -114,6 +111,8 @@ export const IconCardColumn = styled.div`
 	display: grid;
 	grid-template-columns: 100%;
 	grid-template-rows: auto;
+	background-color: var(--grey-33);
+	gap: 1px;
 
 	@media ${device.xs} {
 		grid-template-columns: repeat(2, 1fr);
@@ -122,5 +121,9 @@ export const IconCardColumn = styled.div`
 
 	${IconCardContainer} {
 		background-color: var(--grey-22);
+	}
+
+	img {
+		filter: invert(1);
 	}
 `

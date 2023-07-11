@@ -5,24 +5,42 @@ export const IconContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 85px;
-	height: 85px;
+	width: 65px;
+	height: 65px;
 	border-radius: 50%;
 	background-color: var(--yellow);
 
+	a {
+		background-color: var(--yellow);
+	}
+
 	img {
-		filter: invert(1);
+		width: 40px;
+		height: auto;
+	}
+
+	@media ${device.md} {
+		width: 85px;
+		height: 85px;
+
+		img {
+			width: 50px;
+		}
 	}
 `
 
 export const IconCardContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	height: 100%;
 	background-color: var(--white);
-	padding: 60px 20px;
+	padding: 40px 12px;
+
+	@media ${device.lg} {
+		padding: 60px 20px;
+	}
 `
 
 export const TestimonialCardContainer = styled.div`
@@ -67,6 +85,25 @@ export const ImageButtonCardContainerCopyBlock = styled.div`
 	position: relative;
 	width: 60%;
 	z-index: 10;
+
+	h3 {
+		font-size: var(--font-title3-mobile-size);
+		line-height: var(--font-title3-line-height);
+
+		@media ${device.lg} {
+			font-size: var(--font-title3-size);
+			line-height: var(--font-title3-line-height);
+		}
+	}
+
+	p {
+		font-size: var(--font-small-size);
+		line-height: var(--font-base-line-height);
+
+		@media ${device.lg} {
+			font-size: var(--font-base-size);
+		}
+	}
 `
 
 export const TrainerCardContainer = styled.div`
