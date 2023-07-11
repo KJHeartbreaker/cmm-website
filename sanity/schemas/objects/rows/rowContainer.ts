@@ -78,6 +78,7 @@ export default defineType({
 					options: { hotspot: true },
 				}),
 				defineArrayMember({ type: 'form' }),
+				defineArrayMember({ type: 'acuityForm' }),
 				defineArrayMember({ type: 'iconCard' }),
 				defineArrayMember({ type: 'imageButtonCard' }),
 			],

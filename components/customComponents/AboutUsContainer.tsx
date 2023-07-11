@@ -8,7 +8,7 @@ import { AboutUsContentContainer, AboutUsSectionContainer, IconCardColumn } from
 
 export interface AboutUsSectionProps {
 	iconCards: IterableIconCardProps[]
-	copy: any
+	copy: { portableTextBlock: PortableTextBlock[] }
 }
 
 export interface IterableIconCardProps extends IconCardProps {
@@ -27,8 +27,13 @@ export default function AboutUsSection(props: AboutUsSectionProps) {
 				</RowColumnCopy>
 				<IconCardColumn>
 					<>
-						{iconCards.map((iC) => (
-							<IconCard key={iC._key} icon={iC.icon} heading={iC.heading} copy={iC.copy} />
+						{iconCards.map((iC, i) => (
+							<IconCard
+								key={`${iC.icon.asset._id}+${i}`}
+								icon={iC.icon}
+								heading={iC.heading}
+								copy={iC.copy}
+							/>
 						))}
 					</>
 				</IconCardColumn>

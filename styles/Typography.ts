@@ -1,12 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
-
 import { device } from './Breakpoints'
 
 const Typography = createGlobalStyle`
     html {
         font-size: var(--font-base-size);
         color: var(--grey-33);
-        font-family: 'Montserrat', sans-serif;
+        /* font-family: var(--font-montserrat), sans-serif; */
+        font-family: var(--font-montserrat), sans-serif;
         font-display: auto;
         font-style: normal;
         font-weight: 400;
@@ -15,7 +15,7 @@ const Typography = createGlobalStyle`
     p, li, time {
         font-size: var(--font-small-size);
         line-height: var(--font-base-line-height);
-        font-weight: 100;
+        font-weight: 300;
 
         @media ${device.sm} {
             font-size: var(--font-base-size);
@@ -43,7 +43,8 @@ const Typography = createGlobalStyle`
     }
 
     h1,h2,h3,h4 {
-        font-family: 'Paytone One', sans-serif;
+        font-family: var(--font-paytone-one), sans-serif;
+        /* font-family: 'Paytone One', sans-serif; */
         font-weight: 400;
         margin: 0;
     }
@@ -88,7 +89,7 @@ const Typography = createGlobalStyle`
 
     a.button,
     button {
-        font-family: 'Montserrat', sans-serif;
+        font-family: var(--font-montserrat), sans-serif;
         font-size: var(--font-base-size);
     }
 
@@ -105,7 +106,7 @@ const Typography = createGlobalStyle`
     }
 
     strong {
-        font-family: 'Montserrat', sans-serif;
+        font-family: var(--font-montserrat), sans-serif;
 		font-weight: 700;
     }
 

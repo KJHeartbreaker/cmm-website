@@ -27,7 +27,8 @@ export default function RowColumn(panel: PanelContent) {
 				// @ts-ignore
 				<ImageButton image={image!} heading={heading!} copy={copy!} landingPageRoute={landingPageRoute!} />
 			)}
-			{_type === 'form' && <ContactFormPanel title={title} copy={copy} />}
+			{_type === 'form' && <ContactFormPanel title={title} copy={copy} type="form" />}
+			{_type === 'acuityForm' && <ContactFormPanel title={title} copy={copy} type="acuityForm" />}
 		</StyledRowColumn>
 	)
 }
