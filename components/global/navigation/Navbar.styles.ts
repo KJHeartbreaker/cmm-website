@@ -249,7 +249,7 @@ export const MobileMenuIcon: React.FC<MobileMenuIconProps> = styled.div<MobileMe
 	}
 
 	// Conditionally apply the hamburger style when menuopen is true
-	${(props) => props.menuopen && hamburger}
+	${(props) => (props.menuopen ? hamburger(props) : null)}
 `
 
 export const DropdownGroup = styled.div`
