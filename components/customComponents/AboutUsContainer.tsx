@@ -19,6 +19,8 @@ export interface IterableIconCardProps extends IconCardProps {
 export default function AboutUsSection(props: AboutUsSectionProps) {
 	const { copy, iconCards } = props
 
+	console.log('copy: ', copy)
+
 	return (
 		<AboutUsSectionContainer>
 			<AboutUsContentContainer>
