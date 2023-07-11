@@ -14,7 +14,7 @@ interface CustomComponentProps {
 	trainers?: Trainer[]
 	galleryArr?: any
 	iconCards?: IterableIconCardProps[]
-	copy?: PortableTextBlock[]
+	copy?: { portableTextBlock: PortableTextBlock[] }
 }
 
 interface CustomComponentContainerProps {
@@ -56,7 +56,7 @@ export default function CustomComponentContainer(props: CustomComponentContainer
 								bgColor={bgColor || undefined}
 								removeBottomPadding={removeBottomPadding || false}
 							>
-								<AboutUsSection iconCards={row.iconCards!} copy={row.copy} />
+								<AboutUsSection iconCards={row.iconCards!} copy={row.copy!} />
 							</ContentBlock>
 						)
 						break
