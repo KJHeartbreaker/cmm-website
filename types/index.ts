@@ -38,9 +38,6 @@ export type GroupClass = {
 	description: { portableTextBlock: PortableTextBlock[] }
 	picture: SanityImageProps
 	cta: CTAProps
-	oDName: string
-	oDDescription: { portableTextBlock: PortableTextBlock[] }
-	oDCTA: CTAProps
 }
 
 export type PanelContent = {
