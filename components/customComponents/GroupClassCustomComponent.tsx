@@ -39,24 +39,6 @@ export default function GroupClassCustomComponent({ groupClasses }: GroupClassCu
 								landingPageRoute={gc.cta.landingPageRoute}
 								arrow={gc.cta.arrow}
 							/>
-							{gc.oDName && (
-								<>
-									<hr />
-									<div className="flex flex-row justify-start space-x-3">
-										<h2>{gc.oDName}:</h2>
-										<h4>On Demand</h4>
-									</div>
-									<SimplePortableText
-										value={gc.description.portableTextBlock as PortableTextBlock[]}
-									/>
-									<CTAButton
-										title={gc.cta.title}
-										kind={gc.oDCTA.kind}
-										landingPageRoute={gc.cta.landingPageRoute}
-										arrow={gc.cta.arrow}
-									/>
-								</>
-							)}
 						</div>
 						<div>
 							<SanityComponentImage asset={gc.picture.asset} alt={gc.picture.alt} />
