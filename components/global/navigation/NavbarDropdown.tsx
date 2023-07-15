@@ -32,7 +32,12 @@ export default function HeaderDropdown(props: MenuItemProps) {
 			className={subnavState ? 'dropdown active' : 'dropdown'}
 		>
 			<NavMenuLink>
-				<Link href={`/${cta!.landingPageRoute!.slug.current}`}>{cta!.title}</Link>
+				{cta!.landingPageRoute ? (
+					<Link href={`/${cta!.landingPageRoute!.slug.current}`}>{cta!.title}</Link>
+
+				) : (
+					<a className='no-hover'>{cta!.title}</a>
+				)}
 				<IoIosArrowDown fontSize="1.3em" />
 			</NavMenuLink>
 			<SubMenu style={subnavState ? { display: 'flex' } : { display: 'none' }}>

@@ -40,6 +40,25 @@ export type GroupClass = {
 	cta: CTAProps
 }
 
+export type UpcomingTraining = {
+	_key: string
+	availability: string
+	startDate: Date
+}
+
+export type TrainingSession = {
+	_id: string
+	name: string
+	slug: { current: string }
+	price: string
+	description: { portableTextBlock: PortableTextBlock[] }
+	picture: SanityImageProps
+	cta: CTAProps
+	takeaways: string[]
+	upcoming: UpcomingTraining[]
+	trainingType: string
+}
+
 export type PanelContent = {
 	_type: string
 	_key: string

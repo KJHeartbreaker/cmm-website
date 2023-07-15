@@ -93,16 +93,28 @@ const Typography = createGlobalStyle`
         font-size: var(--font-base-size);
     }
 
-    *.text-blue * {
+    *.text-blue {
         color: var(--blue-33);
+
+        * {
+            color: var(--blue-33);
+        }
     }
 
-    span.text-orange * {
+    span.text-orange {
         color: var(--orange);
+
+        * {
+            color: var(--orange);
+        }
     }
 
-    span.text-yellow * {
+    span.text-yellow {
         color: var(--yellow);
+
+        * {
+            color: var(--yellow);
+        }
     }
 
     strong {

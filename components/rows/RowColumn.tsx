@@ -7,6 +7,7 @@ import SanityComponentImage from '../images/SanityComponentImage'
 import ImageButton from '../cards/ImageButtonCard'
 import { RowColumnCopy, StyledRowColumn } from './Row.styles'
 import ContactFormPanel from '../forms/ContactFormPanel'
+import { Container } from 'postcss'
 
 export default function RowColumn(panel: PanelContent) {
 	const { _type, title, icon, heading, copy, portableTextBlock, asset, cta, landingPageRoute, image } = panel
@@ -18,7 +19,7 @@ export default function RowColumn(panel: PanelContent) {
 					<CustomPortableText value={portableTextBlock! as PortableTextBlock[]} />
 				</RowColumnCopy>
 			)}
-			{_type === 'mainImage' && <SanityComponentImage asset={asset} alt={asset!.alt} />}
+			{_type === 'mainImage' && <div className='image-container'><SanityComponentImage asset={asset} alt={asset!.alt} /></div>}
 			{_type === 'iconCard' && (
 				// @ts-ignore
 				<IconCard icon={icon!} heading={heading!} copy={copy!} cta={cta!} />

@@ -270,9 +270,7 @@ export const pagesBySlugQuery = groq`
                         availability,
                         startDate,
                     },
-                    'takeaways': takeaways[]{
-                        ...
-                    },
+                    takeaways,
                     'slug': slug {
                         current
                     },
@@ -286,6 +284,7 @@ export const pagesBySlugQuery = groq`
                             },
                         }
                     },
+                    description,
                     'picture': picture {
                         alt,
                         width,

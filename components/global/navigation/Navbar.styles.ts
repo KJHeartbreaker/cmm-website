@@ -100,6 +100,13 @@ export const MenuLink = styled.li`
 		font-weight: 400;
 		font-family: var(--font-paytone-one), sans-serif;
 		color: var(--white);
+
+		&.no-hover {
+			cursor: default;
+			&:hover {
+				color: var(--white);
+			}
+		}
 	}
 
 	&:hover,
