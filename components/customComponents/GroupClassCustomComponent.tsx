@@ -29,9 +29,7 @@ export default function GroupClassCustomComponent({ groupClasses }: GroupClassCu
 						<div>
 							<h3 className="text-orange">{gc.subheadline}</h3>
 							<h2 className="py-4 pt-1">{gc.name}</h2>
-							<h4 className="font-sans font-bold text-orange">{`$${gc.price.toFixed(
-								2
-							)} (includes GST)`}</h4>
+							<h4 className="font-sans font-bold text-orange">{`$${gc.price} (includes GST)`}</h4>
 							<SimplePortableText value={gc.description.portableTextBlock as PortableTextBlock[]} />
 							<CTAButton
 								title={gc.cta.title}
