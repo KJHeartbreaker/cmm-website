@@ -37,7 +37,7 @@ const CTAButton: React.FC<CTAProps> = ({ title, kind, landingPageRoute, link, fi
 				<Link href={landingPageRoute.slug.current} passHref rel="noopener noreferrer">
 					<button
 						type="button"
-						className="flex flex-row items-center justify-center rounded bg-orange px-4 py-2 font-bold text-white transition-colors hover:bg-grey33"
+						className="items-center justify-center rounded bg-orange px-4 py-2 font-bold text-white transition-colors hover:bg-grey33"
 					>
 						{title} {arrow ? <HiOutlineArrowNarrowRight className="ml-2" /> : null}
 					</button>

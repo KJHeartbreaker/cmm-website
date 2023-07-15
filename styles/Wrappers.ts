@@ -4,7 +4,7 @@ import { device } from './Breakpoints'
 
 export const Section = styled.section`
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	position: relative;
 	justify-content: center;
 	align-items: center;

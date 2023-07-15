@@ -37,6 +37,7 @@ export const IconCardContainer = styled.div`
 	height: 100%;
 	background-color: var(--white);
 	padding: 40px 12px;
+	border-radius: 20px;
 
 	@media ${device.lg} {
 		padding: 60px 20px;

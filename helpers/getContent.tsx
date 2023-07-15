@@ -7,7 +7,8 @@ import TestimonialsGrid from 'components/grids/TestimonialsGrid'
 import RowContainer from 'components/rows/RowContainer'
 import ContentBlock from 'components/utilityComponents/ContentBlock'
 import React from 'react'
-import { PanelContent, ProductCardProps, TestimonialCardProps, Trainer } from 'types'
+import { GroupClass, PanelContent, ProductCardProps, TestimonialCardProps, Trainer, TrainingSession } from 'types'
+import TrainingRow from 'components/classes/TrainingRow'
 
 interface PageContent {
 	_key: string
@@ -31,6 +32,7 @@ interface PageContent {
 	productsArr: ProductCardProps[]
 	testimonialsArr: TestimonialCardProps[]
 	trainers: Trainer[]
+	classRefs: TrainingSession[]
 }
 
 export function getContent(content: PageContent[]) {
@@ -91,6 +93,17 @@ export function getContent(content: PageContent[]) {
 							removeBottomPadding={c.removeBottomPadding}
 						>
 							<TrainersGrid trainers={c.trainers} />
+						</ContentBlock>
+					)
+					break
+				case 'Class Row':
+					el = (
+						<ContentBlock
+							bgImage={null}
+							bgColor={c.backgroundColor}
+							removeBottomPadding={c.removeBottomPadding}
+						>
+							<TrainingRow classes={c.classRefs} />
 						</ContentBlock>
 					)
 					break

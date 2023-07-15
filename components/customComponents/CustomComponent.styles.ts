@@ -111,8 +111,8 @@ export const IconCardColumn = styled.div`
 	display: grid;
 	grid-template-columns: 100%;
 	grid-template-rows: auto;
-	background-color: var(--grey-33);
-	gap: 1px;
+	/* background-color: var(--grey-33); */
+	gap: 10px;
 
 	@media ${device.xs} {
 		grid-template-columns: repeat(2, 1fr);

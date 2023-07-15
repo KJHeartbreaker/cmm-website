@@ -23,7 +23,8 @@ const SanityComponentImage = (props: SanityImageProps) => {
 	}
 
 	return (
-		<div className="image-container">
+		// <div className="image-container">
+		<>
 			{imageId && (
 				<SanityImage
 					id={imageId}
@@ -38,7 +39,7 @@ const SanityComponentImage = (props: SanityImageProps) => {
 					loading="lazy"
 				/>
 			)}
-		</div>
+		</>
 	)
 }
 

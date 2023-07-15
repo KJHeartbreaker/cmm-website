@@ -259,6 +259,47 @@ export const pagesBySlugQuery = groq`
         "slug": slug.current,
         'content': content[]{
             ...,
+            'classRefs': classRefs[]{
+                _type == 'reference' => @-> {
+                    _id,
+                    name,
+                    trainingType,
+                    price,
+                    'upcoming': upcoming[]{
+                        _key,
+                        availability,
+                        startDate,
+                    },
+                    takeaways,
+                    'slug': slug {
+                        current
+                    },
+                    'cta': cta {
+                        title,
+                        arrow,
+                        kind,
+                        landingPageRoute -> {
+                            slug {
+                                current
+                            },
+                        }
+                    },
+                    description,
+                    'picture': picture {
+                        alt,
+                        width,
+                        height,
+                        crop,
+                        hotspot,
+                        asset -> {
+                            _id,
+                            metadata {
+                                lqip
+                            }
+                        }
+                    },
+                }
+            },
             'image': image {
                 alt,
                 width,

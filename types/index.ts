@@ -38,9 +38,25 @@ export type GroupClass = {
 	description: { portableTextBlock: PortableTextBlock[] }
 	picture: SanityImageProps
 	cta: CTAProps
-	oDName: string
-	oDDescription: { portableTextBlock: PortableTextBlock[] }
-	oDCTA: CTAProps
+}
+
+export type UpcomingTraining = {
+	_key: string
+	availability: string
+	startDate: Date
+}
+
+export type TrainingSession = {
+	_id: string
+	name: string
+	slug: { current: string }
+	price: string
+	description: { portableTextBlock: PortableTextBlock[] }
+	picture: SanityImageProps
+	cta: CTAProps
+	takeaways: string[]
+	upcoming: UpcomingTraining[]
+	trainingType: string
 }
 
 export type PanelContent = {

@@ -23,10 +23,13 @@ export default function MobileHeaderDropdown({ item, setMenuOpen }: MobileHeader
 	return (
 		<>
 			<MobileMenuDropdownLink>
-				<Link href={`/${item.cta!.landingPageRoute!.slug.current}`} onClick={() => setMenuOpen(false)}>
-					{item.cta!.title}
-				</Link>
+				{item.cta!.landingPageRoute && (
+					<Link href={`/${item.cta!.landingPageRoute!.slug.current}`} onClick={() => setMenuOpen(false)}>
+						{item.cta!.title}
+					</Link>
+				)}
 				<button type="button" ref={dropdownRef} onClick={showMobileSubnav}>
+					{!item.cta!.landingPageRoute && <a>{item.cta!.title}</a>}
 					<MdKeyboardArrowDown className={`arrowDown ${mobileSubnavOpen ? 'rotate' : ''}`} />
 				</button>
 			</MobileMenuDropdownLink>
