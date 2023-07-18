@@ -86,7 +86,8 @@ export const pageStructure =
 					.title('Our Team')
 					.icon(GiSittingDog)
 					.child(S.documentTypeList('trainer').title('Trainers')),
-				S.listItem().title('Classes').icon(GiGraduateCap).child(S.documentTypeList('classes').title('Classes')),
+				S.listItem().title('Classes').icon(GiGraduateCap).child(S.documentTypeList('class').title('Classes')),
+				S.listItem().title('*** OLD Classes').icon(GiGraduateCap).child(S.documentTypeList('classes').title('Classes')),
 				S.listItem()
 					.title('Products')
 					.icon(CgShoppingCart)
