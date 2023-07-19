@@ -53,6 +53,7 @@ export const homePageQuery = groq`
                 _type == 'reference' => @-> {
                     _id,
                     name,
+                    slug,
                     certifications,
                     picture {
                         alt,
@@ -116,6 +117,7 @@ export const homePageQuery = groq`
                     _type == 'reference' => @-> {
                         _id,
                         name,
+                        slug,
                         certifications,
                         role,
                         bio,
@@ -345,6 +347,7 @@ export const pagesBySlugQuery = groq`
                 _type == 'reference' => @-> {
                     _id,
                     name,
+                    slug,
                     certifications,
                     picture {
                         alt,
@@ -398,6 +401,7 @@ export const pagesBySlugQuery = groq`
                     _type == 'reference' => @-> {
                         _id,
                         name,
+                        slug,
                         certifications,
                         role,
                         bio,

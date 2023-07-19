@@ -108,23 +108,53 @@ export const ImageButtonCardContainerCopyBlock = styled.div`
 `
 
 export const TrainerCardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+
+  p {
+    margin-bottom: 5px;
+  }
+
+  h4 {
+    margin-bottom: 20px;
+  }
+
+  div.copy-block {
 	display: flex;
 	flex-direction: column;
-	background-color: var(--white);
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+	padding: 20px 0;
+	overflow: hidden;
+  }
 
-	p {
-		margin-bottom: 5px;
-	}
+  a {
+    &:hover {
+		overflow: hidden;
+      h4 {
+        color: var(--blue-33);
+      }
 
-	img {
-		width: 100%;
-		max-height: 200px;
-		object-fit: cover;
-	}
+      img {
+        transform: scale(1.05);
+		transition: all .2s ease-in-out;
+      }
+    }
+  }
 
-	@media ${device.lg} {
-		img {
-			max-height: 300px;
-		}
-	}
+  img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  @media ${device.lg} {
+    img {
+      max-height: 300px;
+    }
+  }
 `

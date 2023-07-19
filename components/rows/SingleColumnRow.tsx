@@ -1,22 +1,25 @@
+'use client'
+
 import { CustomPortableText } from 'components/portableText/CustomPortableText'
 import { PortableTextBlock } from 'sanity'
 import { PanelContent } from 'types'
+import { SingleColumnRowContainer } from './Row.styles'
 
-interface SingleColumnRowContainerProps {
+interface SingleColumnRowComponentProps {
 	panels: PanelContent[]
 	centerContent: boolean
 }
 
-export default function SingleColumnRowContainer(props: SingleColumnRowContainerProps) {
+export default function SingleColumnRowComponent(props: SingleColumnRowComponentProps) {
 	const { centerContent, panels } = props
 	const { portableTextBlock } = panels[0]
 
 	return (
-		<div className="flex w-full max-w-screen-xl flex-col gap-x-5">
+		<SingleColumnRowContainer>
 			<div className={`flex flex-col ${centerContent ? 'justify-center text-center' : 'justify-start'}`}>
 				{/* @ts-ignore */}
 				<CustomPortableText value={portableTextBlock! as PortableTextBlock[]} />
 			</div>
-		</div>
+		</SingleColumnRowContainer>
 	)
 }

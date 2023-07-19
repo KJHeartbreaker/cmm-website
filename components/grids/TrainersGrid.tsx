@@ -17,6 +17,7 @@ export default function TrainersGrid(props: TrainersGridProps) {
 				<TrainerCard
 					key={trainer._id}
 					name={trainer.name}
+					slug={trainer.slug}
 					// @ts-ignore
 					certs={trainer.certifications}
 					image={trainer.picture}
