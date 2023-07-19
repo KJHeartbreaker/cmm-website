@@ -3,7 +3,7 @@
 import React from 'react'
 import { PanelContent } from 'types'
 
-import SingleColumnRowContainer from './SingleColumnRow'
+import SingleColumnRowComponent from './SingleColumnRow'
 import ThreeColumnRow from './ThreeColumnRow'
 import TwoColumnRow from './TwoColumnRow'
 
@@ -18,7 +18,7 @@ const RowContainer: React.FC<RowContainerProps> = (props) => {
 
 	return (
 		<>
-			{row === 'singleColumn' && <SingleColumnRowContainer panels={content} centerContent={centerContent!} />}
+			{row === 'singleColumn' && <SingleColumnRowComponent panels={content} centerContent={centerContent!} />}
 			{row === 'twoColumn' && <TwoColumnRow panels={content} />}
 			{row === 'threeColumn' && <ThreeColumnRow panels={content} />}
 		</>

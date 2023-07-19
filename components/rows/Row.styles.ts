@@ -45,6 +45,12 @@ export const RowColumnCopy = styled.div`
 	}
 `
 
+export const SingleColumnRowContainer = styled(ContentContainer)`
+	display: flex;
+	justify-content: center;
+	width: 100%;
+`
+
 export const TwoColumnRowContainer = styled(ContentContainer)`
 	display: grid;
 	grid-template-columns: 1;
@@ -53,7 +59,7 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 	z-index: 1;
 	width: 100%;
 
-	@media ${device.xs} {
+	@media ${device.md} {
 		grid-template-columns: repeat(2, 1fr);
 	}
 `

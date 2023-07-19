@@ -20,12 +20,13 @@ export type Refs = {
 }
 
 export type Trainer = {
-	_id: string
-	name: string
-	role: string
-	bio: { portableTextBlock: PortableTextBlock[] }
-	certifications: { portableTextBlock: PortableTextBlock[] }
-	picture: SanityImageProps
+  _id: string
+  name: string
+  slug: { current: string }
+  role: string
+  bio: { portableTextBlock: PortableTextBlock[] }
+  certifications: { portableTextBlock: PortableTextBlock[] }
+  picture: SanityImageProps
 }
 
 export type GroupClass = {

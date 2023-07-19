@@ -20,7 +20,7 @@ export default async function TrainersCustomComponent({ trainers }: TrainersCust
 	return (
 		<TrainersPageContainer>
 			{trainers.map((tr) => (
-				<TrainerRow key={tr._id}>
+				<TrainerRow key={tr._id} id={tr.slug.current}>
 					<TrainerRowLeftSide>
 						<SanityComponentImage asset={tr.picture.asset} alt={tr.picture.alt} />
 						<TrainerRowLSCopy>
