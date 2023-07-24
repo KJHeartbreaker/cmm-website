@@ -146,6 +146,7 @@ export const TrainingTakeawayBlock = styled.div`
         grid-row-start: 3;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-around;
     }
 
