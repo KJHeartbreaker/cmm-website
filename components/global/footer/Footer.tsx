@@ -26,7 +26,10 @@ export function Footer({ menuItems }: FooterProps) {
 					<FooterMenu>
 						{menuItems &&
 							menuItems.map((menuItem: MenuItemProps) => {
-								if (menuItem._type === 'navDropdownCTA' && menuItem.subnav!.length > 0) {
+								if (
+									menuItem._type === 'navDropdownCTA' &&
+									menuItem.subnav!.length > 0
+								) {
 									return (
 										<MenuLink key={menuItem._key}>
 											<NavbarDropdown
@@ -39,7 +42,11 @@ export function Footer({ menuItems }: FooterProps) {
 								}
 								return (
 									<MenuLink key={menuItem._key}>
-										<Link href={`/${menuItem.cta!.landingPageRoute!.slug.current}`}>
+										<Link
+											href={`/${
+												menuItem.cta!.landingPageRoute!.slug.current
+											}`}
+										>
 											{menuItem.cta!.title}
 										</Link>
 									</MenuLink>

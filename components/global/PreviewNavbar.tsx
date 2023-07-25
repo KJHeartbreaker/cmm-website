@@ -5,7 +5,11 @@ import { useLiveQuery } from 'next-sanity/preview'
 import type { SettingsPayload } from 'types'
 import { Navbar } from './navigation/Navbar'
 
-export default function PreviewNavbar({ settings: initialSettings }: { settings: SettingsPayload }) {
+export default function PreviewNavbar({
+	settings: initialSettings,
+}: {
+	settings: SettingsPayload
+}) {
 	const [settings] = useLiveQuery<SettingsPayload>(
 		initialSettings,
 		settingsQuery,

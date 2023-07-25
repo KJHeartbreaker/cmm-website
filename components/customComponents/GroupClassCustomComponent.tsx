@@ -13,12 +13,17 @@ interface GroupClassCustomComponentProps {
 	groupClasses: GroupClass[]
 }
 
-export default function GroupClassCustomComponent({ groupClasses }: GroupClassCustomComponentProps) {
+export default function GroupClassCustomComponent({
+	groupClasses,
+}: GroupClassCustomComponentProps) {
 	return (
 		<GroupClassesContainer>
 			<GroupClassLinks>
 				{groupClasses.map((groupClass) => (
-					<Link key={`link-${groupClass._id}`} href={`/group-training#${groupClass.slug.current}`}>
+					<Link
+						key={`link-${groupClass._id}`}
+						href={`/group-training#${groupClass.slug.current}`}
+					>
 						{groupClass.subMenuTitle}
 					</Link>
 				))}
@@ -30,7 +35,9 @@ export default function GroupClassCustomComponent({ groupClasses }: GroupClassCu
 							<h3 className="text-orange">{gc.subheadline}</h3>
 							<h2 className="py-4 pt-1">{gc.name}</h2>
 							<h4 className="font-sans font-bold text-orange">{`$${gc.price} (includes GST)`}</h4>
-							<SimplePortableText value={gc.description.portableTextBlock as PortableTextBlock[]} />
+							<SimplePortableText
+								value={gc.description.portableTextBlock as PortableTextBlock[]}
+							/>
 							<CTAButton
 								title={gc.cta.title}
 								kind={gc.cta.kind}

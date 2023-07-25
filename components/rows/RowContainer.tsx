@@ -18,7 +18,9 @@ const RowContainer: React.FC<RowContainerProps> = (props) => {
 
 	return (
 		<>
-			{row === 'singleColumn' && <SingleColumnRowComponent panels={content} centerContent={centerContent!} />}
+			{row === 'singleColumn' && (
+				<SingleColumnRowComponent panels={content} centerContent={centerContent!} />
+			)}
 			{row === 'twoColumn' && <TwoColumnRow panels={content} />}
 			{row === 'threeColumn' && <ThreeColumnRow panels={content} />}
 		</>

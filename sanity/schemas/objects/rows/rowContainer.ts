@@ -25,7 +25,8 @@ export default defineType({
 			title: 'Title',
 			name: 'title',
 			type: 'string',
-			description: 'This field is only for the studio, and previewing content. It will not appear on your site.',
+			description:
+				'This field is only for the studio, and previewing content. It will not appear on your site.',
 		}),
 		defineField({
 			title: 'Content Row',

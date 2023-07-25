@@ -7,7 +7,12 @@ interface FooterIconProps {
 export default function FooterIcon(props: FooterIconProps) {
 	const { extraClasses } = props
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.32 77.34" fill="#fff" className={extraClasses}>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 69.32 77.34"
+			fill="#fff"
+			className={extraClasses}
+		>
 			<g>
 				<g>
 					<path

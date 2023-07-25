@@ -77,5 +77,10 @@ const Iframe = memo((props: IframeProps) => {
 		url.searchParams.set('secret', secret)
 	}
 
-	return <iframe style={{ width: '100%', height: '100%', position: 'relative', zIndex: 1 }} src={url.toString()} />
+	return (
+		<iframe
+			style={{ width: '100%', height: '100%', position: 'relative', zIndex: 1 }}
+			src={url.toString()}
+		/>
+	)
 })

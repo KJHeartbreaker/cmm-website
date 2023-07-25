@@ -1,5 +1,7 @@
 'use client'
 
+/* eslint-disable no-unused-vars */
+
 import React, { useState, useRef } from 'react'
 
 import { Formik, Form, Field, ErrorMessage } from 'formik'
@@ -22,6 +24,7 @@ type FormValues = {
 const ContactForm = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [showConfetti, setShowConfetti] = useState(false)
+	// @ts-ignore
 	const [recaptchaToken, setRecaptchaToken] = useState<string>()
 
 	const recaptchaKey = '6LdeJvcmAAAAAKZAOPDgWXgWfq3OPdHcrVtjEj6P'
@@ -119,7 +122,9 @@ const ContactForm = () => {
 				theme="light"
 			/>
 
-			{showConfetti && <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} />}
+			{showConfetti && (
+				<Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} />
+			)}
 		</FormContainer>
 	)
 }

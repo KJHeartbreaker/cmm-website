@@ -3,10 +3,10 @@
 import React from 'react'
 import { SanityImageProps } from 'types'
 import { PortableTextBlock } from 'sanity'
+import Link from 'next/link'
 import SanityComponentImage from '../images/SanityComponentImage'
 import { SimplePortableText } from '../portableText/SimplePortableText'
 import { TrainerCardContainer } from './Card.styles'
-import Link from 'next/link'
 
 export interface TrainerCardProps {
 	name: string
@@ -15,7 +15,12 @@ export interface TrainerCardProps {
 	image: SanityImageProps
 }
 
-const TrainerCard: React.FC<TrainerCardProps> = ({ name, slug, certs, image }: TrainerCardProps) => (
+const TrainerCard: React.FC<TrainerCardProps> = ({
+	name,
+	slug,
+	certs,
+	image,
+}: TrainerCardProps) => (
 	<TrainerCardContainer>
 		<Link href={`/our-team#${slug.current}`} passHref>
 			<SanityComponentImage {...image} />

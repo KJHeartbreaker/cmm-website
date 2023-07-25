@@ -15,7 +15,9 @@ const cmmWhiteIcon = () => <BsCircle />
 const cmmWhiteDecorator = (props: any) => <span className="cmmWhite">{props.children}</span>
 
 const HighlightIcon = () => <span style={{ fontWeight: 'bold', color: 'yellow' }}> H </span>
-const HighlightDecorator = (props: any) => <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>
+const HighlightDecorator = (props: any) => (
+	<span style={{ backgroundColor: 'yellow' }}>{props.children}</span>
+)
 
 export default defineType({
 	type: 'object',
@@ -146,7 +148,8 @@ export default defineType({
 						defineField({
 							name: 'size',
 							type: 'string',
-							description: 'This value determines the spacing above and below the line.',
+							description:
+								'This value determines the spacing above and below the line.',
 							initialValue: '25',
 						}),
 						defineField({

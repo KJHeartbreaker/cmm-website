@@ -4,7 +4,11 @@ import { PortableTextBlock } from 'sanity'
 import IconCard, { IconCardProps } from '../cards/IconCard'
 import { CustomPortableText } from '../portableText/CustomPortableText'
 import { RowColumnCopy } from '../rows/Row.styles'
-import { AboutUsContentContainer, AboutUsSectionContainer, IconCardColumn } from './CustomComponent.styles'
+import {
+	AboutUsContentContainer,
+	AboutUsSectionContainer,
+	IconCardColumn,
+} from './CustomComponent.styles'
 
 export interface AboutUsSectionProps {
 	iconCards: IterableIconCardProps[]
