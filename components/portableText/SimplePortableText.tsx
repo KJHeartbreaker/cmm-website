@@ -12,14 +12,20 @@ export function SimplePortableText({
 	const components: PortableTextComponents = {
 		types: {
 			// @ts-ignore
-			simplePortableTextBlock: ({ children }) => <p className={paragraphClasses}>{children}</p>,
+			simplePortableTextBlock: ({ children }) => (
+				<p className={paragraphClasses}>{children}</p>
+			),
 		},
 		block: {
 			normal: ({ children }) => <p className={paragraphClasses}>{children}</p>,
 		},
 		marks: {
 			link: ({ children, value }) => (
-				<a className="underline transition hover:opacity-50" href={value?.href} rel="noreferrer noopener">
+				<a
+					className="underline transition hover:opacity-50"
+					href={value?.href}
+					rel="noreferrer noopener"
+				>
 					{children}
 				</a>
 			),

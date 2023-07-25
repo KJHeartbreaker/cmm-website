@@ -27,7 +27,8 @@ export default defineType({
 			title: 'Title',
 			name: 'title',
 			type: 'string',
-			description: 'This field is only for the studio, and previewing content. It will not appear on your site.',
+			description:
+				'This field is only for the studio, and previewing content. It will not appear on your site.',
 		}),
 		defineField({
 			name: 'backgroundColor',
@@ -99,7 +100,9 @@ export default defineType({
 
 			const gatheredSubs = subs[0].map((sub: any) => {
 				const conditionalSub =
-					sub._type === 'mainPortableText' ? sub.portableTextBlock[0].children[0].text : 'Update this!'
+					sub._type === 'mainPortableText'
+						? sub.portableTextBlock[0].children[0].text
+						: 'Update this!'
 
 				return conditionalSub
 			})

@@ -20,7 +20,11 @@ export function CustomPortableText({
 		},
 		marks: {
 			link: ({ children, value }) => (
-				<a className="transition hover:opacity-50" href={value?.href} rel="noreferrer noopener">
+				<a
+					className="transition hover:opacity-50"
+					href={value?.href}
+					rel="noreferrer noopener"
+				>
 					{children}
 				</a>
 			),
@@ -38,9 +42,11 @@ export function CustomPortableText({
 			hr: ({ value }: { value: { width: string; size: string; align: TextAlign } }) => (
 				<HorizontalRule width={value.width} size={value.size} align={value.align} />
 			),
-			cta: ({ value }: { value: { title: string; href: string; kind: string; arrow: boolean } }) => (
-				<CTAButton {...value} />
-			),
+			cta: ({
+				value,
+			}: {
+				value: { title: string; href: string; kind: string; arrow: boolean }
+			}) => <CTAButton {...value} />,
 		},
 	}
 

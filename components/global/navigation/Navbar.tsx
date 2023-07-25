@@ -47,7 +47,12 @@ export function Navbar({ menuItems }: NavbarProps) {
 				<PrimaryNav>
 					<LogoContainer>
 						<Link href="/" onClick={() => setMenuOpen(false)}>
-							<Image src="/CMMPDT_Logo-type.png" alt="CMM Logo" width="75" height="75" />
+							<Image
+								src="/CMMPDT_Logo-type.png"
+								alt="CMM Logo"
+								width="75"
+								height="75"
+							/>
 							<LogoCopyContainer>
 								<h4>Canine Minds & Manners</h4>
 								<h5>Professional Dog Training</h5>
@@ -58,7 +63,10 @@ export function Navbar({ menuItems }: NavbarProps) {
 						<TopMenu>
 							{menuItems &&
 								menuItems.map((menuItem: MenuItemProps) => {
-									if (menuItem._type === 'navDropdownCTA' && menuItem.subnav!.length > 0) {
+									if (
+										menuItem._type === 'navDropdownCTA' &&
+										menuItem.subnav!.length > 0
+									) {
 										return (
 											<MenuLink key={menuItem._key}>
 												<NavbarDropdown
@@ -71,7 +79,11 @@ export function Navbar({ menuItems }: NavbarProps) {
 									}
 									return (
 										<MenuLink key={menuItem._key}>
-											<Link href={`/${menuItem.cta!.landingPageRoute!.slug.current}`}>
+											<Link
+												href={`/${
+													menuItem.cta!.landingPageRoute!.slug.current
+												}`}
+											>
 												{menuItem.cta!.title}
 											</Link>
 										</MenuLink>
@@ -89,10 +101,15 @@ export function Navbar({ menuItems }: NavbarProps) {
 				{isMobile && (
 					<>
 						{menuOpen && <DarkFrozen />}
-						<MobileMenuDropdown style={menuOpen ? { display: 'flex' } : { display: 'none' }}>
+						<MobileMenuDropdown
+							style={menuOpen ? { display: 'flex' } : { display: 'none' }}
+						>
 							{menuItems &&
 								menuItems.map((menuItem: MenuItemProps) => {
-									if (menuItem._type === 'navDropdownCTA' && menuItem.subnav!.length > 0) {
+									if (
+										menuItem._type === 'navDropdownCTA' &&
+										menuItem.subnav!.length > 0
+									) {
 										return (
 											<DropdownGroup key={menuItem._key}>
 												<MobileHeaderDropdown
@@ -106,7 +123,9 @@ export function Navbar({ menuItems }: NavbarProps) {
 									return (
 										<Link
 											key={menuItem._key}
-											href={`/${menuItem.cta!.landingPageRoute!.slug.current}`}
+											href={`/${
+												menuItem.cta!.landingPageRoute!.slug.current
+											}`}
 											onClick={() => setMenuOpen(false)}
 										>
 											{menuItem.cta!.title}

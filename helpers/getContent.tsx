@@ -7,7 +7,14 @@ import TestimonialsGrid from 'components/grids/TestimonialsGrid'
 import RowContainer from 'components/rows/RowContainer'
 import ContentBlock from 'components/utilityComponents/ContentBlock'
 import React from 'react'
-import { GroupClass, PanelContent, ProductCardProps, TestimonialCardProps, Trainer, TrainingSession } from 'types'
+import {
+	GroupClass,
+	PanelContent,
+	ProductCardProps,
+	TestimonialCardProps,
+	Trainer,
+	TrainingSession,
+} from 'types'
 import TrainingRow from 'components/classes/TrainingRow'
 
 interface PageContent {
@@ -48,7 +55,10 @@ export function getContent(content: PageContent[]) {
 					break
 				case 'Single Column Content Row':
 					el = (
-						<ContentBlock bgColor={c.backgroundColor} removeBottomPadding={c.removeBottomPadding}>
+						<ContentBlock
+							bgColor={c.backgroundColor}
+							removeBottomPadding={c.removeBottomPadding}
+						>
 							<RowContainer
 								key={c._key}
 								content={c.rowContent!}

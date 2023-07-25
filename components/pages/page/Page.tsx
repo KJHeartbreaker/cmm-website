@@ -1,4 +1,3 @@
-import ScrollUp from 'components/shared/ScrollUp'
 import { getContent } from 'helpers/getContent'
 import type { PagePayload } from 'types'
 

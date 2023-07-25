@@ -22,24 +22,21 @@ const SanityComponentImage = (props: SanityImageProps) => {
 		preview = asset.metadata.lqip
 	}
 
+	if (!imageId) return null
+
 	return (
-		// <div className="image-container">
-		<>
-			{imageId && (
-				<SanityImage
-					id={imageId}
-					baseUrl={`https://cdn.sanity.io/images/${projectId}/${dataset}/`}
-					width={width}
-					height={height}
-					mode="cover"
-					hotspot={hotspot}
-					crop={crop}
-					preview={preview}
-					alt={alt}
-					loading="lazy"
-				/>
-			)}
-		</>
+		<SanityImage
+			id={imageId}
+			baseUrl={`https://cdn.sanity.io/images/${projectId}/${dataset}/`}
+			width={width}
+			height={height}
+			mode="cover"
+			hotspot={hotspot}
+			crop={crop}
+			preview={preview}
+			alt={alt}
+			loading="lazy"
+		/>
 	)
 }
 

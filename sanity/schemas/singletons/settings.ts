@@ -1,11 +1,11 @@
-import { CogIcon } from '@sanity/icons'
+import { GiSettingsKnobs as icon } from 'react-icons/gi'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'settings',
 	title: 'Settings',
 	type: 'document',
-	icon: CogIcon,
+	icon,
 	// Uncomment below to have edits publish automatically as you type
 	// liveEdit: true,
 	fields: [
@@ -14,26 +14,12 @@ export default defineType({
 			title: 'Menu Item list',
 			description: 'Links displayed on the header of your site.',
 			type: 'array',
-			of: [
-				{ type: 'navCTA' },
-				{ type: 'navDropdownCTA' },
-				// {
-				//   title: 'Reference',
-				//   type: 'reference',
-				//   to: [
-				//     {
-				//       type: 'home',
-				//     },
-				//     {
-				//       type: 'page',
-				//     },
-				//   ],
-				// },
-			],
+			of: [{ type: 'navCTA' }, { type: 'navDropdownCTA' }],
 		}),
 		defineField({
 			name: 'footer',
-			description: 'This is a block of text that will be displayed at the bottom of the page.',
+			description:
+				'This is a block of text that will be displayed at the bottom of the page.',
 			title: 'Footer Info',
 			type: 'array',
 			of: [

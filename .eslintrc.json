@@ -1,25 +1,25 @@
 {
-  "extends": ["wesbos", "next/core-web-vitals"],
-  "plugins": ["prettier"],
-  "rules": {
-    // "no-console": 2,
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "es5",
-        "singleQuote": true,
-        "printWidth": 120,
-        "semi": false,
-        "useTabs": true,
-        "tabWidth": 4
-      }
-    ],
-    "react/no-unstable-nested-components": [
-      "error",
-      {
-        "allowAsProps": true
-      }
-    ],
-    "no-nested-ternary": "off"
+	"extends": ["wesbos", "next/core-web-vitals"],
+	"plugins": ["prettier"],
+	"rules": {
+		// "no-console": 2,
+		"prettier/prettier": [
+			"error",
+			{
+				"trailingComma": "es5",
+				"singleQuote": true,
+				"printWidth": 100,
+				"semi": false,
+				"useTabs": true,
+				"tabWidth": 4
+			}
+		],
+		"react/no-unstable-nested-components": [
+			"error",
+			{
+				"allowAsProps": true
+			}
+		],
+		"no-nested-ternary": "off"
 	}
 }

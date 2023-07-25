@@ -16,7 +16,11 @@ export default function SingleColumnRowComponent(props: SingleColumnRowComponent
 
 	return (
 		<SingleColumnRowContainer>
-			<div className={`flex flex-col ${centerContent ? 'justify-center text-center' : 'justify-start'}`}>
+			<div
+				className={`flex flex-col ${
+					centerContent ? 'justify-center text-center' : 'justify-start'
+				}`}
+			>
 				{/* @ts-ignore */}
 				<CustomPortableText value={portableTextBlock! as PortableTextBlock[]} />
 			</div>

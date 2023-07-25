@@ -34,9 +34,8 @@ export default function HeaderDropdown(props: MenuItemProps) {
 			<NavMenuLink>
 				{cta!.landingPageRoute ? (
 					<Link href={`/${cta!.landingPageRoute!.slug.current}`}>{cta!.title}</Link>
-
 				) : (
-					<a className='no-hover'>{cta!.title}</a>
+					<a className="no-hover">{cta!.title}</a>
 				)}
 				<IoIosArrowDown fontSize="1.3em" />
 			</NavMenuLink>

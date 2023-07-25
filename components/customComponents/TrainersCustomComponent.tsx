@@ -16,7 +16,7 @@ interface TrainersCustomComponentProps {
 	trainers: Trainer[]
 }
 
-export default async function TrainersCustomComponent({ trainers }: TrainersCustomComponentProps) {
+export default function TrainersCustomComponent({ trainers }: TrainersCustomComponentProps) {
 	return (
 		<TrainersPageContainer>
 			{trainers.map((tr) => (
@@ -28,7 +28,10 @@ export default async function TrainersCustomComponent({ trainers }: TrainersCust
 							<div className="mt-5">
 								{tr.certifications ? (
 									<SimplePortableText
-										value={tr.certifications.portableTextBlock as PortableTextBlock[]}
+										value={
+											tr.certifications
+												.portableTextBlock as PortableTextBlock[]
+										}
 									/>
 								) : null}
 							</div>
@@ -39,7 +42,9 @@ export default async function TrainersCustomComponent({ trainers }: TrainersCust
 						<h3 className="text-orange">{tr.role}</h3>
 						<div className="mt-5">
 							{tr.bio ? (
-								<SimplePortableText value={tr.bio.portableTextBlock as PortableTextBlock[]} />
+								<SimplePortableText
+									value={tr.bio.portableTextBlock as PortableTextBlock[]}
+								/>
 							) : null}
 						</div>
 					</TrainerRowRightSide>
