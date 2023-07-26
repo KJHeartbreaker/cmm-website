@@ -22,6 +22,14 @@ export default defineType({
 			},
 		},
 		{
+			title: 'Grid Display',
+			name: 'gridParams',
+			options: {
+				collapsible: true,
+				collapsed: true,
+			},
+		},
+		{
 			title: 'CTA',
 			name: 'cta',
 			options: {
@@ -40,6 +48,7 @@ export default defineType({
 	],
 	initialValue: {
 		trainingType: 'group',
+		namePlacement: 'topLeft',
 	},
 	fields: [
 		defineField({
@@ -111,6 +120,36 @@ export default defineType({
 			title: 'CTA',
 			type: 'cta',
 			fieldset: 'cta',
+		}),
+		defineField({
+			name: 'dogName',
+			title: 'Dog Name',
+			type: 'string',
+			fieldset: 'gridParams',
+		}),
+		defineField({
+			title: 'In which corner should the name appear?',
+			type: 'string',
+			name: 'namePlacement',
+			options: {
+				list: [
+					{ title: 'Top Left', value: 'topLeft' },
+					{ title: 'Top Right', value: 'topRight' },
+					{ title: 'Bottom Left', value: 'bottomLeft' },
+					{ title: 'Bottom Right', value: 'bottomRight' },
+				],
+				layout: 'radio',
+				direction: 'horizontal',
+			},
+			fieldset: 'gridParams',
+		}),
+		defineField({
+			name: 'cardImage',
+			title: 'Card Image',
+			type: 'mainImage',
+			description: 'This image will be displayed on the card in the training grid',
+			options: { hotspot: true },
+			fieldset: 'gridParams',
 		}),
 	],
 	preview: {

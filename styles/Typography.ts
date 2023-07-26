@@ -3,9 +3,7 @@ import { device } from './Breakpoints'
 
 const Typography = createGlobalStyle`
     html {
-        /* font-size: var(--font-base-size); */
         color: var(--grey-33);
-        /* font-family: var(--font-montserrat), sans-serif; */
         font-family: var(--font-montserrat), sans-serif;
         font-display: auto;
         font-style: normal;
@@ -44,7 +42,6 @@ const Typography = createGlobalStyle`
 
     h1,h2,h3,h4 {
         font-family: var(--font-paytone-one), sans-serif;
-        /* font-family: 'Paytone One', sans-serif; */
         font-weight: 400;
         margin: 0;
     }
