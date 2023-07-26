@@ -128,7 +128,7 @@ export const TrainerCardContainer = styled.div`
 		justify-content: flex-start;
 		align-items: center;
 		text-align: center;
-		padding: 20px 0;
+		padding: 20px;
 		overflow: hidden;
 	}
 
