@@ -2,7 +2,7 @@
 import 'tailwindcss/tailwind.css'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { Montserrat, Paytone_One } from 'next/font/google'
+import { Montserrat, Paytone_One, Kalam } from 'next/font/google'
 import React from 'react'
 import Script from 'next/script'
 import StyledComponentsRegistry from 'lib/registry'
@@ -21,9 +21,19 @@ const paytone_one = Paytone_One({
 	weight: '400',
 })
 
+const kalam = Kalam({
+	subsets: ['latin'],
+	display: 'swap',
+	variable: '--font-kalam',
+	weight: '400',
+})
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className={`${paytone_one.variable} ${montserrat.variable}`}>
+		<html
+			lang="en"
+			className={`${paytone_one.variable} ${montserrat.variable} ${kalam.variable}`}
+		>
 			<head>
 				<Script id="gtm-script" strategy="afterInteractive">
 					{`

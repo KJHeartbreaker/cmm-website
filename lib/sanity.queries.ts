@@ -70,6 +70,29 @@ export const homePageQuery = groq`
                     }
                 }
             },
+            'programs': class[]{
+                _type == 'reference' => @-> {
+                    _id,
+                    name,
+                    slug,
+                    trainingType,
+                    dogName,
+                    namePlacement,
+                    cardImage {
+                        alt,
+                        width,
+                        height,
+                        crop,
+                        hotspot,
+                        asset-> {
+                            _id,
+                            metadata {
+                                lqip
+                            }
+                        }
+                    }
+                }
+            },
             'testimonialsArr': testimonialsArr[] -> {
                 _key,
                 heading,
@@ -350,6 +373,34 @@ export const pagesBySlugQuery = groq`
                     slug,
                     certifications,
                     picture {
+                        alt,
+                        width,
+                        height,
+                        crop,
+                        hotspot,
+                        asset-> {
+                            _id,
+                            metadata {
+                                lqip
+                            }
+                        }
+                    }
+                }
+            },
+            'programs': programs[]{
+                _type == 'reference' => @-> {
+                    _id,
+                    name,
+                    slug,
+                    'parent': parentPage -> {
+                        slug {
+                            current
+                        }
+                    },
+                    trainingType,
+                    dogName,
+                    namePlacement,
+                    cardImage {
                         alt,
                         width,
                         height,

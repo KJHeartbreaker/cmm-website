@@ -85,6 +85,17 @@ const Typography = createGlobalStyle`
             font-size: var(--font-title4-size);
             line-height: var(--font-title4-line-height);
         }
+
+        &.dog-name {
+            font-family: var(--font-kalam), sans-serif;
+            font-size: var(--font-title2-mobile-size);
+            line-height: var(--font-title2-line-height);
+
+            @media ${device.sm} {
+                font-size: var(--font-title2-size);
+                line-height: var(--font-title2-line-height);
+            }
+        }
     }
 
     h5 {

@@ -5,12 +5,24 @@ export interface TestimonialCardProps {
 	heading: string
 	copy: { portableTextBlock: PortableTextBlock[] }
 }
+
 export interface ProductCardProps {
 	key: string
 	image: SanityImageProps
 	heading: string
 	price: number
 	cta: CTAProps
+}
+
+export interface ProgramCardProps {
+	_id: string
+	name: string
+	parent: { slug: { current: string } }
+	slug: { current: string }
+	trainingType: 'private' | 'group' | 'onDemand'
+	dogName: string
+	namePlacement: string
+	cardImage: SanityImageProps
 }
 
 export type Refs = {
