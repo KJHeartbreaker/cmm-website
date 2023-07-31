@@ -89,10 +89,11 @@ const TrainingComponent: React.FC<TrainingSession> = ({
 							))}
 						</>
 					) : (
-						<h2>{`${trainingType === 'group'
+						<h2>{`${
+							trainingType === 'group'
 								? 'Check back for availability'
 								: 'Contact for more information'
-							} `}</h2>
+						} `}</h2>
 					)}
 				</div>
 				<div className="calendar-container">
