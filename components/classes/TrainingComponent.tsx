@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { TrainingSession } from 'types'
 import { PortableTextBlock } from 'sanity'
+import { TrainingSession } from 'types'
 import {
 	TrainingContentContainer,
 	TrainingCopyBlock,
@@ -19,7 +19,6 @@ import { IconContainer } from '../cards/Card.styles'
 import CalendarIcon from './CalendarIcon'
 
 const TrainingComponent: React.FC<TrainingSession> = ({
-	_id,
 	name,
 	description,
 	upcoming,
@@ -90,11 +89,10 @@ const TrainingComponent: React.FC<TrainingSession> = ({
 							))}
 						</>
 					) : (
-						<h2>{`${
-							trainingType === 'group'
+						<h2>{`${trainingType === 'group'
 								? 'Check back for availability'
 								: 'Contact for more information'
-						} `}</h2>
+							} `}</h2>
 					)}
 				</div>
 				<div className="calendar-container">

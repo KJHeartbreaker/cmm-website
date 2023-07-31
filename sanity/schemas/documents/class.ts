@@ -58,6 +58,13 @@ export default defineType({
 			validation: (rule) => rule.required(),
 		}),
 		defineField({
+			title: 'Parent Page',
+			name: 'parentPage',
+			description: `This refers to the page where the class details are displayed. If nothing is referenced, links to this class will go directly to the slug. If there is a parent page, the slug will be used as an anchor link.`,
+			type: 'reference',
+			to: [{ type: 'page' }],
+		}),
+		defineField({
 			type: 'slug',
 			name: 'slug',
 			title: 'Slug',

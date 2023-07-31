@@ -1,8 +1,7 @@
+import styled from 'styled-components'
 import { device } from '@/styles/Breakpoints'
 import { ContentContainer } from '@/styles/Wrappers'
-import styled from 'styled-components'
 
-// z-10 grid w-full grid-cols-2 items-center justify-center gap-5 xl:max-w-7xl
 export const TestimonialGridContainer = styled.div`
 	display: grid;
 	grid-template-columns: 1;
@@ -18,12 +17,12 @@ export const TestimonialGridContainer = styled.div`
 
 export const TrainersGridContainer = styled(ContentContainer)`
 	display: grid;
-	grid-template-columns: 1;
+	grid-template-columns: auto;
 	padding: 20px;
-	gap: 10px;
+	gap: 20px;
+	width: 100%;
 
 	@media ${device.xs} {
-		gap: 20px;
 		grid-template-columns: repeat(2, 1fr);
 	}
 
@@ -32,4 +31,4 @@ export const TrainersGridContainer = styled(ContentContainer)`
 	}
 `
 
-export const TrainingGridContainer = styled(TrainersGridContainer)``
+export const ProgramsGridContainer = styled(TrainersGridContainer)``
