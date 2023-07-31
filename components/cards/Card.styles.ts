@@ -158,3 +158,42 @@ export const TrainerCardContainer = styled.div`
 		}
 	}
 `
+
+export const ProgramCardContainer = styled(TrainerCardContainer)`
+	a {
+		position: relative;
+
+		h4.dog-name {
+			position: absolute;
+			z-index: 10;
+			margin-bottom: 0;
+			color: var(--white);
+
+			&.topLeft {
+				top: 20px;
+				left: 20px;
+			}
+
+			&.topRight {
+				top: 20px;
+				right: 20px;
+			}
+
+			&.bottomLeft {
+				bottom: 20px;
+				left: 20px;
+			}
+
+			&.bottomRight {
+				bottom: 20px;
+				right: 20px;
+			}
+		}
+	}
+
+	&:hover {
+		.copy-block a {
+			color: var(--blue-33);
+		}
+	}
+`

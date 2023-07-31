@@ -11,11 +11,13 @@ import {
 	GroupClass,
 	PanelContent,
 	ProductCardProps,
+	ProgramCardProps,
 	TestimonialCardProps,
 	Trainer,
 	TrainingSession,
 } from 'types'
 import TrainingRow from 'components/classes/TrainingRow'
+import ProgramsGrid from '@/components/grids/ProgramsGrid'
 
 interface PageContent {
 	_key: string
@@ -37,6 +39,7 @@ interface PageContent {
 	centerContent: boolean
 	removeBottomPadding: boolean
 	productsArr: ProductCardProps[]
+	programs: ProgramCardProps[]
 	testimonialsArr: TestimonialCardProps[]
 	trainers: Trainer[]
 	classRefs: TrainingSession[]
@@ -103,6 +106,17 @@ export function getContent(content: PageContent[]) {
 							removeBottomPadding={c.removeBottomPadding}
 						>
 							<TrainersGrid trainers={c.trainers} />
+						</ContentBlock>
+					)
+					break
+				case 'Programs Grid':
+					el = (
+						<ContentBlock
+							bgImage={null}
+							bgColor={c.backgroundColor}
+							removeBottomPadding={c.removeBottomPadding}
+						>
+							<ProgramsGrid programsArr={c.programs} />
 						</ContentBlock>
 					)
 					break

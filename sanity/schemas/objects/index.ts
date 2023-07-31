@@ -8,6 +8,7 @@ export { default as customComponent } from './customComponents/customComponentCo
 export { default as galleryGrid } from './customComponents/gallery'
 export { default as trainerRows } from './customComponents/trainerRows'
 export { default as productGridContainer } from './grids/productGridContainer'
+export { default as programsGridContainer } from './grids/programsGrid'
 export { default as testimonialGridContainer } from './grids/testimonialGridContainer'
 export { default as trainersGrid } from './grids/trainersGrid'
 export { default as dateRange } from './helpers/dateRange'

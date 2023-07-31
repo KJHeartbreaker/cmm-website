@@ -19,7 +19,6 @@ import { IconContainer } from '../cards/Card.styles'
 import CalendarIcon from './CalendarIcon'
 
 const TrainingComponent: React.FC<TrainingSession> = ({
-	_id,
 	name,
 	description,
 	upcoming,

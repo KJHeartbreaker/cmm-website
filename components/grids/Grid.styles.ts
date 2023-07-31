@@ -18,12 +18,12 @@ export const TestimonialGridContainer = styled.div`
 
 export const TrainersGridContainer = styled(ContentContainer)`
 	display: grid;
-	grid-template-columns: 1;
+	grid-template-columns: auto;
 	padding: 20px;
-	gap: 10px;
+	gap: 20px;
+	width: 100%;
 
 	@media ${device.xs} {
-		gap: 20px;
 		grid-template-columns: repeat(2, 1fr);
 	}
 
@@ -32,4 +32,4 @@ export const TrainersGridContainer = styled(ContentContainer)`
 	}
 `
 
-export const TrainingGridContainer = styled(TrainersGridContainer)``
+export const ProgramsGridContainer = styled(TrainersGridContainer)``
