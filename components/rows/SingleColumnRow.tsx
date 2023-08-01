@@ -1,7 +1,7 @@
 'use client'
 
-import { CustomPortableText } from 'components/portableText/CustomPortableText'
 import { PortableTextBlock } from 'sanity'
+import { CustomPortableText } from 'components/portableText/CustomPortableText'
 import { PanelContent } from 'types'
 import { SingleColumnRowContainer } from './Row.styles'
 

@@ -1,6 +1,6 @@
+import styled from 'styled-components'
 import { device } from 'styles/Breakpoints'
 import { ContentContainer } from 'styles/Wrappers'
-import styled from 'styled-components'
 
 export const StyledRowColumn = styled.div`
 	display: flex;
@@ -52,30 +52,62 @@ export const SingleColumnRowContainer = styled(ContentContainer)`
 `
 
 export const TwoColumnRowContainer = styled(ContentContainer)`
-	display: grid;
-	grid-template-columns: 1;
-	justify-content: center;
-	gap: 20px;
-	z-index: 1;
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 
-	@media ${device.md} {
-		grid-template-columns: repeat(2, 1fr);
+	div.title {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+
+		&.centered {
+			justify-content: center;
+		}
+	}
+
+	div.columns {
+		display: grid;
+		grid-template-columns: 1;
+		justify-content: center;
+		gap: 20px;
+		z-index: 1;
+		width: 100%;
+
+		@media ${device.sm} {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 `
 
 export const ThreeColumnRowContainer = styled(ContentContainer)`
-	display: grid;
-	grid-template-columns: 1;
-	justify-content: center;
-	gap: 20px;
-	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 
-	@media ${device.xs} {
-		grid-template-columns: repeat(2, 1fr);
+	div.title {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+
+		&.centered {
+			justify-content: center;
+		}
 	}
 
-	@media ${device.md} {
-		grid-template-columns: repeat(3, 1fr);
+	div.columns {
+		display: grid;
+		grid-template-columns: 1;
+		justify-content: center;
+		gap: 20px;
+		z-index: 1;
+
+		@media ${device.xs} {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media ${device.md} {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 `

@@ -37,12 +37,16 @@ interface PageContent {
 	image: any
 	backgroundColor: string | undefined
 	centerContent: boolean
+	centerTitle: boolean
 	removeBottomPadding: boolean
 	productsArr: ProductCardProps[]
 	programs: ProgramCardProps[]
 	testimonialsArr: TestimonialCardProps[]
 	trainers: Trainer[]
 	classRefs: TrainingSession[]
+	title: string
+	titleColor: string
+	hideTitle: boolean
 }
 
 export function getContent(content: PageContent[]) {
@@ -67,6 +71,10 @@ export function getContent(content: PageContent[]) {
 								content={c.rowContent!}
 								row={c.row}
 								centerContent={c.centerContent}
+								title={c.title}
+								titleColor={c.titleColor}
+								hideTitle={c.hideTitle}
+								centerTitle={c.centerTitle}
 							/>
 						</ContentBlock>
 					)
@@ -83,6 +91,10 @@ export function getContent(content: PageContent[]) {
 								content={c.rowContent!}
 								row={c.row}
 								centerContent={c.centerContent ? c.centerContent : false}
+								title={c.title}
+								titleColor={c.titleColor}
+								hideTitle={c.hideTitle}
+								centerTitle={c.centerTitle}
 							/>
 						</ContentBlock>
 					)
