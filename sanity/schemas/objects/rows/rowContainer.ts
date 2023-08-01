@@ -15,18 +15,60 @@ export default defineType({
 				collapsed: false,
 			},
 		},
+		{
+			title: 'Title Options',
+			name: 'titleOptions',
+			options: {
+				collapsible: true,
+				collapsed: true,
+			},
+		},
 	],
 	initialValue: {
 		row: 'twoColumn',
 		backgroundColor: 'White',
+		centerTitle: false,
+		hideTitle: false,
+		titleColor: 'Dark Grey',
 	},
 	fields: [
 		defineField({
 			title: 'Title',
 			name: 'title',
 			type: 'string',
+		}),
+		defineField({
+			name: 'hideTitle',
+			title: 'Hide Title',
 			description:
-				'This field is only for the studio, and previewing content. It will not appear on your site.',
+				'If selected, the title will appear in the CMS, but not on the website. This is useful for identifying page sections.',
+			type: 'boolean',
+			fieldset: 'titleOptions',
+		}),
+		defineField({
+			name: 'centerTitle',
+			title: 'Center Title',
+			description: 'If not seleted, the title will be left aligned.',
+			type: 'boolean',
+			fieldset: 'titleOptions',
+		}),
+		defineField({
+			name: 'titleColor',
+			title: 'Title Colour',
+			type: 'string',
+			description: 'Default is Dark Grey.',
+			options: {
+				list: [
+					{ title: 'Dark Grey', value: '#333333' },
+					{ title: 'Blue', value: '#16abcc' },
+					{ title: 'Orange', value: '#ee6d08' },
+					{ title: 'Yellow', value: '#feca2d' },
+					{ title: 'White', value: '#ffffff' },
+				],
+				layout: 'radio',
+				direction: 'horizontal',
+			},
+			fieldset: 'titleOptions',
 		}),
 		defineField({
 			title: 'Content Row',
@@ -59,7 +101,8 @@ export default defineType({
 				list: [
 					{ title: 'White', value: '#ffffff' },
 					{ title: 'Grey', value: '#e2e2e2' },
-					{ title: 'Blue', value: '#61c8e9' },
+					{ title: 'Blue', value: '#16abcc' },
+					{ title: 'Orange', value: '#ee6d08' },
 					{ title: 'Yellow', value: '#feca2d' },
 				],
 				layout: 'radio',

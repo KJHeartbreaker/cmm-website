@@ -1,7 +1,7 @@
+import { PortableTextBlock } from 'sanity'
 import { CustomPortableText } from 'components/portableText/CustomPortableText'
 import { PanelContent } from 'types'
 
-import { PortableTextBlock } from 'sanity'
 import IconCard from '../cards/IconCard'
 import SanityComponentImage from '../images/SanityComponentImage'
 import ImageButton from '../cards/ImageButtonCard'
