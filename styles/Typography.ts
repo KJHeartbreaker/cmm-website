@@ -139,6 +139,15 @@ const Typography = createGlobalStyle`
         }
     }
 
+    *.text-white {
+        color: var(--white);
+
+        * {
+            color: var(--white);
+        }
+
+    }
+
     span.text-orange {
         color: var(--orange);
 
