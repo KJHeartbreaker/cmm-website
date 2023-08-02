@@ -47,6 +47,8 @@ interface PageContent {
 	title: string
 	titleColor: string
 	hideTitle: boolean
+	condensedCopy: boolean
+	centerCopy: boolean
 }
 
 export function getContent(content: PageContent[]) {
@@ -75,6 +77,8 @@ export function getContent(content: PageContent[]) {
 								titleColor={c.titleColor}
 								hideTitle={c.hideTitle}
 								centerTitle={c.centerTitle}
+								condensedCopy={false}
+								centerCopy={false}
 							/>
 						</ContentBlock>
 					)
@@ -95,6 +99,8 @@ export function getContent(content: PageContent[]) {
 								titleColor={c.titleColor}
 								hideTitle={c.hideTitle}
 								centerTitle={c.centerTitle}
+								condensedCopy={c.condensedCopy}
+								centerCopy={c.centerCopy}
 							/>
 						</ContentBlock>
 					)

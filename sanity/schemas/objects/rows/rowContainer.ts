@@ -30,6 +30,8 @@ export default defineType({
 		centerTitle: false,
 		hideTitle: false,
 		titleColor: 'Dark Grey',
+		condensedCopy: false,
+		centerCopy: false,
 	},
 	fields: [
 		defineField({
@@ -83,6 +85,22 @@ export default defineType({
 				layout: 'radio',
 				direction: 'horizontal',
 			},
+			fieldset: 'rowParams',
+		}),
+		defineField({
+			name: 'condensedCopy',
+			type: 'boolean',
+			title: 'Condensed Copy',
+			description:
+				'Selecting this checkbox will reduce the width of the copy block within the container, and center it within the container.',
+			fieldset: 'rowParams',
+		}),
+		defineField({
+			name: 'centerCopy',
+			type: 'boolean',
+			title: 'Centered Copy',
+			description:
+				'Selecting this checkbox will center align the text within the copy block.',
 			fieldset: 'rowParams',
 		}),
 		defineField({

@@ -20,13 +20,17 @@ export default function RowColumn(panel: PanelContent) {
 		cta,
 		landingPageRoute,
 		image,
+		centerCopy,
+		condensedCopy,
 	} = panel
 
 	return (
 		<StyledRowColumn>
 			{_type === 'mainPortableText' && (
-				<RowColumnCopy>
-					<CustomPortableText value={portableTextBlock! as PortableTextBlock[]} />
+				<RowColumnCopy className={condensedCopy ? 'condensed' : ''}>
+					<div className={centerCopy ? 'copy-block centered' : 'copy-block'}>
+						<CustomPortableText value={portableTextBlock! as PortableTextBlock[]} />
+					</div>
 				</RowColumnCopy>
 			)}
 			{_type === 'mainImage' && (
