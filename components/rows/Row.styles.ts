@@ -43,6 +43,16 @@ export const RowColumnCopy = styled.div`
 			line-height: var(--font-title1-line-height);
 		}
 	}
+
+	&.condensed {
+		align-items: center;
+	}
+
+	div.copy-block {
+		&.centered {
+			text-align: center;
+		}
+	}
 `
 
 export const SingleColumnRowContainer = styled(ContentContainer)`
@@ -60,6 +70,7 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 		display: flex;
 		align-items: center;
 		margin-bottom: 20px;
+		z-index: 1;
 
 		&.centered {
 			justify-content: center;
@@ -73,6 +84,8 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 		gap: 20px;
 		z-index: 1;
 		width: 100%;
+
+		align-items: center;
 
 		@media ${device.sm} {
 			grid-template-columns: repeat(2, 1fr);
@@ -89,6 +102,7 @@ export const ThreeColumnRowContainer = styled(ContentContainer)`
 		display: flex;
 		align-items: center;
 		margin-bottom: 20px;
+		z-index: 1;
 
 		&.centered {
 			justify-content: center;

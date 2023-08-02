@@ -80,6 +80,8 @@ export type PanelContent = {
 	heading?: string
 	subheading?: string
 	disabled?: boolean
+	condensedCopy?: boolean
+	centerCopy?: boolean
 	copy?: any
 	portableTextBlock?: PortableTextBlock[]
 	icon?: SanityIconProps

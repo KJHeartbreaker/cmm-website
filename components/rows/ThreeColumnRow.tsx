@@ -8,6 +8,8 @@ interface ThreeColumnRowProps {
 	title?: string
 	hideTitle: boolean
 	centerTitle: boolean
+	condensedCopy: boolean
+	centerCopy: boolean
 	titleColor: string
 	panels: PanelContent[]
 }
@@ -17,6 +19,8 @@ export default function ThreeColumnRow({
 	title,
 	hideTitle,
 	centerTitle,
+	condensedCopy,
+	centerCopy,
 	titleColor,
 	panels,
 }: ThreeColumnRowProps) {
@@ -29,7 +33,12 @@ export default function ThreeColumnRow({
 			)}
 			<div className="columns">
 				{panels.map((panel) => (
-					<RowColumn key={panel._key} {...panel} />
+					<RowColumn
+						key={panel._key}
+						condensedCopy={condensedCopy}
+						centerCopy={centerCopy}
+						{...panel}
+					/>
 				))}
 			</div>
 		</ThreeColumnRowContainer>

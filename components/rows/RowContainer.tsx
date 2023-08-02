@@ -11,6 +11,8 @@ interface RowContainerProps {
 	row?: string
 	content: PanelContent[]
 	centerContent?: boolean
+	condensedCopy: boolean
+	centerCopy: boolean
 	title: string
 	hideTitle: boolean
 	centerTitle: boolean
@@ -25,10 +27,16 @@ const RowContainer: React.FC<RowContainerProps> = ({
 	hideTitle,
 	centerTitle,
 	titleColor,
+	condensedCopy,
+	centerCopy,
 }: RowContainerProps) => (
 	<>
 		{row === 'singleColumn' && (
-			<SingleColumnRowComponent panels={content} centerContent={centerContent!} />
+			<SingleColumnRowComponent
+				panels={content}
+				centerContent={centerContent!}
+				// condensedCopy={condensedCopy}
+			/>
 		)}
 		{row === 'twoColumn' && (
 			<TwoColumnRow
@@ -37,6 +45,8 @@ const RowContainer: React.FC<RowContainerProps> = ({
 				hideTitle={hideTitle}
 				centerTitle={centerTitle}
 				titleColor={titleColor}
+				condensedCopy={condensedCopy}
+				centerCopy={centerCopy}
 			/>
 		)}
 		{row === 'threeColumn' && (
@@ -46,6 +56,8 @@ const RowContainer: React.FC<RowContainerProps> = ({
 				hideTitle={hideTitle}
 				centerTitle={centerTitle}
 				titleColor={titleColor}
+				condensedCopy={condensedCopy}
+				centerCopy={centerCopy}
 			/>
 		)}
 	</>

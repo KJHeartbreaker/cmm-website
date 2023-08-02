@@ -8,6 +8,8 @@ interface TwoColumnRowProps {
 	title?: string
 	hideTitle: boolean
 	centerTitle: boolean
+	condensedCopy: boolean
+	centerCopy: boolean
 	titleColor: string
 	panels: PanelContent[]
 }
@@ -18,6 +20,8 @@ export default function TwoColumnRow({
 	hideTitle,
 	centerTitle,
 	titleColor,
+	centerCopy,
+	condensedCopy,
 	panels,
 }: TwoColumnRowProps) {
 	return (
@@ -29,7 +33,12 @@ export default function TwoColumnRow({
 			)}
 			<div className="columns">
 				{panels.map((panel) => (
-					<RowColumn key={panel._key} {...panel} />
+					<RowColumn
+						key={panel._key}
+						condensedCopy={condensedCopy}
+						centerCopy={centerCopy}
+						{...panel}
+					/>
 				))}
 			</div>
 		</TwoColumnRowContainer>
