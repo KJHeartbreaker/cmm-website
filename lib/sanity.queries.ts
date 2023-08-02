@@ -265,9 +265,40 @@ export const homePageQuery = groq`
                             lqip
                         }
                     },
-                    'landingPageRoute': landingPageRoute->
+                    'landingPageRoute': landingPageRoute->,
+                    markDefs[]{
+                        ...,
+                        item -> {
+                            ...,
+                            _type == "class" => {
+                                "slug": slug {
+                                    current
+                                },
+                                "parentPage": parentPage->{
+                                    "parentSlug": slug {
+                                        current
+                                    }
+                                }
+                            },
+                        },
+                    },
+                    // 'markDefs': markDefs[]{
+                    //     'classType': item -> {
+                    //         _type == 'class' => {
+                    //         'parentPage': parentPage -> {
+                    //             slug
+                    //         },
+                    //         slug
+                    //         }
+                    //     },
+                    //     'pageType': item -> {
+                    //         _type == 'page' => {
+                    //         slug
+                    //         }
+                    //     }
+                    // },
                 },
-            }
+            },
         },
     }
 `
@@ -577,7 +608,22 @@ export const pagesBySlugQuery = groq`
                             lqip
                         }
                     },
-                    'landingPageRoute': landingPageRoute->
+                    'landingPageRoute': landingPageRoute->,
+                    'markDefs': markDefs[]{
+                        'classType': item -> {
+                            _type == 'class' => {
+                            'parentPage': parentPage -> {
+                                slug
+                            },
+                            slug
+                            }
+                        },
+                        'pageType': item -> {
+                            _type == 'page' => {
+                            slug
+                            }
+                        }
+                    },
                 },
             }
         },

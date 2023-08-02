@@ -4,6 +4,7 @@ import { TextAlign } from '@sanity/ui'
 import CTAButton from 'components/CTA/CTAButton'
 import SanityComponentImage from 'components/images/SanityComponentImage'
 import HorizontalRule from 'components/utilityComponents/HorizontalRule'
+import Link from 'next/link'
 import { PortableTextBlock } from 'sanity'
 import { SanityImageProps } from 'types'
 
@@ -14,11 +15,25 @@ export function CustomPortableText({
 	paragraphClasses?: string
 	value: PortableTextBlock[]
 }) {
+	const getInternalSlug = (obj) => {
+		const slugParam = obj.slug.current
+		const parentSlug = obj.parentPage ? obj.parentPage.parentSlug.current : null
+
+		if (parentSlug) {
+			return `${parentSlug}#${slugParam}`
+		}
+		return `/${slugParam}`
+	}
+
 	const components: PortableTextComponents = {
 		block: {
 			normal: ({ children }) => <p className={paragraphClasses}>{children}</p>,
 		},
 		marks: {
+			internalLink: ({ children, value }) => {
+				const internalSlug = getInternalSlug(value.item)
+				return <Link href={internalSlug}>{children}</Link>
+			},
 			link: ({ children, value }) => (
 				<a
 					className="transition hover:opacity-50"

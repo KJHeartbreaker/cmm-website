@@ -112,7 +112,7 @@ export default defineType({
 									{
 										name: 'item',
 										type: 'reference',
-										to: [{ type: 'page' }],
+										to: [{ type: 'page' }, { type: 'class' }],
 									},
 								],
 							},
