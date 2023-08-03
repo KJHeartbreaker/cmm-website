@@ -39,6 +39,7 @@ interface PageContent {
 	centerContent: boolean
 	centerTitle: boolean
 	removeBottomPadding: boolean
+	skinny: boolean
 	productsArr: ProductCardProps[]
 	programs: ProgramCardProps[]
 	testimonialsArr: TestimonialCardProps[]
@@ -49,6 +50,7 @@ interface PageContent {
 	hideTitle: boolean
 	condensedCopy: boolean
 	centerCopy: boolean
+	overlay: 'noOverlay' | 'darkOverlay' | 'blueOverlay'
 }
 
 export function getContent(content: PageContent[]) {
@@ -60,13 +62,15 @@ export function getContent(content: PageContent[]) {
 			let el
 			switch (c._type) {
 				case 'Hero Banner':
-					el = <HeroBanner key={c._key} {...c} />
+					el = <HeroBanner key={c._key} imageOverlay={c.overlay} {...c} />
 					break
 				case 'Single Column Content Row':
 					el = (
 						<ContentBlock
 							bgColor={c.backgroundColor}
+							overlay="noOverlay"
 							removeBottomPadding={c.removeBottomPadding}
+							skinny={c.skinny}
 						>
 							<RowContainer
 								key={c._key}
@@ -87,8 +91,10 @@ export function getContent(content: PageContent[]) {
 					el = (
 						<ContentBlock
 							bgImage={c.image ? c.image : null}
+							overlay={c.overlay}
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.removeBottomPadding}
+							skinny={false}
 						>
 							<RowContainer
 								key={c._key}
@@ -109,8 +115,10 @@ export function getContent(content: PageContent[]) {
 					el = (
 						<ContentBlock
 							bgImage={c.image ? c.image : null}
+							overlay={c.overlay}
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.removeBottomPadding}
+							skinny={false}
 						>
 							<ProductGrid panels={c.productsArr} />
 						</ContentBlock>
@@ -120,8 +128,10 @@ export function getContent(content: PageContent[]) {
 					el = (
 						<ContentBlock
 							bgImage={null}
+							overlay="noOverlay"
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.removeBottomPadding}
+							skinny={false}
 						>
 							<TrainersGrid trainers={c.trainers} />
 						</ContentBlock>
@@ -131,8 +141,10 @@ export function getContent(content: PageContent[]) {
 					el = (
 						<ContentBlock
 							bgImage={null}
+							overlay="noOverlay"
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.removeBottomPadding}
+							skinny={false}
 						>
 							<ProgramsGrid programsArr={c.programs} />
 						</ContentBlock>
@@ -142,8 +154,10 @@ export function getContent(content: PageContent[]) {
 					el = (
 						<ContentBlock
 							bgImage={null}
+							overlay="noOverlay"
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.removeBottomPadding}
+							skinny={false}
 						>
 							<TrainingRow classes={c.classRefs} />
 						</ContentBlock>
@@ -163,8 +177,10 @@ export function getContent(content: PageContent[]) {
 					el = (
 						<ContentBlock
 							bgImage={c.image ? c.image : null}
+							overlay={c.overlay}
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.removeBottomPadding}
+							skinny={false}
 						>
 							<TestimonialsGrid panels={transformedTestimonials} />
 						</ContentBlock>
@@ -176,6 +192,7 @@ export function getContent(content: PageContent[]) {
 							key={c._key}
 							rows={c.rows!}
 							bgImage={c.image || null}
+							overlay={c.overlay}
 							bgColor={c.backgroundColor || undefined}
 							removeBottomPadding={c.removeBottomPadding || false}
 						/>

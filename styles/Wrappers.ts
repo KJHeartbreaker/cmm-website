@@ -16,12 +16,13 @@ export const Section = styled.section`
 		padding-bottom: 40px;
 	}
 
-	&.even {
-		padding-bottom: 40px;
-	}
-
 	&.short {
 		padding-bottom: 0;
+	}
+
+	&.skinny {
+		padding-top: 20px;
+		padding-bottom: 20px;
 	}
 
 	@media ${device.sm} {
@@ -32,10 +33,6 @@ export const Section = styled.section`
 			padding-top: 80px;
 			padding-bottom: 80px;
 		}
-
-		&.even {
-			padding-bottom: 60px;
-		}
 	}
 
 	@media ${device.md} {
@@ -45,10 +42,6 @@ export const Section = styled.section`
 		&.has-bg {
 			padding-top: 140px;
 			padding-bottom: 140px;
-		}
-
-		&.even {
-			padding-bottom: 100px;
 		}
 	}
 `

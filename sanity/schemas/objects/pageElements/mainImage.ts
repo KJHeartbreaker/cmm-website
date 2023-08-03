@@ -11,6 +11,9 @@ export default defineType({
 			'lqip', // Default: included
 		],
 	},
+	initialValue: {
+		overlay: 'noOverlay',
+	},
 	fields: [
 		defineField({
 			name: 'width',

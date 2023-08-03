@@ -9,24 +9,26 @@ import SanityBackgroundImage from '../images/SanityBackgroundImage'
 interface ContentBlockProps {
 	bgColor?: string
 	bgImage?: ImageAsset | null
+	overlay: 'noOverlay' | 'darkOverlay' | 'blueOverlay'
 	removeBottomPadding: boolean
+	skinny: boolean
 	children: React.JSX.Element
 	classes?: string
 	id?: string
 }
 
 const ContentBlock: React.FC<ContentBlockProps> = (props) => {
-	const { bgColor, bgImage, removeBottomPadding, children, classes, id } = props
+	const { bgColor, bgImage, overlay, removeBottomPadding, skinny, children, classes, id } = props
 
 	return (
 		<Section
-			className={`${removeBottomPadding ? 'short' : ''} ${bgImage ? 'has-bg' : ''} ${
-				bgColor === '#013b63' ? 'even' : ''
+			className={`${removeBottomPadding ? 'short' : ''} ${skinny ? 'skinny' : ''} ${
+				bgImage ? 'has-bg' : ''
 			} ${classes || ''}`}
 			id={id || ''}
 			style={{ backgroundColor: bgColor }}
 		>
-			{bgImage && <SanityBackgroundImage image={bgImage} />}
+			{bgImage && <SanityBackgroundImage image={bgImage} overlay={overlay} />}
 			{children}
 		</Section>
 	)

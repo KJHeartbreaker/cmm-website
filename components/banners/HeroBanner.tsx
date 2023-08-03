@@ -6,8 +6,17 @@ import SanityBackgroundImage from '../images/SanityBackgroundImage'
 import { SimplePortableText } from '../portableText/SimplePortableText'
 
 const HeroBanner: React.FC<HeroBannerProps> = (props) => {
-	const { size, image, heading, subheading, copy, copyColor, subHeadingColor, headingColor } =
-		props
+	const {
+		size,
+		image,
+		imageOverlay,
+		heading,
+		subheading,
+		copy,
+		copyColor,
+		subHeadingColor,
+		headingColor,
+	} = props
 
 	let bgSize
 	let copyBlock
@@ -27,7 +36,7 @@ const HeroBanner: React.FC<HeroBannerProps> = (props) => {
 		<section
 			className={`relative flex w-screen items-center justify-center bg-grey44 ${bgSize}`}
 		>
-			{image && <SanityBackgroundImage image={image} />}
+			{image && <SanityBackgroundImage image={image} overlay={imageOverlay} />}
 			<div
 				className={`absolute z-10 flex w-8/12 flex-col items-center justify-center text-center ${copyBlock}`}
 			>

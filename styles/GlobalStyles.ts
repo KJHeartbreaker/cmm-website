@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
             --orange-hover: #f39852;
 			--red: #ff001c;
 			--white: #ffffff;
+            --black: #000000;
 			--yellow: #feca2d;
 
         accent-color: var(--blue-33);

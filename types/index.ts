@@ -128,6 +128,7 @@ export interface HeroBannerProps {
 	copyColor: string
 	subHeadingColor: string
 	headingColor: string
+	imageOverlay: 'noOverlay' | 'darkOverlay' | 'blueOverlay'
 }
 
 export interface LandingPageRouteProps {
