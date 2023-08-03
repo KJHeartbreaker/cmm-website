@@ -1,4 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
+import { LiaExternalLinkSquareAltSolid as internalLinkIcon } from 'react-icons/lia'
 
 export default defineType({
 	type: 'object',
@@ -37,6 +38,19 @@ export default defineType({
 										title: 'Open in new window',
 										name: 'blank',
 										type: 'boolean',
+									},
+								],
+							},
+							{
+								name: 'internalLink',
+								type: 'object',
+								icon: internalLinkIcon,
+								title: 'Internal Link',
+								fields: [
+									{
+										name: 'item',
+										type: 'reference',
+										to: [{ type: 'page' }, { type: 'class' }],
 									},
 								],
 							},
