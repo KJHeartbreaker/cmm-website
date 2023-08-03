@@ -9,7 +9,7 @@ const HeroBanner: React.FC<HeroBannerProps> = (props) => {
 	const {
 		size,
 		image,
-		overlay,
+		imageOverlay,
 		heading,
 		subheading,
 		copy,
@@ -36,7 +36,7 @@ const HeroBanner: React.FC<HeroBannerProps> = (props) => {
 		<section
 			className={`relative flex w-screen items-center justify-center bg-grey44 ${bgSize}`}
 		>
-			{image && <SanityBackgroundImage image={image} overlay={overlay} />}
+			{image && <SanityBackgroundImage image={image} overlay={imageOverlay} />}
 			<div
 				className={`absolute z-10 flex w-8/12 flex-col items-center justify-center text-center ${copyBlock}`}
 			>

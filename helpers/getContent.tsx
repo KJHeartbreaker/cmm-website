@@ -62,7 +62,7 @@ export function getContent(content: PageContent[]) {
 			let el
 			switch (c._type) {
 				case 'Hero Banner':
-					el = <HeroBanner key={c._key} overlay={c.overlay} {...c} />
+					el = <HeroBanner key={c._key} imageOverlay={c.overlay} {...c} />
 					break
 				case 'Single Column Content Row':
 					el = (
