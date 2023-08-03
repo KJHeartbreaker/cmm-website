@@ -183,15 +183,15 @@ export const homePageQuery = groq`
                             crop,
                             hotspot,
                             asset -> {
-                            _id,
-                            metadata {
-                                lqip
+                                _id,
+                                metadata {
+                                    lqip
+                                }
                             }
-                        }
-                    },
-                    oDName,
-                    oDDescription,
-                    oDCTA
+                        },
+                        oDName,
+                        oDDescription,
+                        oDCTA
                     }
                 },
                 'galleryArr': galleryArr[] {
@@ -340,7 +340,27 @@ export const pagesBySlugQuery = groq`
                             },
                         }
                     },
-                    description,
+                    "description": description {
+                        portableTextBlock[] {
+                            ...,
+                            markDefs[]{
+                                ...,
+                                item -> {
+                                    ...,
+                                    _type == "class" => {
+                                        "slug": slug {
+                                            current
+                                        },
+                                        "parentPage": parentPage->{
+                                            "parentSlug": slug {
+                                                current
+                                            }
+                                        }
+                                    },
+                                },
+                            },
+                        },
+                    },
                     'picture': picture {
                         alt,
                         width,
@@ -504,37 +524,37 @@ export const pagesBySlugQuery = groq`
                 },
                 'groupClasses': classesArr[]{
                     _type == 'reference' => @-> {
-                    _id,
-                    name,
-                    subheadline,
-                    price,
-                    description,
-                    subMenuTitle,
-                    'slug': slug {
-                        current
-                    },
-                    'cta': cta {
-                        title,
-                        arrow,
-                        kind,
-                        landingPageRoute ->
-                    },
-                    'picture': picture {
-                        alt,
-                        width,
-                        height,
-                        crop,
-                        hotspot,
-                        asset -> {
                         _id,
-                        metadata {
-                            lqip
-                        }
-                        }
-                    },
-                    oDName,
-                    oDDescription,
-                    oDCTA
+                        name,
+                        subheadline,
+                        price,
+                        description,
+                        subMenuTitle,
+                        'slug': slug {
+                            current
+                        },
+                        'cta': cta {
+                            title,
+                            arrow,
+                            kind,
+                            landingPageRoute ->
+                        },
+                        'picture': picture {
+                            alt,
+                            width,
+                            height,
+                            crop,
+                            hotspot,
+                            asset -> {
+                                _id,
+                                metadata {
+                                    lqip
+                                }
+                            }
+                        },
+                        oDName,
+                        oDDescription,
+                        oDCTA
                     }
                 },
                 'galleryArr': galleryArr[] {

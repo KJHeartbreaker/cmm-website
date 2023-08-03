@@ -1,4 +1,5 @@
 /* eslint-disable no-shadow */
+import { getInternalSlug } from 'helpers/getInternalSlug'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { TextAlign } from '@sanity/ui'
 import CTAButton from 'components/CTA/CTAButton'
@@ -15,16 +16,6 @@ export function CustomPortableText({
 	paragraphClasses?: string
 	value: PortableTextBlock[]
 }) {
-	const getInternalSlug = (obj) => {
-		const slugParam = obj.slug.current
-		const parentSlug = obj.parentPage ? obj.parentPage.parentSlug.current : null
-
-		if (parentSlug) {
-			return `${parentSlug}#${slugParam}`
-		}
-		return `/${slugParam}`
-	}
-
 	const components: PortableTextComponents = {
 		block: {
 			normal: ({ children }) => <p className={paragraphClasses}>{children}</p>,
