@@ -31,4 +31,10 @@ export const TrainersGridContainer = styled(ContentContainer)`
 	}
 `
 
-export const ProgramsGridContainer = styled(TrainersGridContainer)``
+export const ProgramsGridContainer = styled(TrainersGridContainer)`
+	gap: 10px;
+
+	@media ${device.md} {
+		gap: 20px;
+	}
+`

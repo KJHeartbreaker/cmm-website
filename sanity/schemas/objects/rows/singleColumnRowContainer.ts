@@ -19,6 +19,7 @@ export default defineType({
 	initialValue: {
 		centerContent: false,
 		removeBottomPadding: false,
+		skinny: false,
 		backgroundColor: 'White',
 		row: 'singleColumn',
 	},
@@ -55,6 +56,14 @@ export default defineType({
 			type: 'boolean',
 			description:
 				'Content Blocks have space by default, this option removes the extra space below the content if selected.',
+			fieldset: 'rowParams',
+		}),
+		defineField({
+			name: 'skinny',
+			title: 'Skinny',
+			type: 'boolean',
+			description:
+				'This option significantly reduces the top and bottom padding for all screen sizes.',
 			fieldset: 'rowParams',
 		}),
 		defineField({

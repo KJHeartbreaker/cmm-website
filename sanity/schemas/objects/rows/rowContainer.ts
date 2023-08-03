@@ -110,6 +110,22 @@ export default defineType({
 			fieldset: 'rowParams',
 		}),
 		defineField({
+			name: 'overlay',
+			type: 'string',
+			title: 'Overlay',
+			description: 'This value will only be applied if a background image has been selected.',
+			options: {
+				list: [
+					{ title: 'None', value: 'noOverlay' },
+					{ title: 'Dark', value: 'darkOverlay' },
+					{ title: 'Blue', value: 'blueOverlay' },
+				],
+				layout: 'radio',
+				direction: 'horizontal',
+			},
+			fieldset: 'rowParams',
+		}),
+		defineField({
 			name: 'backgroundColor',
 			title: 'Optional Background Colour',
 			type: 'string',

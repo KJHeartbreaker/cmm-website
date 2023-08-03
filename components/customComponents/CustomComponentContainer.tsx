@@ -20,12 +20,13 @@ interface CustomComponentProps {
 interface CustomComponentContainerProps {
 	rows: CustomComponentProps[]
 	bgImage?: ImageAsset
+	overlay: 'noOverlay' | 'darkOverlay' | 'blueOverlay'
 	bgColor?: string
 	removeBottomPadding?: boolean
 }
 
 export default function CustomComponentContainer(props: CustomComponentContainerProps) {
-	const { rows, bgImage, bgColor, removeBottomPadding } = props
+	const { rows, bgImage, overlay, bgColor, removeBottomPadding } = props
 
 	return (
 		<>
@@ -49,8 +50,10 @@ export default function CustomComponentContainer(props: CustomComponentContainer
 						component = (
 							<ContentBlock
 								bgImage={bgImage || null}
+								overlay={overlay}
 								bgColor={bgColor || undefined}
 								removeBottomPadding={removeBottomPadding || false}
+								skinny={false}
 							>
 								<GalleryGrid images={row.galleryArr} />
 							</ContentBlock>
@@ -60,8 +63,10 @@ export default function CustomComponentContainer(props: CustomComponentContainer
 						component = (
 							<ContentBlock
 								bgImage={bgImage || null}
+								overlay={overlay}
 								bgColor={bgColor || undefined}
 								removeBottomPadding={removeBottomPadding || false}
+								skinny={false}
 							>
 								<AboutUsSection iconCards={row.iconCards!} copy={row.copy!} />
 							</ContentBlock>

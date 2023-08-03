@@ -1,18 +1,30 @@
 /* eslint-disable react/destructuring-assignment */
 import { BsCardText, BsCircle, BsCircleFill } from 'react-icons/bs'
 import { defineArrayMember, defineField, defineType } from 'sanity'
+import { LiaExternalLinkSquareAltSolid as internalLinkIcon } from 'react-icons/lia'
 
 const cmmYellowIcon = () => <BsCircleFill color="#feca2d" />
-const cmmYellowDecorator = (props: any) => <span className="cmmYellow">{props.children}</span>
+const cmmYellowDecorator = (props: any) => (
+	<span style={{ color: '#feca2d' }}>{props.children}</span>
+)
 
 const cmmBlueIcon = () => <BsCircleFill color="#057198" />
-const cmmBlueDecorator = (props: any) => <span className="cmmBlue">{props.children}</span>
+const cmmBlueDecorator = (props: any) => <span style={{ color: '#057198' }}>{props.children}</span>
+
+const cmmDarkBlueIcon = () => <BsCircleFill color="#013b63" />
+const cmmDarkBlueDecorator = (props: any) => (
+	<span style={{ color: '#013b63' }}>{props.children}</span>
+)
 
 const cmmOrangeIcon = () => <BsCircleFill color="#ee6d08" />
-const cmmOrangeDecorator = (props: any) => <span className="cmmOrange">{props.children}</span>
+const cmmOrangeDecorator = (props: any) => (
+	<span style={{ color: '#ee6d08' }}>{props.children}</span>
+)
 
 const cmmWhiteIcon = () => <BsCircle />
-const cmmWhiteDecorator = (props: any) => <span className="cmmWhite">{props.children}</span>
+const cmmWhiteDecorator = (props: any) => (
+	<span style={{ color: 'white', backgroundColor: '#333333' }}>{props.children}</span>
+)
 
 const HighlightIcon = () => <span style={{ fontWeight: 'bold', color: 'yellow' }}> H </span>
 const HighlightDecorator = (props: any) => (
@@ -47,19 +59,11 @@ export default defineType({
 					],
 					marks: {
 						decorators: [
-							{ title: 'Strong', value: 'strong' },
-							{ title: 'Emphasis', value: 'em' },
 							{
 								title: 'Yellow',
 								value: 'cmmYellow',
 								icon: cmmYellowIcon,
 								component: cmmYellowDecorator,
-							},
-							{
-								title: 'Blue',
-								value: 'cmmBlue',
-								icon: cmmBlueIcon,
-								component: cmmBlueDecorator,
 							},
 							{
 								title: 'Orange',
@@ -68,11 +72,25 @@ export default defineType({
 								component: cmmOrangeDecorator,
 							},
 							{
+								title: 'Blue',
+								value: 'cmmBlue',
+								icon: cmmBlueIcon,
+								component: cmmBlueDecorator,
+							},
+							{
+								title: 'Dark Blue',
+								value: 'cmmDarkBlue',
+								icon: cmmDarkBlueIcon,
+								component: cmmDarkBlueDecorator,
+							},
+							{
 								title: 'White',
 								value: 'cmmWhite',
 								icon: cmmWhiteIcon,
 								component: cmmWhiteDecorator,
 							},
+							{ title: 'Strong', value: 'strong' },
+							{ title: 'Emphasis', value: 'em' },
 							{ title: 'Underline', value: 'underline' },
 							{
 								title: 'Highlight',
@@ -107,6 +125,7 @@ export default defineType({
 							{
 								name: 'internalLink',
 								type: 'object',
+								icon: internalLinkIcon,
 								title: 'Internal Link',
 								fields: [
 									{
@@ -120,18 +139,9 @@ export default defineType({
 					},
 				}),
 				defineArrayMember({
-					type: 'image',
-					fields: [
-						{
-							name: 'alt',
-							type: 'string',
-							title: 'Alternative text',
-							description: 'Important for SEO and accessiblity.',
-							options: {
-								isHighlighted: true,
-							},
-						},
-					],
+					title: 'CTA',
+					name: 'cta',
+					type: 'cta',
 				}),
 				defineArrayMember({
 					name: 'hr',
@@ -161,9 +171,18 @@ export default defineType({
 					],
 				}),
 				defineArrayMember({
-					title: 'CTA',
-					name: 'cta',
-					type: 'cta',
+					type: 'image',
+					fields: [
+						{
+							name: 'alt',
+							type: 'string',
+							title: 'Alternative text',
+							description: 'Important for SEO and accessiblity.',
+							options: {
+								isHighlighted: true,
+							},
+						},
+					],
 				}),
 			],
 		}),

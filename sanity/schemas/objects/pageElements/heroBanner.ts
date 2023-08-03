@@ -112,6 +112,21 @@ export default defineType({
 			fieldset: 'heroImage',
 		}),
 		defineField({
+			name: 'overlay',
+			type: 'string',
+			title: 'Overlay',
+			options: {
+				list: [
+					{ title: 'None', value: 'noOverlay' },
+					{ title: 'Dark', value: 'darkOverlay' },
+					{ title: 'Blue', value: 'blueOverlay' },
+				],
+				layout: 'radio',
+				direction: 'horizontal',
+			},
+			fieldset: 'heroImage',
+		}),
+		defineField({
 			name: 'cta',
 			title: 'CTA',
 			type: 'cta',
