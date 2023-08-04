@@ -91,8 +91,9 @@ export default defineType({
 		defineField({
 			name: 'price',
 			title: 'Price',
+			description:
+				'If no price is provided, a link will appear in its place that says Contact Us, and points to the Contact page.',
 			type: 'string',
-			validation: (rule) => rule.required(),
 			fieldset: 'textFields',
 		}),
 		defineField({
