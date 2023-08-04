@@ -45,6 +45,12 @@ export const TrainingCopyBlock = styled.div`
 		margin-top: 40px;
 	}
 
+	a > h4 {
+		&:hover {
+			color: var(--blue-22);
+		}
+	}
+
 	@media ${device.md} {
 		grid-row-start: 1;
 		grid-column-start: 1;

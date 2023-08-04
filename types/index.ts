@@ -63,7 +63,7 @@ export type TrainingSession = {
 	_id: string
 	name: string
 	slug: { current: string }
-	price: string
+	price?: string
 	description: { portableTextBlock: PortableTextBlock[] }
 	picture: SanityImageProps
 	cta: CTAProps

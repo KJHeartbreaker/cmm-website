@@ -3,6 +3,7 @@
 import React from 'react'
 import { PortableTextBlock } from 'sanity'
 import { TrainingSession } from 'types'
+import Link from 'next/link'
 import {
 	TrainingContentContainer,
 	TrainingCopyBlock,
@@ -53,7 +54,13 @@ const TrainingComponent: React.FC<TrainingSession> = ({
 			<TrainingCopyBlock>
 				<h5>{type}</h5>
 				<h2>{name}</h2>
-				<h4>{`$${price}`}</h4>
+				{price ? (
+					<h4>${price}</h4>
+				) : (
+					<Link href="/contact">
+						<h4>Contact Us</h4>
+					</Link>
+				)}
 				<SimplePortableText value={description.portableTextBlock as PortableTextBlock[]} />
 				<CTAButton
 					title={cta.title}
