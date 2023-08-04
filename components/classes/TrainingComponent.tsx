@@ -95,12 +95,12 @@ const TrainingComponent: React.FC<TrainingSession> = ({
 								</p>
 							))}
 						</>
+					) : trainingType === 'group' ? (
+						<h2>Check back for availability</h2>
 					) : (
-						<h2>{`${
-							trainingType === 'group'
-								? 'Check back for availability'
-								: 'Contact for more information'
-						} `}</h2>
+						<Link href="/contact">
+							<h2>Contact for more information</h2>
+						</Link>
 					)}
 				</div>
 				<div className="calendar-container">
