@@ -24,6 +24,8 @@ export default function RowColumn(panel: PanelContent) {
 		condensedCopy,
 	} = panel
 
+	console.log('asset: ', asset)
+
 	return (
 		<StyledRowColumn>
 			{_type === 'mainPortableText' && (
@@ -33,8 +35,9 @@ export default function RowColumn(panel: PanelContent) {
 					</div>
 				</RowColumnCopy>
 			)}
-			{_type === 'mainImage' && (
+			{_type === 'mainImage' && asset && (
 				<div className="image-container">
+					{/* @ts-ignore */}
 					<SanityComponentImage asset={asset} alt={asset!.alt} />
 				</div>
 			)}
