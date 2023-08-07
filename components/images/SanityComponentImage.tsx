@@ -12,6 +12,8 @@ const SanityComponentImage = (props: SanityImageProps) => {
 	let imageId
 	let preview
 
+	if (!image && !asset) return null
+
 	if (image && !asset) {
 		imageId = image._id
 		preview = image.metadata.lqip

@@ -9,6 +9,9 @@ const SanityBackgroundImage = (props: any) => {
 
 	const { image, overlay } = props
 	const { alt, crop, hotspot, asset } = image
+
+	if (!asset) return null
+
 	const imageId = asset._id
 
 	return (
