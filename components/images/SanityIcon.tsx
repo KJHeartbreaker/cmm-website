@@ -8,6 +8,9 @@ const SanityIcon = (icon: SanityIconProps) => {
 	const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
 
 	const { alt, asset } = icon
+
+	if (!asset) return null
+
 	const iconId = asset._id
 
 	return (

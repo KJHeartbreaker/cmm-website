@@ -26,7 +26,8 @@ export default defineType({
 	],
 	initialValue: {
 		row: 'twoColumn',
-		backgroundColor: 'White',
+		backgroundColor: '#ffffff',
+		overlay: 'noOverlay',
 		centerTitle: false,
 		hideTitle: false,
 		titleColor: 'Dark Grey',
