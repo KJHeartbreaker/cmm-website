@@ -112,7 +112,7 @@ export type SanityImageProps = {
 	height?: number
 	hotspot?: { x: number; y: number }
 	crop?: { top: number; bottom: number; left: number; right: number }
-	asset: any
+	asset: ImageAsset
 	image?: any
 }
 
