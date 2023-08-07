@@ -1,14 +1,14 @@
 'use client'
 
 import React from 'react'
-import { ImageAsset } from 'types'
+import { SanityImageProps } from 'types'
 
 import { Section } from 'styles/Wrappers'
 import SanityBackgroundImage from '../images/SanityBackgroundImage'
 
 interface ContentBlockProps {
 	bgColor?: string
-	bgImage?: ImageAsset | null
+	bgImage?: SanityImageProps | null
 	overlay: 'noOverlay' | 'darkOverlay' | 'blueOverlay'
 	removeBottomPadding: boolean
 	skinny: boolean
@@ -20,15 +20,17 @@ interface ContentBlockProps {
 const ContentBlock: React.FC<ContentBlockProps> = (props) => {
 	const { bgColor, bgImage, overlay, removeBottomPadding, skinny, children, classes, id } = props
 
+	const hasBg = bgImage?.asset
+
 	return (
 		<Section
 			className={`${removeBottomPadding ? 'short' : ''} ${skinny ? 'skinny' : ''} ${
-				bgImage ? 'has-bg' : ''
+				hasBg ? 'has-bg' : ''
 			} ${classes || ''}`}
 			id={id || ''}
 			style={{ backgroundColor: bgColor }}
 		>
-			{bgImage && <SanityBackgroundImage image={bgImage} overlay={overlay} />}
+			{hasBg && <SanityBackgroundImage image={bgImage} overlay={overlay} />}
 			{children}
 		</Section>
 	)
