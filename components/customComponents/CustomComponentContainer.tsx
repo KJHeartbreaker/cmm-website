@@ -1,4 +1,4 @@
-import { GroupClass, ImageAsset, Trainer } from 'types'
+import { GroupClass, ImageAsset, SanityImageProps, Trainer } from 'types'
 
 import { PortableTextBlock } from 'sanity'
 import GalleryGrid from './gallery/GalleryGrid'
@@ -19,7 +19,7 @@ interface CustomComponentProps {
 
 interface CustomComponentContainerProps {
 	rows: CustomComponentProps[]
-	bgImage?: ImageAsset
+	bgImage?: SanityImageProps | null
 	overlay: 'noOverlay' | 'darkOverlay' | 'blueOverlay'
 	bgColor?: string
 	removeBottomPadding?: boolean
