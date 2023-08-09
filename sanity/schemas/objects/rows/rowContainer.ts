@@ -151,15 +151,16 @@ export default defineType({
 			title: 'Row Content',
 			// description: 'You can create custom cards, or reference items in the Tool Set.',
 			of: [
-				defineArrayMember({ type: 'mainPortableText' }),
+				defineArrayMember({ type: 'acuityForm' }),
+				defineArrayMember({ type: 'carousel' }),
+				defineArrayMember({ type: 'form' }),
+				defineArrayMember({ type: 'iconCard' }),
 				defineArrayMember({
 					type: 'mainImage',
 					options: { hotspot: true },
 				}),
-				defineArrayMember({ type: 'form' }),
-				defineArrayMember({ type: 'acuityForm' }),
-				defineArrayMember({ type: 'iconCard' }),
 				defineArrayMember({ type: 'imageButtonCard' }),
+				defineArrayMember({ type: 'mainPortableText' }),
 			],
 		}),
 

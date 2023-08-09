@@ -1,4 +1,4 @@
-import { FcFlashOn as icon } from 'react-icons/fc'
+import { GiButtonFinger as icon } from 'react-icons/gi'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({

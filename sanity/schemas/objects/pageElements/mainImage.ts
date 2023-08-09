@@ -1,3 +1,4 @@
+// import { BsImage as icon } from 'react-icons/bs'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({

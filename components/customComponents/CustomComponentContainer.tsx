@@ -1,4 +1,4 @@
-import { GroupClass, ImageAsset, SanityImageProps, Trainer } from 'types'
+import { GroupClass, SanityImageProps, Trainer } from 'types'
 
 import { PortableTextBlock } from 'sanity'
 import GalleryGrid from './gallery/GalleryGrid'

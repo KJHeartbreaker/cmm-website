@@ -4,7 +4,7 @@ import { defineField, defineType } from 'sanity'
 export default defineType({
 	name: 'form',
 	type: 'object',
-	title: 'Form',
+	title: 'Contact Form',
 	icon,
 	fields: [
 		defineField({
@@ -19,4 +19,14 @@ export default defineType({
 			type: 'simplePortableText',
 		}),
 	],
+	preview: {
+		select: {
+			title: 'title',
+		},
+		prepare({ title }) {
+			return {
+				title: `Contact Form: ${title}`,
+			}
+		},
+	},
 })

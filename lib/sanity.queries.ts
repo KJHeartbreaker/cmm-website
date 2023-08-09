@@ -208,6 +208,22 @@ export const homePageQuery = groq`
             },
             'rowContent': rowContent[]{
                 ...,
+                _type == 'carousel' => {
+                    autoplay,
+                    carouselImages[]{
+                        alt,
+                        width,
+                        height,
+                        crop,
+                        hotspot,
+                        asset -> {
+                            _id,
+                            metadata {
+                                lqip
+                            }
+                        }
+                    }
+                },
                 'icon': icon {
                     alt,
                     asset-> {
@@ -571,6 +587,22 @@ export const pagesBySlugQuery = groq`
             },
             'rowContent': rowContent[]{
                 ...,
+                _type == 'carousel' => {
+                    autoplay,
+                    carouselImages[]{
+                        alt,
+                        width,
+                        height,
+                        crop,
+                        hotspot,
+                        asset -> {
+                            _id,
+                            metadata {
+                                lqip
+                            }
+                        }
+                    }
+                },
                 'icon': icon {
                     alt,
                     asset-> {

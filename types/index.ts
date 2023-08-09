@@ -89,6 +89,8 @@ export type PanelContent = {
 	asset?: SanityImageProps
 	image?: SanityImageProps
 	landingPageRoute?: LandingPageRouteProps
+	autoplay: boolean
+	carouselImages: SanityImageProps[]
 }
 
 export interface SanityIconProps {
