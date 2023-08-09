@@ -86,10 +86,25 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 		z-index: 1;
 		width: 100%;
 
-		align-items: center;
-
 		@media ${device.sm} {
+			align-items: center;
 			grid-template-columns: repeat(2, 1fr);
+		}
+
+		&.condensed {
+			@media ${device.sm} {
+				grid-template-columns: repeat(2, 1fr);
+
+				${StyledRowColumn} {
+					${RowColumnCopy} {
+						align-items: center;
+					}
+				}
+			}
+
+			@media ${device.md} {
+				grid-template-columns: repeat(2, 400px);
+			}
 		}
 	}
 `

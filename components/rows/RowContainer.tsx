@@ -32,11 +32,7 @@ const RowContainer: React.FC<RowContainerProps> = ({
 }: RowContainerProps) => (
 	<>
 		{row === 'singleColumn' && (
-			<SingleColumnRowComponent
-				panels={content}
-				centerContent={centerContent!}
-				// condensedCopy={condensedCopy}
-			/>
+			<SingleColumnRowComponent panels={content} centerContent={centerContent!} />
 		)}
 		{row === 'twoColumn' && (
 			<TwoColumnRow
