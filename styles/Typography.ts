@@ -25,24 +25,17 @@ const Typography = createGlobalStyle`
     }
 
     ol, ul {
-        /* list-style: disc; */
-
         margin-bottom: 12px;
-        margin-left: 20px;
+        margin-left: 30px;
 
         li {
             list-style-image: url("ListStylePaw.svg");
-            /* display: flex; */
-
-            /* &::marker {
-                font-size: 2.5rem;
-            } */
         }
     }
-/*
+
     li {
         margin-bottom: 8px;
-    } */
+    }
 
     blockquote {
         font-size: var(--font-title3-mobile-size);

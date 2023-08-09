@@ -31,7 +31,7 @@ export default function TwoColumnRow({
 					<h2 style={{ color: titleColor }}>{title}</h2>
 				</div>
 			)}
-			<div className="columns">
+			<div className={condensedCopy ? 'columns condensed' : 'columns'}>
 				{panels.map((panel) => (
 					<RowColumn
 						key={panel._key}

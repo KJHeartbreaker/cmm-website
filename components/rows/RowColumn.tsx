@@ -23,7 +23,6 @@ export default function RowColumn(panel: PanelContent) {
 		landingPageRoute,
 		image,
 		centerCopy,
-		condensedCopy,
 		autoplay,
 		carouselImages,
 	} = panel
@@ -59,7 +58,7 @@ export default function RowColumn(panel: PanelContent) {
 				</div>
 			)}
 			{_type === 'mainPortableText' && (
-				<RowColumnCopy className={condensedCopy ? 'condensed' : ''}>
+				<RowColumnCopy>
 					<div className={centerCopy ? 'copy-block centered' : 'copy-block'}>
 						<CustomPortableText value={portableTextBlock! as PortableTextBlock[]} />
 					</div>
