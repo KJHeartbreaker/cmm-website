@@ -1,4 +1,4 @@
-import { FcFlashOn as icon } from 'react-icons/fc'
+import { SiIconify as icon } from 'react-icons/si'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({

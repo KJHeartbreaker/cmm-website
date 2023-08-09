@@ -7,6 +7,8 @@ import SanityComponentImage from '../images/SanityComponentImage'
 import ImageButton from '../cards/ImageButtonCard'
 import { RowColumnCopy, StyledRowColumn } from './Row.styles'
 import ContactFormPanel from '../forms/ContactFormPanel'
+import { Carousel } from '../carousel/Carousel'
+import { CarouselContainer } from '../carousel/Carousel.styles'
 
 export default function RowColumn(panel: PanelContent) {
 	const {
@@ -22,25 +24,21 @@ export default function RowColumn(panel: PanelContent) {
 		image,
 		centerCopy,
 		condensedCopy,
+		autoplay,
+		carouselImages,
 	} = panel
-
-	console.log('asset: ', asset)
 
 	return (
 		<StyledRowColumn>
-			{_type === 'mainPortableText' && (
-				<RowColumnCopy className={condensedCopy ? 'condensed' : ''}>
-					<div className={centerCopy ? 'copy-block centered' : 'copy-block'}>
-						<CustomPortableText value={portableTextBlock! as PortableTextBlock[]} />
-					</div>
-				</RowColumnCopy>
+			{_type === 'acuityForm' && (
+				<ContactFormPanel title={title} copy={copy} type="acuityForm" />
 			)}
-			{_type === 'mainImage' && asset && (
-				<div className="image-container">
-					{/* @ts-ignore */}
-					<SanityComponentImage asset={asset} alt={asset!.alt} />
-				</div>
+			{_type === 'carousel' && (
+				<CarouselContainer>
+					<Carousel autoTransition={autoplay} carouselImages={carouselImages} />
+				</CarouselContainer>
 			)}
+			{_type === 'form' && <ContactFormPanel title={title} copy={copy} type="form" />}
 			{_type === 'iconCard' && (
 				// @ts-ignore
 				<IconCard icon={icon!} heading={heading!} copy={copy!} cta={cta!} />
@@ -54,9 +52,18 @@ export default function RowColumn(panel: PanelContent) {
 					landingPageRoute={landingPageRoute!}
 				/>
 			)}
-			{_type === 'form' && <ContactFormPanel title={title} copy={copy} type="form" />}
-			{_type === 'acuityForm' && (
-				<ContactFormPanel title={title} copy={copy} type="acuityForm" />
+			{_type === 'mainImage' && asset && (
+				<div className="image-container">
+					{/* @ts-ignore */}
+					<SanityComponentImage asset={asset} alt={asset!.alt} />
+				</div>
+			)}
+			{_type === 'mainPortableText' && (
+				<RowColumnCopy className={condensedCopy ? 'condensed' : ''}>
+					<div className={centerCopy ? 'copy-block centered' : 'copy-block'}>
+						<CustomPortableText value={portableTextBlock! as PortableTextBlock[]} />
+					</div>
+				</RowColumnCopy>
 			)}
 		</StyledRowColumn>
 	)

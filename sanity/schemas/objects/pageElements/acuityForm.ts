@@ -19,4 +19,14 @@ export default defineType({
 			type: 'simplePortableText',
 		}),
 	],
+	preview: {
+		select: {
+			title: 'title',
+		},
+		prepare({ title }) {
+			return {
+				title: `Acuity Embed: ${title}`,
+			}
+		},
+	},
 })
