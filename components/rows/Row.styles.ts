@@ -89,17 +89,17 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 		gap: 20px;
 		z-index: 1;
 		width: 100%;
-		height: 100%;
+		/* height: 100vh; */
 		border: 2px solid springgreen;
 
 		@media ${device.sm} {
 			align-items: center;
-			grid-template-rows: 1fr;
 			grid-template-columns: repeat(2, 1fr);
 		}
 
 		&.condensed {
 			${StyledRowColumn} {
+				height: fit-content;
 				border: 2px solid red;
 			}
 
