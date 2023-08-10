@@ -83,7 +83,7 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 
 	div.columns {
 		display: grid;
-		grid-template-columns: 1;
+		grid-template-columns: auto;
 		justify-content: center;
 		gap: 20px;
 		z-index: 1;
