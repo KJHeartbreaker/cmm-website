@@ -88,6 +88,7 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 		gap: 20px;
 		z-index: 1;
 		width: 100%;
+		height: 100%;
 
 		@media ${device.sm} {
 			align-items: center;
