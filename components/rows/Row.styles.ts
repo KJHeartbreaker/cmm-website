@@ -94,6 +94,7 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 
 		@media ${device.sm} {
 			align-items: center;
+			grid-template-rows: 1fr;
 			grid-template-columns: repeat(2, 1fr);
 		}
 
