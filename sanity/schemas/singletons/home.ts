@@ -81,12 +81,24 @@ export default defineType({
 					type: 'productGridContainer',
 				}),
 				defineArrayMember({
+					name: 'Programs Grid',
+					type: 'programsGridContainer',
+				}),
+				defineArrayMember({
+					name: 'Trainers Grid',
+					type: 'trainersGridContainer',
+				}),
+				defineArrayMember({
 					name: 'Testimonials',
 					type: 'testimonialGridContainer',
 				}),
 				defineArrayMember({
 					name: 'Custom Component',
 					type: 'customComponent',
+				}),
+				defineArrayMember({
+					name: 'Class Row',
+					type: 'classRowsContainer',
 				}),
 			],
 		}),

@@ -1,4 +1,4 @@
-import { GiJumpingDog as icon } from 'react-icons/gi'
+import { WiTrain as icon } from 'react-icons/wi'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
