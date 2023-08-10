@@ -100,9 +100,8 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 
 		&.condensed {
 			@media ${device.sm} {
-				grid-template-columns: repeat(2, 1fr);
-
 				${StyledRowColumn} {
+					border: 2px solid red;
 					${RowColumnCopy} {
 						align-items: center;
 					}
