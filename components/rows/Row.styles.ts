@@ -93,7 +93,7 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 		overflow: hidden;
 
 		@media ${device.sm} {
-			align-items: center;
+			align-items: flex-start;
 			grid-template-columns: repeat(2, 1fr);
 		}
 
