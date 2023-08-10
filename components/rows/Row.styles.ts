@@ -99,9 +99,12 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 		}
 
 		&.condensed {
+			${StyledRowColumn} {
+				border: 2px solid red;
+			}
+
 			@media ${device.sm} {
 				${StyledRowColumn} {
-					border: 2px solid red;
 					${RowColumnCopy} {
 						align-items: center;
 					}
