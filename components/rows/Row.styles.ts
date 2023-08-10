@@ -84,12 +84,13 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 
 	div.columns {
 		display: grid;
-		grid-template-rows: auto;
+		grid-template-rows: max-content;
 		grid-template-columns: 1fr;
 		justify-content: center;
 		gap: 20px;
 		z-index: 1;
 		width: 100%;
+		overflow: hidden;
 
 		@media ${device.sm} {
 			align-items: center;
@@ -135,6 +136,7 @@ export const ThreeColumnRowContainer = styled(ContentContainer)`
 	div.columns {
 		display: grid;
 		grid-template-columns: 1;
+		grid-template-rows: max-content;
 		justify-content: center;
 		gap: 20px;
 		z-index: 1;
