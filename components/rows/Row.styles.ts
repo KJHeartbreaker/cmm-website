@@ -7,7 +7,10 @@ export const StyledRowColumn = styled.div`
 	flex-direction: column;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
+
+	&.carousel-wrapper {
+		overflow: hidden;
+	}
 
 	div.image-container {
 		display: flex;

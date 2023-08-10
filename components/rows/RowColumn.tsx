@@ -28,7 +28,7 @@ export default function RowColumn(panel: PanelContent) {
 	} = panel
 
 	return (
-		<StyledRowColumn>
+		<StyledRowColumn className={_type === 'carousel' ? 'carousel-wrapper' : ''}>
 			{_type === 'acuityForm' && (
 				<ContactFormPanel title={title} copy={copy} type="acuityForm" />
 			)}
