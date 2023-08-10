@@ -35,6 +35,7 @@ export const RowColumnCopy = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	width: 100%;
+	margin-bottom: 20px;
 
 	h2 {
 		margin: 0 0 20px 0;
@@ -83,7 +84,8 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 
 	div.columns {
 		display: grid;
-		grid-template-columns: 1;
+		grid-template-rows: auto;
+		grid-template-columns: 1fr;
 		justify-content: center;
 		gap: 20px;
 		z-index: 1;
@@ -95,9 +97,11 @@ export const TwoColumnRowContainer = styled(ContentContainer)`
 		}
 
 		&.condensed {
-			@media ${device.sm} {
-				grid-template-columns: repeat(2, 1fr);
+			${StyledRowColumn} {
+				height: fit-content;
+			}
 
+			@media ${device.sm} {
 				${StyledRowColumn} {
 					${RowColumnCopy} {
 						align-items: center;
