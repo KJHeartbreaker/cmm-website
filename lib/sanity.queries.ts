@@ -1,51 +1,167 @@
 import { groq } from 'next-sanity'
 
-export const homePageQuery = groq`
-    *[_type == "home"][0]{
+const ImageProjection = groq`
+    alt,
+    width,
+    height,
+    crop,
+    hotspot,
+    asset -> {
         _id,
-        overview,
-        title,
-        "slug": slug.current,
-        'content': content[]{
-            ...,
+        metadata {
+            lqip
+        }
+    }
+`
+
+const PageQueryProjection = groq`
+    _id,
+    overview,
+    title,
+    "slug": slug.current,
+    'content': content[]{
+        ...,
+        'classRefs': classRefs[]{
+            _type == 'reference' => @-> {
+                _id,
+                name,
+                trainingType,
+                price,
+                'upcoming': upcoming[]{
+                    _key,
+                    availability,
+                    startDate,
+                },
+                takeaways,
+                'slug': slug {
+                    current
+                },
+                'cta': cta {
+                    title,
+                    arrow,
+                    kind,
+                    landingPageRoute -> {
+                        slug {
+                            current
+                        },
+                    }
+                },
+                "description": description {
+                    portableTextBlock[] {
+                        ...,
+                        markDefs[]{
+                            ...,
+                            item -> {
+                                ...,
+                                _type == "class" => {
+                                    "slug": slug {
+                                        current
+                                    },
+                                    "parentPage": parentPage->{
+                                        "parentSlug": slug {
+                                            current
+                                        }
+                                    }
+                                },
+                            },
+                        },
+                    },
+                },
+                'picture': picture {
+                    ${ImageProjection}
+                },
+            }
+        },
+        'image': image {
+            ${ImageProjection}
+        },
+        'productsArr': productsArr[] -> {
+            _key,
+            heading,
+            price,
+            'cta': cta {
+                arrow,
+                kind,
+                title,
+                'landingPageRoute': landingPageRoute-> {
+                    slug {
+                        current
+                    },
+                },
+            },
             'image': image {
-                alt,
-                width,
-                height,
-                crop,
-                hotspot,
-                asset-> {
+                ${ImageProjection}
+            },
+        },
+        'trainers': trainers[]{
+            _type == 'reference' => @-> {
+                _id,
+                name,
+                slug,
+                certifications,
+                picture {
+                    ${ImageProjection}
+                }
+            }
+        },
+        'programs': programs[]{
+            _type == 'reference' => @-> {
+                _id,
+                name,
+                slug,
+                'parent': parentPage -> {
+                    slug {
+                        current
+                    }
+                },
+                trainingType,
+                dogName,
+                namePlacement,
+                cardImage {
+                    ${ImageProjection}
+                }
+            }
+        },
+        'testimonialsArr': testimonialsArr[] -> {
+            _key,
+            heading,
+            copy,
+        },
+        'rows': rows[] {
+            ...,
+            portableTextBlock[]{
+                ...,
+                'fileDownload': fileDownload {
+                    ...select(
+                        _type == 'file' => {
+                            ...,
+                            asset->
+                        },
+                        @
+                    )
+                },
+                'asset': asset-> {
+                    ...,
                     _id,
                     metadata {
                         lqip
                     }
+                },
+                'landingPageRoute': landingPageRoute->
+            },
+            'copy': copy {
+                portableTextBlock[]{
+                    ...,
+                    'landingPageRoute': landingPageRoute->
                 }
             },
-            'productsArr': productsArr[] -> {
-                _key,
+            'iconCards': iconCards[] {
+                copy,
                 heading,
-                price,
-                'cta': cta {
-                    arrow,
-                    kind,
-                    title,
-                    'landingPageRoute': landingPageRoute-> {
-                        slug {
-                            current
-                        },
-                    },
-                },
-                'image': image {
+                'icon': icon {
                     alt,
-                    width,
-                    height,
-                    crop,
-                    hotspot,
-                    asset-> {
-                        _id,
-                        metadata {
-                            lqip
-                        }
+                    asset -> {
+                        _id
                     }
                 },
             },
@@ -55,188 +171,97 @@ export const homePageQuery = groq`
                     name,
                     slug,
                     certifications,
+                    role,
+                    bio,
                     picture {
-                        alt,
-                        width,
-                        height,
-                        crop,
-                        hotspot,
-                        asset-> {
-                            _id,
-                            metadata {
-                                lqip
-                            }
-                        }
+                        ${ImageProjection}
                     }
                 }
             },
-            'programs': class[]{
+            'groupClasses': classesArr[]{
                 _type == 'reference' => @-> {
                     _id,
                     name,
-                    slug,
-                    trainingType,
-                    dogName,
-                    namePlacement,
-                    cardImage {
-                        alt,
-                        width,
-                        height,
-                        crop,
-                        hotspot,
-                        asset-> {
-                            _id,
-                            metadata {
-                                lqip
-                            }
-                        }
+                    subheadline,
+                    price,
+                    description,
+                    subMenuTitle,
+                    'slug': slug {
+                        current
+                    },
+                    'cta': cta {
+                        title,
+                        arrow,
+                        kind,
+                        landingPageRoute ->
+                    },
+                    'picture': picture {
+                        ${ImageProjection}
+                    },
+                    oDName,
+                    oDDescription,
+                    oDCTA
+                }
+            },
+            'galleryArr': galleryArr[] {
+                alt,
+                crop,
+                hotspot,
+                asset-> {
+                    _id,
+                    metadata {
+                        lqip
                     }
                 }
             },
-            'testimonialsArr': testimonialsArr[] -> {
-                _key,
-                heading,
-                copy,
+        },
+        'rowContent': rowContent[]{
+            ...,
+            _type == 'carousel' => {
+                autoplay,
+                carouselImages[]{
+                    ${ImageProjection}
+                }
             },
-            'rows': rows[] {
+            'icon': icon {
+                alt,
+                asset-> {
+                    _id
+                }
+            },
+            'cta': cta {
                 ...,
-                portableTextBlock[]{
-                    ...,
-                    'fileDownload': fileDownload {
-                        ...select(
-                            _type == 'file' => {
-                                ...,
-                                asset->
-                            },
-                            @
-                        )
+                'landingPageRoute': landingPageRoute-> {
+                    slug {
+                        current
                     },
-                    'asset': asset-> {
-                        ...,
-                        _id,
-                        metadata {
-                            lqip
-                        }
-                    },
-                    'landingPageRoute': landingPageRoute->
-                },
-                'copy': copy {
-                    portableTextBlock[]{
-                        ...,
-                        'landingPageRoute': landingPageRoute->
-                    }
-                },
-                'iconCards': iconCards[] {
-                    copy,
-                    heading,
-                    'icon': icon {
-                        alt,
-                        asset -> {
-                            _id
-                        }
-                    },
-                },
-                'trainers': trainers[]{
-                    _type == 'reference' => @-> {
-                        _id,
-                        name,
-                        slug,
-                        certifications,
-                        role,
-                        bio,
-                        picture {
-                            alt,
-                            width,
-                            height,
-                            crop,
-                            hotspot,
-                            asset-> {
-                                _id,
-                                metadata {
-                                    lqip
-                                }
-                            }
-                        }
-                    }
-                },
-                'groupClasses': classesArr[]{
-                    _type == 'reference' => @-> {
-                        _id,
-                        name,
-                        subheadline,
-                        price,
-                        description,
-                        subMenuTitle,
-                        'slug': slug {
-                            current
-                        },
-                        'cta': cta {
-                            title,
-                            arrow,
-                            kind,
-                            landingPageRoute ->
-                        },
-                        'picture': picture {
-                            alt,
-                            width,
-                            height,
-                            crop,
-                            hotspot,
-                            asset -> {
-                                _id,
-                                metadata {
-                                    lqip
-                                }
-                            }
-                        },
-                        oDName,
-                        oDDescription,
-                        oDCTA
-                    }
-                },
-                'galleryArr': galleryArr[] {
-                    alt,
-                    crop,
-                    hotspot,
-                    asset-> {
-                        _id,
-                        metadata {
-                            lqip
-                        }
-                    }
                 },
             },
-            'rowContent': rowContent[]{
+            'asset': asset-> {
                 ...,
-                _type == 'carousel' => {
-                    autoplay,
-                    carouselImages[]{
-                        alt,
-                        width,
-                        height,
-                        crop,
-                        hotspot,
-                        asset -> {
-                            _id,
-                            metadata {
-                                lqip
-                            }
-                        }
-                    }
+                _id,
+                metadata {
+                    lqip
+                }
+            },
+            'landingPageRoute': landingPageRoute-> {
+                slug {
+                    current
                 },
-                'icon': icon {
-                    alt,
-                    asset-> {
-                        _id
-                    }
-                },
-                'cta': cta {
-                    ...,
-                    'landingPageRoute': landingPageRoute-> {
-                        slug {
-                            current
+            },
+            'image': image {
+                ${ImageProjection}
+            },
+            portableTextBlock[]{
+                ...,
+                'fileDownload': fileDownload {
+                    ...select(
+                        _type == 'file' => {
+                            ...,
+                            asset->
                         },
-                    },
+                        @
+                    )
                 },
                 'asset': asset-> {
                     ...,
@@ -245,77 +270,36 @@ export const homePageQuery = groq`
                         lqip
                     }
                 },
-                'landingPageRoute': landingPageRoute-> {
-                    slug {
-                        current
-                    },
-                },
-                'image': image {
-                    alt,
-                    width,
-                    height,
-                    crop,
-                    hotspot,
-                    asset-> {
-                        _id,
-                        metadata {
-                            lqip
-                        }
-                    }
-                },
-                portableTextBlock[]{
+                'landingPageRoute': landingPageRoute->,
+                markDefs[]{
                     ...,
-                    'fileDownload': fileDownload {
-                        ...select(
-                            _type == 'file' => {
-                                ...,
-                                asset->
+                    item -> {
+                        ...,
+                        _type == "class" => {
+                            "slug": slug {
+                                current
                             },
-                            @
-                        )
-                    },
-                    'asset': asset-> {
-                        ...,
-                        _id,
-                        metadata {
-                            lqip
-                        }
-                    },
-                    'landingPageRoute': landingPageRoute->,
-                    markDefs[]{
-                        ...,
-                        item -> {
-                            ...,
-                            _type == "class" => {
-                                "slug": slug {
+                            "parentPage": parentPage->{
+                                "parentSlug": slug {
                                     current
-                                },
-                                "parentPage": parentPage->{
-                                    "parentSlug": slug {
-                                        current
-                                    }
                                 }
+                            }
+                        },
+                        _type == 'page' => {
+                            "slug": slug {
+                                current
                             },
                         },
                     },
-                    // 'markDefs': markDefs[]{
-                    //     'classType': item -> {
-                    //         _type == 'class' => {
-                    //         'parentPage': parentPage -> {
-                    //             slug
-                    //         },
-                    //         slug
-                    //         }
-                    //     },
-                    //     'pageType': item -> {
-                    //         _type == 'page' => {
-                    //         slug
-                    //         }
-                    //     }
-                    // },
                 },
             },
-        },
+        }
+    },
+`
+
+export const homePageQuery = groq`
+    *[_type == "home"][0]{
+        ${PageQueryProjection}
     }
 `
 
@@ -325,360 +309,7 @@ export const homePageTitleQuery = groq`
 
 export const pagesBySlugQuery = groq`
     *[_type == "page" && slug.current == $slug][0] {
-        _id,
-        overview,
-        title,
-        "slug": slug.current,
-        'content': content[]{
-            ...,
-            'classRefs': classRefs[]{
-                _type == 'reference' => @-> {
-                    _id,
-                    name,
-                    trainingType,
-                    price,
-                    'upcoming': upcoming[]{
-                        _key,
-                        availability,
-                        startDate,
-                    },
-                    takeaways,
-                    'slug': slug {
-                        current
-                    },
-                    'cta': cta {
-                        title,
-                        arrow,
-                        kind,
-                        landingPageRoute -> {
-                            slug {
-                                current
-                            },
-                        }
-                    },
-                    "description": description {
-                        portableTextBlock[] {
-                            ...,
-                            markDefs[]{
-                                ...,
-                                item -> {
-                                    ...,
-                                    _type == "class" => {
-                                        "slug": slug {
-                                            current
-                                        },
-                                        "parentPage": parentPage->{
-                                            "parentSlug": slug {
-                                                current
-                                            }
-                                        }
-                                    },
-                                },
-                            },
-                        },
-                    },
-                    'picture': picture {
-                        alt,
-                        width,
-                        height,
-                        crop,
-                        hotspot,
-                        asset -> {
-                            _id,
-                            metadata {
-                                lqip
-                            }
-                        }
-                    },
-                }
-            },
-            'image': image {
-                alt,
-                width,
-                height,
-                crop,
-                hotspot,
-                asset-> {
-                    _id,
-                    metadata {
-                        lqip
-                    }
-                }
-            },
-            'productsArr': productsArr[] -> {
-                _key,
-                heading,
-                price,
-                'cta': cta {
-                    arrow,
-                    kind,
-                    title,
-                    'landingPageRoute': landingPageRoute-> {
-                        slug {
-                            current
-                        },
-                    },
-                },
-                'image': image {
-                    alt,
-                    width,
-                    height,
-                    crop,
-                    hotspot,
-                    asset-> {
-                        _id,
-                        metadata {
-                            lqip
-                        }
-                    }
-                },
-            },
-            'trainers': trainers[]{
-                _type == 'reference' => @-> {
-                    _id,
-                    name,
-                    slug,
-                    certifications,
-                    picture {
-                        alt,
-                        width,
-                        height,
-                        crop,
-                        hotspot,
-                        asset-> {
-                            _id,
-                            metadata {
-                                lqip
-                            }
-                        }
-                    }
-                }
-            },
-            'programs': programs[]{
-                _type == 'reference' => @-> {
-                    _id,
-                    name,
-                    slug,
-                    'parent': parentPage -> {
-                        slug {
-                            current
-                        }
-                    },
-                    trainingType,
-                    dogName,
-                    namePlacement,
-                    cardImage {
-                        alt,
-                        width,
-                        height,
-                        crop,
-                        hotspot,
-                        asset-> {
-                            _id,
-                            metadata {
-                                lqip
-                            }
-                        }
-                    }
-                }
-            },
-            'testimonialsArr': testimonialsArr[] -> {
-                _key,
-                heading,
-                copy,
-            },
-            'rows': rows[] {
-                ...,
-                portableTextBlock[]{
-                    ...,
-                    'fileDownload': fileDownload {
-                        ...select(
-                            _type == 'file' => {
-                                ...,
-                                asset->
-                            },
-                            @
-                        )
-                    },
-                    'asset': asset-> {
-                        ...,
-                        _id,
-                        metadata {
-                            lqip
-                        }
-                    },
-                    'landingPageRoute': landingPageRoute->
-                },
-                'copy': copy {
-                    portableTextBlock[]{
-                        ...,
-                        'landingPageRoute': landingPageRoute->
-                    }
-                },
-                'trainers': trainers[]{
-                    _type == 'reference' => @-> {
-                        _id,
-                        name,
-                        slug,
-                        certifications,
-                        role,
-                        bio,
-                        picture {
-                            alt,
-                            width,
-                            height,
-                            crop,
-                            hotspot,
-                            asset-> {
-                                _id,
-                                metadata {
-                                    lqip
-                                }
-                            }
-                        }
-                    }
-                },
-                'groupClasses': classesArr[]{
-                    _type == 'reference' => @-> {
-                        _id,
-                        name,
-                        subheadline,
-                        price,
-                        description,
-                        subMenuTitle,
-                        'slug': slug {
-                            current
-                        },
-                        'cta': cta {
-                            title,
-                            arrow,
-                            kind,
-                            landingPageRoute ->
-                        },
-                        'picture': picture {
-                            alt,
-                            width,
-                            height,
-                            crop,
-                            hotspot,
-                            asset -> {
-                                _id,
-                                metadata {
-                                    lqip
-                                }
-                            }
-                        },
-                        oDName,
-                        oDDescription,
-                        oDCTA
-                    }
-                },
-                'galleryArr': galleryArr[] {
-                    alt,
-                    crop,
-                    hotspot,
-                    asset-> {
-                        _id,
-                        metadata {
-                            lqip
-                        }
-                    }
-                },
-            },
-            'rowContent': rowContent[]{
-                ...,
-                _type == 'carousel' => {
-                    autoplay,
-                    carouselImages[]{
-                        alt,
-                        width,
-                        height,
-                        crop,
-                        hotspot,
-                        asset -> {
-                            _id,
-                            metadata {
-                                lqip
-                            }
-                        }
-                    }
-                },
-                'icon': icon {
-                    alt,
-                    asset-> {
-                        _id
-                    }
-                },
-                'cta': cta {
-                    ...,
-                    'landingPageRoute': landingPageRoute-> {
-                        slug {
-                            current
-                        },
-                    },
-                },
-                'asset': asset-> {
-                    ...,
-                    _id,
-                    metadata {
-                        lqip
-                    }
-                },
-                'landingPageRoute': landingPageRoute-> {
-                    slug {
-                        current
-                    },
-                },
-                'image': image {
-                    alt,
-                    width,
-                    height,
-                    crop,
-                    hotspot,
-                    asset-> {
-                        _id,
-                        metadata {
-                            lqip
-                        }
-                    }
-                },
-                portableTextBlock[]{
-                    ...,
-                    'fileDownload': fileDownload {
-                        ...select(
-                            _type == 'file' => {
-                                ...,
-                                asset->
-                            },
-                            @
-                        )
-                    },
-                    'asset': asset-> {
-                        ...,
-                        _id,
-                        metadata {
-                            lqip
-                        }
-                    },
-                    'landingPageRoute': landingPageRoute->,
-                    'markDefs': markDefs[]{
-                        'classType': item -> {
-                            _type == 'class' => {
-                            'parentPage': parentPage -> {
-                                slug
-                            },
-                            slug
-                            }
-                        },
-                        'pageType': item -> {
-                            _type == 'page' => {
-                            slug
-                            }
-                        }
-                    },
-                },
-            }
-        },
+        ${PageQueryProjection}
     }
 `
 

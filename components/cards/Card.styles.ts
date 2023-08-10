@@ -160,6 +160,12 @@ export const TrainerCardContainer = styled.div`
 `
 
 export const ProgramCardContainer = styled(TrainerCardContainer)`
+	div.copy-block {
+		h4 {
+			margin-bottom: unset;
+		}
+	}
+
 	a {
 		position: relative;
 
