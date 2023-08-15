@@ -8,8 +8,6 @@ import HorizontalRule from 'components/utilityComponents/HorizontalRule'
 import Link from 'next/link'
 import { PortableTextBlock } from 'sanity'
 import { SanityImageProps } from 'types'
-import LiteYouTubeEmbed from 'react-lite-youtube-embed'
-import getYouTubeID from 'get-youtube-id'
 import ReactPlayer from 'react-player/lazy'
 
 export function CustomPortableText({

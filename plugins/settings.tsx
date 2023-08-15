@@ -6,6 +6,7 @@ import { apiVersion, previewSecretId } from 'lib/sanity.api'
 import { CgShoppingCart } from 'react-icons/cg'
 import { GiCobweb, GiGraduateCap, GiSittingDog } from 'react-icons/gi'
 import { SlSpeech } from 'react-icons/sl'
+import { RiStackFill } from 'react-icons/ri'
 import { type DocumentDefinition } from 'sanity'
 import { type StructureResolver } from 'sanity/desk'
 
@@ -94,6 +95,10 @@ export const pageStructure =
 					.title('Classes')
 					.icon(GiGraduateCap)
 					.child(S.documentTypeList('class').title('Classes')),
+				S.listItem()
+					.title('Resources')
+					.icon(RiStackFill)
+					.child(S.documentTypeList('resource').title('Resources')),
 				S.listItem()
 					.title('*** OLD Classes')
 					.icon(GiGraduateCap)
