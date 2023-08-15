@@ -144,6 +144,11 @@ export default defineType({
 					type: 'cta',
 				}),
 				defineArrayMember({
+					title: 'YouTube Embed',
+					name: 'youtube',
+					type: 'youtube',
+				}),
+				defineArrayMember({
 					name: 'hr',
 					title: 'HR',
 					type: 'object',

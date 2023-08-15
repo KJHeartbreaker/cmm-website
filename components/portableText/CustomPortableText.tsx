@@ -8,6 +8,9 @@ import HorizontalRule from 'components/utilityComponents/HorizontalRule'
 import Link from 'next/link'
 import { PortableTextBlock } from 'sanity'
 import { SanityImageProps } from 'types'
+import LiteYouTubeEmbed from 'react-lite-youtube-embed'
+import getYouTubeID from 'get-youtube-id'
+import ReactPlayer from 'react-player/lazy'
 
 export function CustomPortableText({
 	paragraphClasses,
@@ -53,6 +56,14 @@ export function CustomPortableText({
 			}: {
 				value: { title: string; href: string; kind: string; arrow: boolean }
 			}) => <CTAButton {...value} />,
+			youtube: ({ value }: { value: { url: string } }) => {
+				const { url } = value
+				if (!url) {
+					return <div>Missing YouTube URL</div>
+				}
+
+				return <ReactPlayer url={url} controls />
+			},
 		},
 	}
 
