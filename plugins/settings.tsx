@@ -7,6 +7,7 @@ import { CgShoppingCart } from 'react-icons/cg'
 import { GiCobweb, GiGraduateCap, GiSittingDog } from 'react-icons/gi'
 import { SlSpeech } from 'react-icons/sl'
 import { RiStackFill } from 'react-icons/ri'
+import { BsSignpostSplit } from 'react-icons/bs'
 import { type DocumentDefinition } from 'sanity'
 import { type StructureResolver } from 'sanity/desk'
 
@@ -86,6 +87,10 @@ export const pageStructure =
 							.title('Pages')
 							.filter('_type == "page" && (_id != "homepage")')
 					),
+				S.listItem()
+					.title('Posts')
+					.icon(BsSignpostSplit)
+					.child(S.documentTypeList('post').title('Posts')),
 				S.divider(),
 				S.listItem()
 					.title('Our Team')
