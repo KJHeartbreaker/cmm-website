@@ -1,6 +1,7 @@
 export { default as class } from './class'
 export { default as classes } from './classes'
 export { default as page } from './page'
+export { default as post } from './post'
 export { default as product } from './product'
 export { default as resource } from './resource'
 export { default as trainer } from './trainer'
