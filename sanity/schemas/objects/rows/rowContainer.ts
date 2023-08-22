@@ -191,19 +191,40 @@ export default defineType({
 
 			const subs = Object.values(rowContent).filter(Boolean)
 
-			const gatheredSubs = subs[0].map((sub: any) => {
-				const conditionalSub =
-					sub._type === 'mainPortableText'
-						? sub.portableTextBlock[0].children[0].text
-						: sub._type === 'mainImage'
-						? sub.alt
-						: sub._type === 'iconCard'
-						? sub.heading
-						: sub._type === 'imageButtonCard'
-						? sub.heading
-						: sub._type === 'form'
-						? sub.title
-						: 'Update this!'
+			const gatheredSubs = subs[0].map((sub) => {
+				let conditionalSub
+
+				switch (sub._type) {
+					case 'mainPortableText':
+						if (sub.portableTextBlock[0]._type === 'youtube') {
+							conditionalSub = 'YouTube Embed'
+						} else {
+							conditionalSub = sub.portableTextBlock[0]?.children[0]?.text
+						}
+						break
+
+					case 'mainImage':
+						conditionalSub = sub.alt ? `Alt Text: ${sub.alt}` : 'Update this!'
+						break
+
+					case 'iconCard':
+						conditionalSub = sub.heading ? `Heading: ${sub.heading}` : 'Update this!'
+						break
+
+					case 'imageButtonCard':
+						conditionalSub = sub.heading
+							? `Button Heading: ${sub.heading}`
+							: 'Update this!'
+						break
+
+					case 'form':
+						conditionalSub = sub.title ? `Form Title: ${sub.title}` : 'Update this!'
+						break
+
+					default:
+						conditionalSub = 'Update this!'
+						break
+				}
 
 				return conditionalSub
 			})
