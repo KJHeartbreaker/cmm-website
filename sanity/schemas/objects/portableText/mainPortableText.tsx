@@ -192,4 +192,18 @@ export default defineType({
 			],
 		}),
 	],
+	preview: {
+		select: {
+			blocks: 'portableTextBlock',
+		},
+		prepare(blocks) {
+			const displayTitle =
+				blocks.blocks[0]._type === 'youtube'
+					? `Youtube Embed: ${blocks.blocks[0].url}`
+					: blocks.blocks[0].children[0].text
+			return {
+				title: displayTitle,
+			}
+		},
+	},
 })
