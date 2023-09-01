@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { PortableTextBlock } from 'sanity'
 import { SanityImageProps } from 'types'
 import ReactPlayer from 'react-player/lazy'
+import { VideoWrapper } from '../images/SanityImage.styles'
 
 export function CustomPortableText({
 	paragraphClasses,
@@ -60,7 +61,11 @@ export function CustomPortableText({
 					return <div>Missing YouTube URL</div>
 				}
 
-				return <ReactPlayer url={url} controls />
+				return (
+					<VideoWrapper>
+						<ReactPlayer url={url} controls className="react-player" />
+					</VideoWrapper>
+				)
 			},
 		},
 	}
