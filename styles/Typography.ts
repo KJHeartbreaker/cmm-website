@@ -89,6 +89,16 @@ const Typography = createGlobalStyle`
             line-height: var(--font-title4-line-height);
         }
 
+        /* span {
+            font-size: var(--font-title4-mobile-size);
+            line-height: var(--font-title4-line-height);
+        } */
+
+        @media ${device.sm} {
+            font-size: var(--font-title4-size);
+            line-height: var(--font-title4-line-height);
+        }
+
         &.dog-name {
             font-family: var(--font-kalam), sans-serif;
             font-size: var(--font-title2-mobile-size);
@@ -169,9 +179,9 @@ const Typography = createGlobalStyle`
     :root {
         /* Typography */
         --unit: 16;
-        --font-micro-size: calc(10 / var(--unit) * 1rem); /* 10px */
-        --font-micro-line-height: calc(12 / 10); /* 12px */
-        --font-small-size: calc(14 / var(--unit) * 1rem); /* 14px */
+        --font-micro-size: calc(12 / var(--unit) * 1rem); /* 12px */
+        --font-micro-line-height: calc(14 / 10); /* 14px */
+        --font-small-size: calc(16 / var(--unit) * 1rem); /* 16px */
         --font-small-line-height: calc(21 / 14); /* 21px */
         --font-base-size: 16px;
         --font-base-line-height: calc(26 / var(--unit)); /* 26px */
@@ -190,13 +200,13 @@ const Typography = createGlobalStyle`
 
         --font-title5-mobile-size: var(--unit);
         --font-title5-mobile-line-height: calc(26 / ); /* 26px */
-        --font-title4-mobile-size: calc(18 * var(--unit) / 1rem); /* 18px */
-        --font-title4-mobile-line-height: calc(30 / 21 * var(--font-title5-size)); /* 26px */
-        --font-title3-mobile-size: calc(20 / var(--unit) * 1rem); /* 20px */
+        --font-title4-mobile-size: calc(22 / var(--unit) * 1rem); /* 22px */
+        --font-title4-mobile-line-height: calc(30 / 21 * var(--font-title5-size)); /* 30px */
+        --font-title3-mobile-size: calc(26 / var(--unit) * 1rem); /* 26px */
         --font-title3-mobile-line-height: calc(24 / 21); /* 30px */
-        --font-title2-mobile-size: calc(32 / var(--unit) * 1rem); /* 32px */
+        --font-title2-mobile-size: calc(30 / var(--unit) * 1rem); /* 34px */
         --font-title2-mobile-line-height: calc(36 / 24); /* 33px */
-        --font-title1-mobile-size: calc(40 / var(--unit) * 1rem); /* 40px */
+        --font-title1-mobile-size: calc(44 / var(--unit) * 1rem); /* 44px */
         --font-title1-mobile-line-height: calc(48 / 40); /* 48px */
     }
 `

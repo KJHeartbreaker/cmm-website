@@ -264,7 +264,7 @@ export const DropdownGroup = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
-	min-height: 40px;
+	/* min-height: 40px; */
 	width: 100%;
 
 	ul {
