@@ -6,8 +6,6 @@ export default defineType({
 	title: 'Home',
 	type: 'document',
 	icon: GoHome,
-	// Uncomment below to have edits publish automatically as you type
-	// liveEdit: true,
 	fields: [
 		defineField({
 			name: 'title',
@@ -69,8 +67,8 @@ export default defineType({
 					type: 'heroBanner',
 				}),
 				defineArrayMember({
-					name: 'Single Column Content Row',
-					type: 'singleColumnRowContainer',
+					name: 'Single Column Content Block',
+					type: 'singleColumnContentBlock',
 				}),
 				defineArrayMember({
 					name: 'Content Rows',
@@ -109,7 +107,6 @@ export default defineType({
 		},
 		prepare({ title }) {
 			return {
-				subtitle: 'Home',
 				title,
 			}
 		},

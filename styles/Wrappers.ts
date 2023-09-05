@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import { device } from './Breakpoints'
 
 export const Section = styled.section`
@@ -70,5 +69,23 @@ export const ContentContainer = styled.div`
 
 	@media ${device.xxl} {
 		max-width: 1600px;
+	}
+`
+
+export const VideoWrapper = styled.div`
+	div {
+		width: 100%;
+		max-width: 800px; /* Adjust as needed */
+		height: 0;
+		padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+		position: relative;
+
+		iframe {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
 	}
 `

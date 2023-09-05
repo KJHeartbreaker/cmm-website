@@ -8,7 +8,6 @@ import TestimonialsGrid from 'components/grids/TestimonialsGrid'
 import RowContainer from 'components/rows/RowContainer'
 import ContentBlock from 'components/utilityComponents/ContentBlock'
 import {
-	GroupClass,
 	PanelContent,
 	ProductCardProps,
 	ProgramCardProps,
@@ -17,7 +16,10 @@ import {
 	TrainingSession,
 } from 'types'
 import TrainingRow from 'components/classes/TrainingRow'
-import ProgramsGrid from '@/components/grids/ProgramsGrid'
+import ProgramsGrid from 'components/grids/ProgramsGrid'
+import SingleColumnContentBlock from 'components/rows/SingleColumnBlock'
+import { PortableTextBlock } from 'sanity'
+import PostsGrid from 'components/grids/PostsGrid'
 
 interface PageContent {
 	_key: string
@@ -25,6 +27,9 @@ interface PageContent {
 	disabled?: boolean
 	rows?: PanelContent[]
 	rowContent?: PanelContent[]
+	contentBlock: {
+		portableTextBlock: PortableTextBlock[]
+	}
 	row?: string
 	heading: string
 	subheading: any
@@ -40,6 +45,7 @@ interface PageContent {
 	centerTitle: boolean
 	removeBottomPadding: boolean
 	skinny: boolean
+	posts: any
 	productsArr: ProductCardProps[]
 	programs: ProgramCardProps[]
 	testimonialsArr: TestimonialCardProps[]
@@ -64,7 +70,7 @@ export function getContent(content: PageContent[]) {
 				case 'Hero Banner':
 					el = <HeroBanner key={c._key} imageOverlay={c.overlay} {...c} />
 					break
-				case 'Single Column Content Row':
+				case 'Single Column Content Block':
 					el = (
 						<ContentBlock
 							bgColor={c.backgroundColor}
@@ -72,17 +78,10 @@ export function getContent(content: PageContent[]) {
 							removeBottomPadding={c.removeBottomPadding}
 							skinny={c.skinny}
 						>
-							<RowContainer
+							<SingleColumnContentBlock
 								key={c._key}
-								content={c.rowContent!}
-								row={c.row}
+								content={c.contentBlock!}
 								centerContent={c.centerContent}
-								title={c.title}
-								titleColor={c.titleColor}
-								hideTitle={c.hideTitle}
-								centerTitle={c.centerTitle}
-								condensedCopy={false}
-								centerCopy={false}
 							/>
 						</ContentBlock>
 					)
@@ -100,7 +99,6 @@ export function getContent(content: PageContent[]) {
 								key={c._key}
 								content={c.rowContent!}
 								row={c.row}
-								centerContent={c.centerContent ? c.centerContent : false}
 								title={c.title}
 								titleColor={c.titleColor}
 								hideTitle={c.hideTitle}
@@ -147,6 +145,19 @@ export function getContent(content: PageContent[]) {
 							skinny={false}
 						>
 							<ProgramsGrid programsArr={c.programs} />
+						</ContentBlock>
+					)
+					break
+				case 'Posts Grid':
+					el = (
+						<ContentBlock
+							bgImage={null}
+							overlay="noOverlay"
+							bgColor={c.backgroundColor}
+							removeBottomPadding={c.removeBottomPadding}
+							skinny={false}
+						>
+							<PostsGrid postsArr={c.posts} />
 						</ContentBlock>
 					)
 					break

@@ -3,12 +3,12 @@ import PagePreview from 'components/pages/page/PagePreview'
 import { toPlainText } from '@portabletext/react'
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
-import { homePageQuery, settingsQuery } from 'lib/sanity.queries'
+import { blogPageQuery, settingsQuery } from 'lib/sanity.queries'
 import { defineMetadata } from 'lib/utils.metadata'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
-import { HomePagePayload, SettingsPayload } from 'types'
+import { BlogLandingPagePayload, SettingsPayload } from 'types'
 
 export async function generateMetadata(): Promise<Metadata> {
 	const preview = draftMode().isEnabled ? { token: readToken! } : undefined
@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 	const [settings, page] = await Promise.all([
 		client.fetch<SettingsPayload | null>(settingsQuery),
-		client.fetch<HomePagePayload | null>(homePageQuery),
+		client.fetch<BlogLandingPagePayload | null>(blogPageQuery),
 	])
 
 	return defineMetadata({
@@ -26,10 +26,10 @@ export async function generateMetadata(): Promise<Metadata> {
 	})
 }
 
-export default async function IndexRoute() {
+export default async function BlogPageRoute() {
 	const preview = draftMode().isEnabled ? { token: readToken! } : undefined
 	const client = getClient(preview)
-	const data = await client.fetch<HomePagePayload | null>(homePageQuery)
+	const data = await client.fetch<BlogLandingPagePayload | null>(blogPageQuery)
 
 	if (!data && !preview) {
 		notFound()

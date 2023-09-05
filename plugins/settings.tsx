@@ -82,11 +82,7 @@ export const pageStructure =
 				S.listItem()
 					.title('Pages')
 					.icon(GiCobweb)
-					.child(
-						S.documentTypeList('page')
-							.title('Pages')
-							.filter('_type == "page" && (_id != "homepage")')
-					),
+					.child(S.documentTypeList('page').title('Pages')),
 				S.listItem()
 					.title('Posts')
 					.icon(BsSignpostSplit)

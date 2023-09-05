@@ -91,6 +91,12 @@ export default defineType({
 			group: 'postContent',
 		}),
 		defineField({
+			name: 'subheader',
+			title: 'Subheader',
+			type: 'string',
+			group: 'postContent',
+		}),
+		defineField({
 			name: 'body',
 			title: 'Body',
 			type: 'mainPortableText',
