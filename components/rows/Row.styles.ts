@@ -64,6 +64,11 @@ export const SingleColumnRowContainer = styled(ContentContainer)`
 	display: flex;
 	justify-content: center;
 	width: 100%;
+
+	&.centered {
+		justify-content: center;
+		text-align: center;
+	}
 `
 
 export const TwoColumnRowContainer = styled(ContentContainer)`

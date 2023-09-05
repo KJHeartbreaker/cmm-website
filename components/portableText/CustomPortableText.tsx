@@ -8,8 +8,8 @@ import HorizontalRule from 'components/utilityComponents/HorizontalRule'
 import Link from 'next/link'
 import { PortableTextBlock } from 'sanity'
 import { SanityImageProps } from 'types'
-import ReactPlayer from 'react-player/lazy'
-import { VideoWrapper } from '../images/SanityImage.styles'
+import getYouTubeID from 'get-youtube-id'
+import YouTubePlayer from './YouTubePlayer'
 
 export function CustomPortableText({
 	paragraphClasses,
@@ -61,11 +61,9 @@ export function CustomPortableText({
 					return <div>Missing YouTube URL</div>
 				}
 
-				return (
-					<VideoWrapper>
-						<ReactPlayer url={url} controls className="react-player" />
-					</VideoWrapper>
-				)
+				const id = getYouTubeID(url)
+
+				return <YouTubePlayer videoId={id} />
 			},
 		},
 	}

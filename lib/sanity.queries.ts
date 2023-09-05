@@ -19,6 +19,9 @@ const PageQueryProjection = groq`
     overview,
     title,
     "slug": slug.current,
+    "body": body{
+        ...
+    },
     'content': content[]{
         ...,
         'classRefs': classRefs[]{
@@ -100,6 +103,37 @@ const PageQueryProjection = groq`
                 slug,
                 certifications,
                 picture {
+                    ${ImageProjection}
+                }
+            }
+        },
+        'posts': posts[]{
+            _type == 'reference' => @-> {
+                _id,
+                title,
+                slug,
+                author {
+                    _type == 'reference' => @-> {
+                        _id,
+                        name,
+                        slug,
+                        certifications,
+                        picture {
+                            ${ImageProjection}
+                        }
+                    }
+                },
+                "body": body {
+                    portableTextBlock[]{
+                        ...
+                    },
+                },
+                excerpt {
+                    portableTextBlock[]{
+                        ...
+                    },
+                },
+                image {
                     ${ImageProjection}
                 }
             }
@@ -215,6 +249,49 @@ const PageQueryProjection = groq`
                 }
             },
         },
+        'contentBlock': contentBlock {
+            portableTextBlock[]{
+                ...,
+                'fileDownload': fileDownload {
+                    ...select(
+                        _type == 'file' => {
+                            ...,
+                            asset->
+                        },
+                        @
+                    )
+                },
+                'asset': asset-> {
+                    ...,
+                    _id,
+                    metadata {
+                        lqip
+                    }
+                },
+                'landingPageRoute': landingPageRoute->,
+                markDefs[]{
+                    ...,
+                    item -> {
+                        ...,
+                        _type == "class" => {
+                            "slug": slug {
+                                current
+                            },
+                            "parentPage": parentPage->{
+                                "parentSlug": slug {
+                                    current
+                                }
+                            }
+                        },
+                        _type == 'page' => {
+                            "slug": slug {
+                                current
+                            },
+                        },
+                    },
+                },
+            },
+        },
         'rowContent': rowContent[]{
             ...,
             _type == 'carousel' => {
@@ -307,9 +384,49 @@ export const homePageTitleQuery = groq`
     *[_type == "home"][0].title
 `
 
+export const blogPageQuery = groq`
+    *[_type == "blogLandingPage"][0]{
+        ${PageQueryProjection}
+    }
+`
+
 export const pagesBySlugQuery = groq`
     *[_type == "page" && slug.current == $slug][0] {
         ${PageQueryProjection}
+    }
+`
+
+export const postsBySlugQuery = groq`
+    *[_type == "post" && slug.current == $slug][0] {
+        _id,
+        title,
+        subheader,
+        slug,
+        overview,
+        author {
+            _type == 'reference' => @-> {
+                _id,
+                name,
+                slug,
+                certifications,
+                picture {
+                    ${ImageProjection}
+                }
+            }
+        },
+        body {
+            portableTextBlock[]{
+                ...
+            },
+        },
+        excerpt {
+            portableTextBlock[]{
+                ...
+            },
+        },
+        image {
+            ${ImageProjection}
+        }
     }
 `
 
@@ -317,9 +434,12 @@ export const pagePaths = groq`
     *[_type == "page" && slug.current != null].slug.current
 `
 
+export const postPaths = groq`
+    *[_type == "post" && slug.current != null].slug.current
+`
+
 export const settingsQuery = groq`
     *[_type == "settings"][0]{
-        footer,
         menuItems[]{
             _type == 'navCTA' => {
                 ...,

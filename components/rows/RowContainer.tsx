@@ -3,14 +3,12 @@
 import React from 'react'
 import { PanelContent } from 'types'
 
-import SingleColumnRowComponent from './SingleColumnRow'
 import ThreeColumnRow from './ThreeColumnRow'
 import TwoColumnRow from './TwoColumnRow'
 
 interface RowContainerProps {
 	row?: string
 	content: PanelContent[]
-	centerContent?: boolean
 	condensedCopy: boolean
 	centerCopy: boolean
 	title: string
@@ -22,7 +20,6 @@ interface RowContainerProps {
 const RowContainer: React.FC<RowContainerProps> = ({
 	row,
 	content,
-	centerContent,
 	title,
 	hideTitle,
 	centerTitle,
@@ -31,9 +28,6 @@ const RowContainer: React.FC<RowContainerProps> = ({
 	centerCopy,
 }: RowContainerProps) => (
 	<>
-		{row === 'singleColumn' && (
-			<SingleColumnRowComponent panels={content} centerContent={centerContent!} />
-		)}
 		{row === 'twoColumn' && (
 			<TwoColumnRow
 				panels={content}

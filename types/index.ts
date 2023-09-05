@@ -14,6 +14,21 @@ export interface ProductCardProps {
 	cta: CTAProps
 }
 
+export interface PostCardProps {
+	_id: string
+	title: string
+	slug: { current: string }
+	author: {
+		name: string
+		slug: {
+			current
+		}
+		picture: SanityImageProps
+	}
+	excerpt: { portableTextBlock: PortableTextBlock[] }
+	image: SanityImageProps
+}
+
 export interface ProgramCardProps {
 	_id: string
 	name: string
@@ -116,6 +131,7 @@ export type SanityImageProps = {
 	crop?: { top: number; bottom: number; left: number; right: number }
 	asset: ImageAsset
 	image?: any
+	className?: string
 }
 
 export interface HeroBannerProps {
@@ -174,9 +190,16 @@ export interface MenuItem {
 // Page payloads
 
 export interface HomePagePayload {
-	footer?: PortableTextBlock[]
 	overview?: PortableTextBlock[]
 	title?: string
+	content?: any
+}
+
+export interface BlogLandingPagePayload {
+	name?: string
+	overview?: PortableTextBlock[]
+	title?: string
+	content?: any
 }
 
 export interface PagePayload {
@@ -185,6 +208,19 @@ export interface PagePayload {
 	title?: string
 	slug?: string
 	content?: any
+}
+
+export interface PostPayload {
+	name?: string
+	overview?: PortableTextBlock[]
+	title?: string
+	subheader?: string
+	slug: {
+		current: string
+	}
+	body?: any
+	image: any
+	author: any
 }
 
 export interface SettingsPayload {

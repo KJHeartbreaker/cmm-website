@@ -159,6 +159,49 @@ export const TrainerCardContainer = styled.div`
 	}
 `
 
+export const PostCardContainer = styled(TrainerCardContainer)`
+	div.copy-block {
+		text-align: left;
+		align-items: flex-start;
+
+		a {
+			h4 {
+				margin-bottom: 10px;
+			}
+
+			&:hover {
+				h4 {
+					color: var(--orange-hover);
+				}
+			}
+		}
+	}
+`
+
+export const AuthorContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+
+	img {
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border: 1px solid var(--grey-44);
+	}
+
+	h5 {
+		font-size: 14px;
+		color: var(--blue-33);
+
+		&:hover {
+			color: var(--blue-22);
+		}
+	}
+`
+
 export const ProgramCardContainer = styled(TrainerCardContainer)`
 	div.copy-block {
 		h4 {

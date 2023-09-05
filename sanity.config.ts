@@ -15,13 +15,20 @@ import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
 
 import * as documents from './sanity/schemas/documents'
 import page from './sanity/schemas/documents/page'
+import post from './sanity/schemas/documents/post'
 import * as objects from './sanity/schemas/objects'
 import home from './sanity/schemas/singletons/home'
+import blogLandingPage from './sanity/schemas/singletons/blog'
 import settings from './sanity/schemas/singletons/settings'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'CMM v2.0'
 
-export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [home.name, page.name]
+export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
+	home.name,
+	page.name,
+	blogLandingPage.name,
+	post.name,
+]
 
 export default defineConfig({
 	basePath: '/studio',
@@ -33,6 +40,7 @@ export default defineConfig({
 		types: [
 			// Singletons
 			home,
+			blogLandingPage,
 			settings,
 			// Documents
 			...Object.values(documents),
@@ -42,8 +50,8 @@ export default defineConfig({
 	},
 	plugins: [
 		deskTool({
-			structure: pageStructure([home, settings]),
-			// `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
+			structure: pageStructure([home, blogLandingPage, settings]),
+			// `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
 			defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
 		}),
 		dashboardTool({
@@ -55,7 +63,7 @@ export default defineConfig({
 			],
 		}),
 		// Configures the global "new document" button, and document actions, to suit the Settings document singleton
-		singletonPlugin([home.name, settings.name]),
+		singletonPlugin([home.name, settings.name, blogLandingPage.name]),
 		// Add the "Open preview" action
 		productionUrl({
 			apiVersion,

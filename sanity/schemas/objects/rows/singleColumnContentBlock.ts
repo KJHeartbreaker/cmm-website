@@ -2,9 +2,9 @@ import { GiHamburgerMenu as icon } from 'react-icons/gi'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
-	name: 'singleColumnRowContainer',
+	name: 'singleColumnContentBlock',
 	type: 'document',
-	title: 'Single Column Row',
+	title: 'Single Column Content Block',
 	icon,
 	fieldsets: [
 		{
@@ -21,7 +21,6 @@ export default defineType({
 		removeBottomPadding: false,
 		skinny: false,
 		backgroundColor: 'White',
-		row: 'singleColumn',
 	},
 	fields: [
 		defineField({
@@ -74,24 +73,10 @@ export default defineType({
 			fieldset: 'rowParams',
 		}),
 		defineField({
-			title: 'Content Row',
-			description: 'How many columns in this row?',
-			type: 'string',
-			name: 'row',
-			options: {
-				list: [{ title: 'Single Column', value: 'singleColumn' }],
-				layout: 'radio',
-				direction: 'horizontal',
-			},
-			fieldset: 'rowParams',
+			name: 'contentBlock',
+			type: 'mainPortableText',
+			title: 'Content',
 		}),
-		defineField({
-			name: 'rowContent',
-			type: 'array',
-			title: 'Row Content',
-			of: [defineArrayMember({ type: 'mainPortableText' })],
-		}),
-
 		defineField({
 			name: 'disabled',
 			title: 'Disabled',
@@ -102,25 +87,15 @@ export default defineType({
 	preview: {
 		select: {
 			title: 'title',
-			content: 'rowContent',
+			content: 'contentBlock',
 		},
-		prepare({ title, ...rowContent }) {
-			const subs = Object.values(rowContent).filter(Boolean)
-
-			const gatheredSubs = subs[0].map((sub: any) => {
-				const conditionalSub =
-					sub._type === 'mainPortableText'
-						? sub.portableTextBlock[0].children[0].text
-						: 'Update this!'
-
-				return conditionalSub
-			})
-
-			const subtitles = gatheredSubs.length > 0 ? `${gatheredSubs.join(', ')}` : ''
+		prepare({ title, ...contentBlock }) {
+			const subs = Object.values(contentBlock).filter(Boolean)
+			const subtitle = subs[0].portableTextBlock[0].children[0].text
 
 			return {
-				title: title ? `Single Column Row: ${title}` : `Single Column Row`,
-				subtitle: `${subtitles}`,
+				title: title ? `Single Column Block: ${title}` : `Single Column Block`,
+				subtitle: subtitle || 'Please add content',
 			}
 		},
 	},

@@ -7,7 +7,7 @@ const SanityComponentImage = (props: SanityImageProps) => {
 	const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 	const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
 
-	const { alt, crop, hotspot, asset, width, height, image } = props
+	const { alt, crop, hotspot, asset, width, height, image, className } = props
 
 	let imageId
 	let preview
@@ -38,6 +38,7 @@ const SanityComponentImage = (props: SanityImageProps) => {
 			preview={preview}
 			alt={alt}
 			loading="lazy"
+			className={className || ''}
 		/>
 	)
 }

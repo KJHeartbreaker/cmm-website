@@ -11,14 +11,5 @@ export function Page({ data }: PageProps) {
 
 	const bodyContent = getContent(content)
 
-	return (
-		<div>
-			{/* Body */}
-			{bodyContent}
-
-			{/* Workaround: scroll to top on route change */}
-			{/* Temporarily disabled due to redirects pointing to anchor links */}
-			{/* <ScrollUp /> */}
-		</div>
-	)
+	return <div>{bodyContent}</div>
 }
