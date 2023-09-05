@@ -1,9 +1,9 @@
 'use client'
 
-import { AuthorContainer } from '@/components/cards/Card.styles'
-import SanityComponentImage from '@/components/images/SanityComponentImage'
-import { CustomPortableText } from '@/components/portableText/CustomPortableText'
-import ShareButtons from '@/components/utilityComponents/ShareButtons'
+import { AuthorContainer } from 'components/cards/Card.styles'
+import SanityComponentImage from 'components/images/SanityComponentImage'
+import { CustomPortableText } from 'components/portableText/CustomPortableText'
+import ShareButtons from 'components/utilityComponents/ShareButtons'
 import Link from 'next/link'
 import type { PostPayload } from 'types'
 import { PostContainer, BlogGuts } from './Post.styles'

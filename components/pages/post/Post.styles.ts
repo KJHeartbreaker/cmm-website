@@ -1,4 +1,4 @@
-import { AuthorContainer } from '@/components/cards/Card.styles'
+import { AuthorContainer } from 'components/cards/Card.styles'
 import { device } from '@/styles/Breakpoints'
 import styled from 'styled-components'
 

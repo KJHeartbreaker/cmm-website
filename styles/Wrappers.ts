@@ -1,7 +1,4 @@
 import styled from 'styled-components'
-
-import { AuthorContainer } from '@/components/cards/Card.styles'
-import { ShareButtonsContainer } from '@/components/utilityComponents/Utility.styles'
 import { device } from './Breakpoints'
 
 export const Section = styled.section`
