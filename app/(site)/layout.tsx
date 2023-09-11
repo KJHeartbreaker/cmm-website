@@ -16,6 +16,7 @@ import { SettingsPayload } from 'types'
 
 const fallbackSettings: SettingsPayload = {
 	menuItems: [],
+	logos: [],
 }
 
 export default async function IndexRoute({ children }: { children: React.ReactNode }) {
@@ -29,7 +30,7 @@ export default async function IndexRoute({ children }: { children: React.ReactNo
 				{preview && <PreviewBanner />}
 				<Navbar menuItems={settings.menuItems} />
 				<main>{children}</main>
-				<Footer menuItems={settings.menuItems} />
+				<Footer menuItems={settings.menuItems} logos={settings.logos} />
 			</Providers>
 		</StyledComponentsRegistry>
 	)

@@ -122,6 +122,12 @@ export type ImageAsset = {
 	}
 }
 
+export interface SanityLogoProps {
+	_key: string
+	alt: string
+	logo: ImageAsset
+}
+
 export type SanityImageProps = {
 	alt: string
 	mode?: 'cover' | 'contain'
@@ -225,5 +231,6 @@ export interface PostPayload {
 
 export interface SettingsPayload {
 	menuItems?: MenuItemProps[]
+	logos?: SanityLogoProps[]
 	ogImage?: Image
 }
