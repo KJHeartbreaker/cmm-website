@@ -4,24 +4,26 @@ import { MenuLink } from 'components/global/navigation/Navbar.styles'
 import NavbarDropdown from 'components/global/navigation/NavbarDropdown'
 import { useMediaQuery } from 'helpers/useMediaQuery'
 import Link from 'next/link'
-import { MenuItemProps } from 'types'
+import { MenuItemProps, SanityLogoProps } from 'types'
 
+import LogoRow from 'components/logoRow/LogoRow'
 import { FooterContainer, FooterContent, FooterMenu } from './Footer.styles'
 import FooterIcon from './FooterIcon'
 
 interface FooterProps {
 	menuItems?: MenuItemProps[]
+	logos?: SanityLogoProps[]
 }
 
-export function Footer({ menuItems }: FooterProps) {
+export function Footer({ menuItems, logos }: FooterProps) {
 	const isMobile = useMediaQuery('(max-width: 576px)')
-
 	const currentYr = new Date().getFullYear()
 
 	return (
 		<FooterContainer>
 			<FooterContent>
 				<FooterIcon extraClasses="footerIcon" />
+				<LogoRow logos={logos!} />
 				{!isMobile && isMobile !== null ? (
 					<FooterMenu>
 						{menuItems &&

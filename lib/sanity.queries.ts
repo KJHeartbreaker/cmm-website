@@ -459,6 +459,16 @@ export const settingsQuery = groq`
                 'subnav': subnav[].landingPageRoute->
             }
         },
+        'logos': footerLogos[]{
+            _key,
+            alt,
+            "logo": asset -> {
+                _id,
+                metadata {
+                    lqip
+                }
+            }
+        },
         ogImage,
     }
 `

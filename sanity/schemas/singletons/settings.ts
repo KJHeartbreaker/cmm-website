@@ -14,7 +14,17 @@ export default defineType({
 			title: 'Menu Item list',
 			description: 'Links displayed on the header of your site.',
 			type: 'array',
-			of: [{ type: 'navCTA' }, { type: 'navDropdownCTA' }],
+			of: [
+				defineArrayMember({ type: 'navCTA' }),
+				defineArrayMember({ type: 'navDropdownCTA' }),
+			],
+		}),
+		defineField({
+			name: 'footerLogos',
+			title: 'Footer Logos',
+			description: 'These are the accreditations that appear in the footer.',
+			type: 'array',
+			of: [defineArrayMember({ type: 'logo' })],
 		}),
 		defineField({
 			name: 'ogImage',
