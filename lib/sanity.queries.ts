@@ -340,6 +340,18 @@ const PageQueryProjection = groq`
                         @
                     )
                 },
+                'logoRow': logoRow[]{
+                    _key,
+                    logo,
+                    alt,
+                    "logo": asset -> {
+                        ...,
+                        _id,
+                        metadata {
+                            lqip
+                        }
+                    },
+                },
                 'asset': asset-> {
                     ...,
                     _id,

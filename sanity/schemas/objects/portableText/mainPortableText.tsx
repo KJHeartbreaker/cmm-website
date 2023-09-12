@@ -176,6 +176,11 @@ export default defineType({
 					],
 				}),
 				defineArrayMember({
+					name: 'logoRow',
+					title: 'Logo Row',
+					type: 'logoRow',
+				}),
+				defineArrayMember({
 					type: 'image',
 					fields: [
 						{

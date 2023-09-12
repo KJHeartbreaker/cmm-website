@@ -1,4 +1,3 @@
-import { device } from '@/styles/Breakpoints'
 import styled from 'styled-components'
 
 export const LogoRowContainer = styled.div`
@@ -9,8 +8,4 @@ export const LogoRowContainer = styled.div`
 	flex-flow: row wrap;
 	gap: 20px;
 	margin: 20px 0;
-
-	@media ${device.sm} {
-		justify-content: space-between;
-	}
 `

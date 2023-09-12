@@ -7,9 +7,10 @@ import SanityComponentImage from 'components/images/SanityComponentImage'
 import HorizontalRule from 'components/utilityComponents/HorizontalRule'
 import Link from 'next/link'
 import { PortableTextBlock } from 'sanity'
-import { SanityImageProps } from 'types'
+import { SanityImageProps, SanityLogoProps } from 'types'
 import getYouTubeID from 'get-youtube-id'
 import YouTubePlayer from './YouTubePlayer'
+import LogoRow from '../logoRow/LogoRow'
 
 export function CustomPortableText({
 	paragraphClasses,
@@ -65,6 +66,7 @@ export function CustomPortableText({
 
 				return <YouTubePlayer videoId={id} />
 			},
+			logoRow: ({ value }) => <LogoRow logos={value.logoRow} />,
 		},
 	}
 
