@@ -54,6 +54,7 @@ export default function CustomComponentContainer(props: CustomComponentContainer
 								bgColor={bgColor || undefined}
 								removeBottomPadding={removeBottomPadding || false}
 								skinny={false}
+								key={row._key}
 							>
 								<GalleryGrid images={row.galleryArr} />
 							</ContentBlock>
@@ -67,6 +68,7 @@ export default function CustomComponentContainer(props: CustomComponentContainer
 								bgColor={bgColor || undefined}
 								removeBottomPadding={removeBottomPadding || false}
 								skinny={false}
+								key={row._key}
 							>
 								<AboutUsSection iconCards={row.iconCards!} copy={row.copy!} />
 							</ContentBlock>

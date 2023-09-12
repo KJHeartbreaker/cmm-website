@@ -73,6 +73,7 @@ export function getContent(content: PageContent[]) {
 				case 'Single Column Content Block':
 					el = (
 						<ContentBlock
+							key={c._key}
 							bgColor={c.backgroundColor}
 							overlay="noOverlay"
 							removeBottomPadding={c.removeBottomPadding}
@@ -89,6 +90,7 @@ export function getContent(content: PageContent[]) {
 				case 'Content Rows':
 					el = (
 						<ContentBlock
+							key={c._key}
 							bgImage={c.image ? c.image : null}
 							overlay={c.overlay}
 							bgColor={c.backgroundColor}
@@ -112,6 +114,7 @@ export function getContent(content: PageContent[]) {
 				case 'Product Grid':
 					el = (
 						<ContentBlock
+							key={c._key}
 							bgImage={c.image ? c.image : null}
 							overlay={c.overlay}
 							bgColor={c.backgroundColor}
@@ -125,6 +128,7 @@ export function getContent(content: PageContent[]) {
 				case 'Trainers Grid':
 					el = (
 						<ContentBlock
+							key={c._key}
 							bgImage={null}
 							overlay="noOverlay"
 							bgColor={c.backgroundColor}
@@ -138,6 +142,7 @@ export function getContent(content: PageContent[]) {
 				case 'Programs Grid':
 					el = (
 						<ContentBlock
+							key={c._key}
 							bgImage={null}
 							overlay="noOverlay"
 							bgColor={c.backgroundColor}
@@ -151,6 +156,7 @@ export function getContent(content: PageContent[]) {
 				case 'Posts Grid':
 					el = (
 						<ContentBlock
+							key={c._key}
 							bgImage={null}
 							overlay="noOverlay"
 							bgColor={c.backgroundColor}
@@ -164,6 +170,7 @@ export function getContent(content: PageContent[]) {
 				case 'Class Row':
 					el = (
 						<ContentBlock
+							key={c._key}
 							bgImage={null}
 							overlay="noOverlay"
 							bgColor={c.backgroundColor}
@@ -187,6 +194,7 @@ export function getContent(content: PageContent[]) {
 
 					el = (
 						<ContentBlock
+							key={c._key}
 							bgImage={c.image ? c.image : null}
 							overlay={c.overlay}
 							bgColor={c.backgroundColor}
