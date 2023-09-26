@@ -89,6 +89,14 @@ export default defineType({
 			fieldset: 'rowParams',
 		}),
 		defineField({
+			name: 'removeBottomPadding',
+			title: 'Remove Bottom Padding',
+			type: 'boolean',
+			description:
+				'Content Blocks have space by default, this option removes the extra space below the content if selected.',
+			fieldset: 'rowParams',
+		}),
+		defineField({
 			name: 'condensedCopy',
 			type: 'boolean',
 			title: 'Condensed Copy',
