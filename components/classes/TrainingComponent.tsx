@@ -46,6 +46,7 @@ const TrainingComponent: React.FC<TrainingSession> = ({
 			hour: 'numeric',
 			minute: 'numeric',
 			hour12: true,
+			timeZone: 'America/Edmonton',
 		})
 	}
 
