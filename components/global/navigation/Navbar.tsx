@@ -89,6 +89,12 @@ export function Navbar({ menuItems }: NavbarProps) {
 										</MenuLink>
 									)
 								})}
+							<Link href="mailto:cmm_info@shaw.ca" passHref className="email-button">
+								<button type="button" className="contact">
+									Kirsten Rose <br />
+									cmm_info@shaw.ca
+								</button>
+							</Link>
 						</TopMenu>
 					) : (
 						<MobileMenuIcon onClick={openMenu} menuopen={menuOpen}>
@@ -132,10 +138,16 @@ export function Navbar({ menuItems }: NavbarProps) {
 										</Link>
 									)
 								})}
-							<Link href="tel:(403) 816-5629" passHref>
+							<Link href="tel:(403) 816-5629" passHref className="phone-button">
 								<button type="button" className="contact">
 									Kirsten Rose <br />
 									(403) 816-5629
+								</button>
+							</Link>
+							<Link href="tel:(403) 816-5629" passHref className="email-button">
+								<button type="button" className="contact">
+									Kirsten Rose <br />
+									cmm_info@shaw.ca
 								</button>
 							</Link>
 						</MobileMenuDropdown>

@@ -23,7 +23,6 @@ export function Footer({ menuItems, logos }: FooterProps) {
 		<FooterContainer>
 			<FooterContent>
 				<FooterIcon extraClasses="footerIcon" />
-				<LogoRow logos={logos!} />
 				{!isMobile && isMobile !== null ? (
 					<FooterMenu>
 						{menuItems &&
@@ -56,6 +55,7 @@ export function Footer({ menuItems, logos }: FooterProps) {
 							})}
 					</FooterMenu>
 				) : null}
+				<LogoRow logos={logos!} />
 				<p>© {currentYr} Canine Minds and Manners. All Rights Reserved.</p>
 			</FooterContent>
 		</FooterContainer>

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { device } from 'styles/Breakpoints'
-import { ContentContainer } from 'styles/Wrappers'
 
 export const StickyContainer = styled.header`
 	position: sticky;
@@ -15,10 +14,36 @@ export const Nav = styled.nav`
 	display: grid;
 	grid-template-rows: 75px;
 	grid-template-columns: 1fr;
-	background-color: var(--blue-33);
+	background-color: var(--blue-44);
+
+	a.phone-button {
+		display: block;
+
+		@media ${device.xs} {
+			display: none;
+		}
+	}
+
+	a.email-button {
+		display: none;
+
+		@media ${device.xs} {
+			display: block;
+		}
+	}
+
+	button.contact {
+		background-color: var(--blue-22);
+		padding: 5px 10px;
+		border-radius: 5px;
+
+		&:hover {
+			background-color: var(--orange);
+		}
+	}
 `
 
-export const PrimaryNav = styled(ContentContainer)`
+export const PrimaryNav = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -134,6 +159,17 @@ export const TopMenu = styled.ul`
 
 	@media ${device.md} {
 		width: 70%;
+	}
+
+	button.kr-contact {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--blue-22);
+		/* padding: 5px 20px; */
+		width: 150px;
+		border-radius: 5px;
 	}
 `
 
@@ -338,17 +374,6 @@ export const MobileMenuDropdown = styled.div`
 
 		&.rotate {
 			transform: rotate(180deg);
-		}
-	}
-
-	button.contact {
-		display: block;
-		background-color: var(--blue-22);
-		padding: 5px 20px;
-		border-radius: 5px;
-
-		@media ${device.xs} {
-			display: none;
 		}
 	}
 `
