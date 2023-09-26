@@ -15,6 +15,7 @@ import {
 	MenuLink,
 	MobileMenuDropdown,
 	MobileMenuIcon,
+	MockButton,
 	Nav,
 	PrimaryNav,
 	StickyContainer,
@@ -89,12 +90,10 @@ export function Navbar({ menuItems }: NavbarProps) {
 										</MenuLink>
 									)
 								})}
-							<Link href="mailto:cmm_info@shaw.ca" passHref className="email-button">
-								<button type="button" className="contact">
-									Kirsten Rose <br />
-									cmm_info@shaw.ca
-								</button>
-							</Link>
+							<MockButton>
+								<p>Kirsten Rose</p>
+								<p>(403) 816-5629</p>
+							</MockButton>
 						</TopMenu>
 					) : (
 						<MobileMenuIcon onClick={openMenu} menuopen={menuOpen}>
@@ -144,12 +143,10 @@ export function Navbar({ menuItems }: NavbarProps) {
 									(403) 816-5629
 								</button>
 							</Link>
-							<Link href="tel:(403) 816-5629" passHref className="email-button">
-								<button type="button" className="contact">
-									Kirsten Rose <br />
-									cmm_info@shaw.ca
-								</button>
-							</Link>
+							<MockButton>
+								<p>Kirsten Rose</p>
+								<p>(403) 816-5629</p>
+							</MockButton>
 						</MobileMenuDropdown>
 					</>
 				)}

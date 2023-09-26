@@ -24,14 +24,6 @@ export const Nav = styled.nav`
 		}
 	}
 
-	a.email-button {
-		display: none;
-
-		@media ${device.xs} {
-			display: block;
-		}
-	}
-
 	button.contact {
 		background-color: var(--blue-22);
 		padding: 5px 10px;
@@ -39,6 +31,46 @@ export const Nav = styled.nav`
 
 		&:hover {
 			background-color: var(--orange);
+		}
+	}
+`
+
+export const MockButton = styled.div`
+	display: none;
+	flex-direction: column;
+	background-color: var(--blue-22);
+	color: var(--white);
+	min-width: 100px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	padding: 5px;
+
+	@media ${device.xs} {
+		display: flex;
+		min-width: 150px;
+	}
+
+	@media ${device.sm} {
+		display: flex;
+		min-width: 100px;
+	}
+
+	@media ${device.lg} {
+		display: flex;
+		min-width: 150px;
+	}
+
+	p {
+		font-weight: 700;
+		margin: 0;
+
+		@media ${device.sm} {
+			font-size: 12px;
+		}
+
+		@media ${device.lg} {
+			font-size: unset;
 		}
 	}
 `
