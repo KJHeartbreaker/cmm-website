@@ -1,3 +1,4 @@
+import { device } from '@/styles/Breakpoints'
 import { SubMenu } from 'components/global/navigation/Navbar.styles'
 import styled from 'styled-components'
 import { ContentContainer } from 'styles/Wrappers'
@@ -7,6 +8,54 @@ export const FooterContainer = styled.footer`
 	justify-content: center;
 	align-items: center;
 	background-color: var(--grey-44);
+`
+
+export const FooterIconRow = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	place-items: center;
+	width: 100%;
+
+	svg {
+		order: 0;
+	}
+
+	h5 {
+		margin: 5px 0;
+		color: var(--white);
+		font-size: 16px;
+
+		&:first-of-type {
+			order: 1;
+			margin-top: 10px;
+		}
+
+		&:last-of-type {
+			order: 2;
+		}
+	}
+
+	@media ${device.sm} {
+		flex-direction: row;
+		justify-content: space-around;
+
+		svg {
+			order: unset;
+		}
+
+		h5 {
+			&:first-of-type {
+				order: unset;
+				margin-top: unset;
+			}
+
+			&:last-of-type {
+				order: unset;
+			}
+		}
+	}
 `
 
 export const FooterContent = styled(ContentContainer)`

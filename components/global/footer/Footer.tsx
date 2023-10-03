@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { MenuItemProps, SanityLogoProps } from 'types'
 
 import LogoRow from 'components/logoRow/LogoRow'
-import { FooterContainer, FooterContent, FooterMenu } from './Footer.styles'
+import { FooterContainer, FooterContent, FooterIconRow, FooterMenu } from './Footer.styles'
 import FooterIcon from './FooterIcon'
 
 interface FooterProps {
@@ -22,7 +22,16 @@ export function Footer({ menuItems, logos }: FooterProps) {
 	return (
 		<FooterContainer>
 			<FooterContent>
-				<FooterIcon extraClasses="footerIcon" />
+				<FooterIconRow>
+					<h5>
+						Phone: <Link href="tel:4038165629">Kirsten Rose (403) 816-5629</Link>
+					</h5>
+
+					<FooterIcon extraClasses="footerIcon" />
+					<h5>
+						Email: <Link href="mailto:cmm_info@shaw.ca">cmm_info@shaw.ca</Link>
+					</h5>
+				</FooterIconRow>
 				{!isMobile && isMobile !== null ? (
 					<FooterMenu>
 						{menuItems &&

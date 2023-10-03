@@ -5,11 +5,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { MenuItemProps } from 'types'
+import { FaInstagram } from 'react-icons/fa'
 
 import MobileHeaderDropdown from './MobileHeaderDropdown'
 import {
 	DarkFrozen,
 	DropdownGroup,
+	InstaLink,
 	LogoContainer,
 	LogoCopyContainer,
 	MenuLink,
@@ -93,10 +95,18 @@ export function Navbar({ menuItems }: NavbarProps) {
 										</MenuLink>
 									)
 								})}
-							<MockButton>
-								<p>Kirsten Rose</p>
-								<p>(403) 816-5629</p>
-							</MockButton>
+							<MenuLink>
+								<InstaLink
+									href="https://www.instagram.com/canine.minds.and.manners/"
+									passHref
+									target="_blank"
+									rel="noopener noreferrer"
+									className="insta"
+								>
+									Insta
+									<FaInstagram size={24} />
+								</InstaLink>
+							</MenuLink>
 						</TopMenu>
 					) : (
 						<MobileMenuIcon onClick={openMenu} menuopen={menuOpen}>
@@ -140,7 +150,17 @@ export function Navbar({ menuItems }: NavbarProps) {
 										</Link>
 									)
 								})}
-							<Link href="tel:(403) 816-5629" passHref className="phone-button">
+							<InstaLink
+								href="https://www.instagram.com/canine.minds.and.manners/"
+								passHref
+								target="_blank"
+								rel="noopener noreferrer"
+								className="insta"
+							>
+								Insta
+								<FaInstagram size={24} />
+							</InstaLink>
+							<Link href="tel:4038165629" passHref className="phone-button">
 								<button type="button" className="contact">
 									Kirsten Rose <br />
 									(403) 816-5629
