@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { device } from 'styles/Breakpoints'
@@ -35,10 +36,18 @@ export const Nav = styled.nav`
 	}
 `
 
+export const InstaLink = styled(Link)`
+	display: flex;
+	flex-direction: row;
+
+	svg {
+		margin-left: 12px;
+	}
+`
+
 export const MockButton = styled.div`
 	display: none;
-	flex-direction: column;
-	background-color: var(--blue-22);
+	flex-direction: row;
 	color: var(--white);
 	min-width: 100px;
 	justify-content: center;
