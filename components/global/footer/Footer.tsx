@@ -45,7 +45,9 @@ export function Footer({ menuItems, logos }: FooterProps) {
 									<MenuLink key={menuItem._key}>
 										<Link
 											href={`/${
-												menuItem.cta!.landingPageRoute!.slug.current
+												menuItem.cta!.landingPageRoute
+													? menuItem.cta!.landingPageRoute!.slug.current
+													: menuItem.cta!.link
 											}`}
 										>
 											{menuItem.cta!.title}

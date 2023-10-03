@@ -82,7 +82,10 @@ export function Navbar({ menuItems }: NavbarProps) {
 										<MenuLink key={menuItem._key}>
 											<Link
 												href={`/${
-													menuItem.cta!.landingPageRoute!.slug.current
+													menuItem.cta!.landingPageRoute
+														? menuItem.cta!.landingPageRoute!.slug
+																.current
+														: menuItem.cta!.link
 												}`}
 											>
 												{menuItem.cta!.title}

@@ -2,6 +2,7 @@
 import React from 'react'
 import TrainersGrid from 'components/grids/TrainersGrid'
 import HeroBanner from 'components/banners/HeroBanner'
+import MapBanner from 'components/banners/MapBanner'
 import CustomComponentContainer from 'components/customComponents/CustomComponentContainer'
 import ProductGrid from 'components/grids/ProductGrid'
 import TestimonialsGrid from 'components/grids/TestimonialsGrid'
@@ -20,6 +21,7 @@ import ProgramsGrid from 'components/grids/ProgramsGrid'
 import SingleColumnContentBlock from 'components/rows/SingleColumnBlock'
 import { PortableTextBlock } from 'sanity'
 import PostsGrid from 'components/grids/PostsGrid'
+import { IconCardProps } from 'components/cards/IconCard'
 
 interface PageContent {
 	_key: string
@@ -57,6 +59,9 @@ interface PageContent {
 	condensedCopy: boolean
 	centerCopy: boolean
 	overlay: 'noOverlay' | 'darkOverlay' | 'blueOverlay'
+	map: string
+	mapLink: string
+	iconCards: IconCardProps[]
 }
 
 export function getContent(content: PageContent[]) {
@@ -214,6 +219,16 @@ export function getContent(content: PageContent[]) {
 							overlay={c.overlay}
 							bgColor={c.backgroundColor || undefined}
 							removeBottomPadding={c.removeBottomPadding || false}
+						/>
+					)
+					break
+				case 'Contact Page Map':
+					el = (
+						<MapBanner
+							map={c.map}
+							mapLink={c.mapLink}
+							copy={c.copy}
+							iconCards={c.iconCards}
 						/>
 					)
 					break
