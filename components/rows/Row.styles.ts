@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { device } from 'styles/Breakpoints'
-import { ContentContainer } from 'styles/Wrappers'
+import { ContentContainer, VideoWrapper } from 'styles/Wrappers'
 
 export const StyledRowColumn = styled.div`
 	display: flex;
@@ -62,12 +62,30 @@ export const RowColumnCopy = styled.div`
 
 export const SingleColumnRowContainer = styled(ContentContainer)`
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	width: 100%;
 
 	&.centered {
-		justify-content: center;
 		text-align: center;
+	}
+
+	${VideoWrapper} {
+		display: flex;
+		justify-content: center;
+
+		div {
+			border: 2px solid goldenrod;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			max-width: 1200px;
+
+			iframe {
+				top: 0;
+				left: 0;
+				right: 0;
+			}
+		}
 	}
 `
 
