@@ -1,15 +1,15 @@
-import { GoMegaphone as icon } from 'react-icons/go'
+import { BsTelephoneFill as icon } from 'react-icons/bs'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
-	name: 'blogLandingPage',
-	title: 'Blog',
+	name: 'contactPage',
+	title: 'Contact',
 	type: 'document',
 	icon,
 	fields: [
 		defineField({
 			name: 'title',
-			description: 'Blog page meta title.',
+			description: 'This field is the title of your personal website.',
 			title: 'Title',
 			type: 'string',
 			validation: (rule) => rule.required(),
@@ -76,12 +76,8 @@ export default defineType({
 					type: 'heroBanner',
 				}),
 				defineArrayMember({
-					name: 'Single Column Content Block',
-					type: 'singleColumnContentBlock',
-				}),
-				defineArrayMember({
-					name: 'Posts Grid',
-					type: 'postsGridContainer',
+					name: 'Contact Page Map',
+					type: 'contactPageMap',
 				}),
 			],
 		}),

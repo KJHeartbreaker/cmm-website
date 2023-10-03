@@ -18,6 +18,7 @@ import page from './sanity/schemas/documents/page'
 import post from './sanity/schemas/documents/post'
 import * as objects from './sanity/schemas/objects'
 import home from './sanity/schemas/singletons/home'
+import contactPage from './sanity/schemas/singletons/contact'
 import blogLandingPage from './sanity/schemas/singletons/blog'
 import settings from './sanity/schemas/singletons/settings'
 
@@ -25,6 +26,7 @@ const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'CMM v2.0'
 
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
 	home.name,
+	contactPage.name,
 	page.name,
 	blogLandingPage.name,
 	post.name,
@@ -40,6 +42,7 @@ export default defineConfig({
 		types: [
 			// Singletons
 			home,
+			contactPage,
 			blogLandingPage,
 			settings,
 			// Documents
@@ -50,7 +53,7 @@ export default defineConfig({
 	},
 	plugins: [
 		deskTool({
-			structure: pageStructure([home, blogLandingPage, settings]),
+			structure: pageStructure([home, contactPage, blogLandingPage, settings]),
 			// `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
 			defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
 		}),
@@ -63,7 +66,7 @@ export default defineConfig({
 			],
 		}),
 		// Configures the global "new document" button, and document actions, to suit the Settings document singleton
-		singletonPlugin([home.name, settings.name, blogLandingPage.name]),
+		singletonPlugin([home.name, contactPage.name, settings.name, blogLandingPage.name]),
 		// Add the "Open preview" action
 		productionUrl({
 			apiVersion,

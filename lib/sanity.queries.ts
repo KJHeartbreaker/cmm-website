@@ -24,6 +24,17 @@ const PageQueryProjection = groq`
     },
     'content': content[]{
         ...,
+        'map': map,
+        'iconCards': iconCards[] {
+            copy,
+            heading,
+            'icon': icon {
+                alt,
+                asset -> {
+                    _id
+                }
+            },
+        },
         'classRefs': classRefs[]{
             _type == 'reference' => @-> {
                 _id,
@@ -398,6 +409,12 @@ export const homePageTitleQuery = groq`
 
 export const blogPageQuery = groq`
     *[_type == "blogLandingPage"][0]{
+        ${PageQueryProjection}
+    }
+`
+
+export const contactPageQuery = groq`
+    *[_type == "contactPage"][0]{
         ${PageQueryProjection}
     }
 `

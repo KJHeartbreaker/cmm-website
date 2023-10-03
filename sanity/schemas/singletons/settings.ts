@@ -17,6 +17,7 @@ export default defineType({
 			of: [
 				defineArrayMember({ type: 'navCTA' }),
 				defineArrayMember({ type: 'navDropdownCTA' }),
+				defineArrayMember({ type: 'contactPage' }),
 			],
 		}),
 		defineField({
