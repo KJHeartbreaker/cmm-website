@@ -74,7 +74,6 @@ export const SingleColumnRowContainer = styled(ContentContainer)`
 		justify-content: center;
 
 		div {
-			border: 2px solid goldenrod;
 			display: flex;
 			justify-content: center;
 			align-items: center;
