@@ -31,6 +31,8 @@ export default async function ContactPageRoute() {
 	const client = getClient(preview)
 	const data = await client.fetch<contactPagePayload | null>(contactPageQuery)
 
+	console.log('data: ', data)
+
 	if (!data && !preview) {
 		notFound()
 	}
