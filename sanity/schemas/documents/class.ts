@@ -104,6 +104,13 @@ export default defineType({
 			validation: (rule) => rule.max(8),
 		}),
 		defineField({
+			name: 'upcoming22',
+			type: 'array',
+			title: 'Upcoming Classes 22',
+			of: [defineArrayMember({ type: 'dateTime' })],
+			validation: (rule) => rule.max(8),
+		}),
+		defineField({
 			title: 'Key Takeaways',
 			name: 'takeaways',
 			type: 'array',

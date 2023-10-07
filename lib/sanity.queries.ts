@@ -46,6 +46,13 @@ const PageQueryProjection = groq`
                     availability,
                     startDate,
                 },
+                'upcoming22': upcoming22[]{
+                    _key,
+                    availability,
+                    startDate,
+                    startTime,
+                    amPm
+                },
                 takeaways,
                 'slug': slug {
                     current

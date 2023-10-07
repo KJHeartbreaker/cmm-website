@@ -74,6 +74,14 @@ export type UpcomingTraining = {
 	startDate: Date
 }
 
+export type UpcomingTrainingDateTime = {
+	_key: string
+	amPm: string
+	availability: string
+	startDate: Date
+	startTime: string
+}
+
 export type TrainingSession = {
 	_id: string
 	name: string
@@ -84,6 +92,7 @@ export type TrainingSession = {
 	cta: CTAProps
 	takeaways: string[]
 	upcoming: UpcomingTraining[]
+	upcoming22: UpcomingTrainingDateTime[]
 	trainingType: string
 }
 
