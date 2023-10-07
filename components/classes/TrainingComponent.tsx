@@ -4,6 +4,7 @@ import React from 'react'
 import { PortableTextBlock } from 'sanity'
 import { TrainingSession } from 'types'
 import Link from 'next/link'
+import moment from 'moment'
 import {
 	TrainingContentContainer,
 	TrainingCopyBlock,
@@ -22,7 +23,8 @@ import CalendarIcon from './CalendarIcon'
 const TrainingComponent: React.FC<TrainingSession> = ({
 	name,
 	description,
-	upcoming,
+	// upcoming,
+	upcoming22,
 	picture,
 	price,
 	takeaways,
@@ -37,18 +39,7 @@ const TrainingComponent: React.FC<TrainingSession> = ({
 
 	const type = trainingType === 'group' ? 'Group Class' : 'Private Training'
 
-	const formatStartDate = (startDate) => {
-		const date = new Date(startDate)
-		return date.toLocaleString('en-US', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric',
-			hour: 'numeric',
-			minute: 'numeric',
-			hour12: true,
-			timeZone: 'America/Edmonton',
-		})
-	}
+	const formatStartDate = (startDate) => moment(startDate).format('MMMM Do YYYY')
 
 	return (
 		<TrainingContentContainer id={slug.current} className="has-bg">
@@ -81,12 +72,13 @@ const TrainingComponent: React.FC<TrainingSession> = ({
 			</TrainingImageBlock>
 			<UpcomingTrainingBlock>
 				<div>
-					{upcoming !== null && upcoming.length > 0 ? (
+					{upcoming22 !== null && upcoming22.length > 0 ? (
 						<>
 							<h2>Upcoming Classes</h2>
-							{upcoming.map((uC) => (
+							{upcoming22.map((uC) => (
 								<p key={uC._key}>
-									{formatStartDate(uC.startDate)}
+									{formatStartDate(uC.startDate)} at {uC.startTime}{' '}
+									{uC.amPm.toUpperCase()}
 									{uC.availability === 'full' && (
 										<span className="red">FULL</span>
 									)}
