@@ -41,25 +41,25 @@ export const singletonPlugin = (types: string[]) => ({
 // like how "Home" is handled.
 export const pageStructure =
 	(typeDefArray: DocumentDefinition[]): StructureResolver =>
-	(S) => {
-		// Goes through all of the singletons that were provided and translates them into something the
-		// Desktool can understand
-		const singletonItems = typeDefArray.map((typeDef) =>
-			S.listItem()
-				.title(typeDef.title!)
-				.icon(typeDef.icon)
-				.child(
-					S.editor()
-						.id(typeDef.name)
-						.schemaType(typeDef.name)
-						.documentId(typeDef.name)
-						.views([
-							// @todo: consider DRYing with `plugins/previewPane/index.tsx`
-							// Default form view
-							S.view.form(),
-							// Preview
-							...(PREVIEWABLE_DOCUMENT_TYPES.includes(typeDef.name)
-								? [
+		(S) => {
+			// Goes through all of the singletons that were provided and translates them into something the
+			// Desktool can understand
+			const singletonItems = typeDefArray.map((typeDef) =>
+				S.listItem()
+					.title(typeDef.title!)
+					.icon(typeDef.icon)
+					.child(
+						S.editor()
+							.id(typeDef.name)
+							.schemaType(typeDef.name)
+							.documentId(typeDef.name)
+							.views([
+								// @todo: consider DRYing with `plugins/previewPane/index.tsx`
+								// Default form view
+								S.view.form(),
+								// Preview
+								...(PREVIEWABLE_DOCUMENT_TYPES.includes(typeDef.name)
+									? [
 										S.view
 											.component((props) => (
 												<PreviewPane
@@ -69,48 +69,44 @@ export const pageStructure =
 												/>
 											))
 											.title('Preview'),
-								  ]
-								: []),
-						])
-				)
-		)
+									]
+									: []),
+							])
+					)
+			)
 
-		return S.list()
-			.title('Content')
-			.items([
-				...singletonItems,
-				S.listItem()
-					.title('Pages')
-					.icon(GiCobweb)
-					.child(S.documentTypeList('page').title('Pages')),
-				S.listItem()
-					.title('Posts')
-					.icon(BsSignpostSplit)
-					.child(S.documentTypeList('post').title('Posts')),
-				S.divider(),
-				S.listItem()
-					.title('Our Team')
-					.icon(GiSittingDog)
-					.child(S.documentTypeList('trainer').title('Trainers')),
-				S.listItem()
-					.title('Classes')
-					.icon(GiGraduateCap)
-					.child(S.documentTypeList('class').title('Classes')),
-				S.listItem()
-					.title('Resources')
-					.icon(RiStackFill)
-					.child(S.documentTypeList('resource').title('Resources')),
-				S.listItem()
-					.title('*** OLD Classes')
-					.icon(GiGraduateCap)
-					.child(S.documentTypeList('classes').title('Classes')),
-				S.listItem()
-					.title('Products')
-					.icon(CgShoppingCart)
-					.child(S.documentTypeList('product').title('Products')),
-				S.listItem()
-					.title('Testimonials')
-					.icon(SlSpeech)
-					.child(S.documentTypeList('testimonial').title('Testimonials')),
-			])
-	}
+			return S.list()
+				.title('Content')
+				.items([
+					...singletonItems,
+					S.listItem()
+						.title('Pages')
+						.icon(GiCobweb)
+						.child(S.documentTypeList('page').title('Pages')),
+					S.listItem()
+						.title('Posts')
+						.icon(BsSignpostSplit)
+						.child(S.documentTypeList('post').title('Posts')),
+					S.divider(),
+					S.listItem()
+						.title('Our Team')
+						.icon(GiSittingDog)
+						.child(S.documentTypeList('trainer').title('Trainers')),
+					S.listItem()
+						.title('Classes')
+						.icon(GiGraduateCap)
+						.child(S.documentTypeList('class').title('Classes')),
+					S.listItem()
+						.title('Resources')
+						.icon(RiStackFill)
+						.child(S.documentTypeList('resource').title('Resources')),
+					S.listItem()
+						.title('Products')
+						.icon(CgShoppingCart)
+						.child(S.documentTypeList('product').title('Products')),
+					S.listItem()
+						.title('Testimonials')
+						.icon(SlSpeech)
+						.child(S.documentTypeList('testimonial').title('Testimonials')),
+				])
+		}

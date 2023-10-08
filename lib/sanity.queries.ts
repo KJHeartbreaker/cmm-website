@@ -41,11 +41,6 @@ const PageQueryProjection = groq`
                 name,
                 trainingType,
                 price,
-                'upcoming': upcoming[]{
-                    _key,
-                    availability,
-                    startDate,
-                },
                 'upcoming22': upcoming22[]{
                     _key,
                     availability,
