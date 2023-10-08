@@ -23,7 +23,6 @@ import CalendarIcon from './CalendarIcon'
 const TrainingComponent: React.FC<TrainingSession> = ({
 	name,
 	description,
-	// upcoming,
 	upcoming22,
 	picture,
 	price,

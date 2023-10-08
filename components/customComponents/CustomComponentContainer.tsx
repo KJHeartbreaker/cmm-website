@@ -2,7 +2,6 @@ import { GroupClass, SanityImageProps, Trainer } from 'types'
 
 import { PortableTextBlock } from 'sanity'
 import GalleryGrid from './gallery/GalleryGrid'
-import GroupClassCustomComponent from './GroupClassCustomComponent'
 import TrainersCustomComponent from './TrainersCustomComponent'
 import ContentBlock from '../utilityComponents/ContentBlock'
 import AboutUsSection, { IterableIconCardProps } from './AboutUsContainer'
@@ -36,14 +35,6 @@ export default function CustomComponentContainer(props: CustomComponentContainer
 					case 'trainerRows':
 						component = (
 							<TrainersCustomComponent key={row._key} trainers={row.trainers!} />
-						)
-						break
-					case 'classRows':
-						component = (
-							<GroupClassCustomComponent
-								key={row._key}
-								groupClasses={row.groupClasses!}
-							/>
 						)
 						break
 					case 'galleryGrid':

@@ -35,12 +35,7 @@ export default defineType({
 		defineField({
 			type: 'array',
 			name: 'rows',
-			of: [
-				{ type: 'trainerRows' },
-				{ type: 'classRows' },
-				{ type: 'galleryGrid' },
-				{ type: 'aboutUsContainer' },
-			],
+			of: [{ type: 'trainerRows' }, { type: 'galleryGrid' }, { type: 'aboutUsContainer' }],
 		}),
 		defineField({
 			name: 'disabled',

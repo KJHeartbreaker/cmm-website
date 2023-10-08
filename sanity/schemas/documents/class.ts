@@ -97,16 +97,9 @@ export default defineType({
 			fieldset: 'textFields',
 		}),
 		defineField({
-			name: 'upcoming',
-			type: 'array',
-			title: 'Upcoming Classes',
-			of: [defineArrayMember({ type: 'dateRange' })],
-			validation: (rule) => rule.max(8),
-		}),
-		defineField({
 			name: 'upcoming22',
 			type: 'array',
-			title: 'Upcoming Classes 22',
+			title: 'Upcoming Classes',
 			of: [defineArrayMember({ type: 'dateTime' })],
 			validation: (rule) => rule.max(8),
 		}),

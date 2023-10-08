@@ -68,12 +68,6 @@ export type GroupClass = {
 	cta: CTAProps
 }
 
-export type UpcomingTraining = {
-	_key: string
-	availability: string
-	startDate: Date
-}
-
 export type UpcomingTrainingDateTime = {
 	_key: string
 	amPm: string
@@ -91,7 +85,6 @@ export type TrainingSession = {
 	picture: SanityImageProps
 	cta: CTAProps
 	takeaways: string[]
-	upcoming: UpcomingTraining[]
 	upcoming22: UpcomingTrainingDateTime[]
 	trainingType: string
 }
