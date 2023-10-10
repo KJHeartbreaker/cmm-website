@@ -23,6 +23,7 @@
 		"@tailwindcss/typography": "0.5.9",
 		"@vercel/og": "^0.5.12",
 		"classnames": "2.3.2",
+		"client-only": "^0.0.1",
 		"date-fns": "2.30.0",
 		"formik": "^2.4.3",
 		"get-youtube-id": "^1.0.1",
@@ -57,6 +58,7 @@
 		"zod-formik-adapter": "^1.2.0"
 	},
 	"devDependencies": {
+		"@types/gtag.js": "^0.0.16",
 		"@types/nodemailer": "^6.4.9",
 		"@types/nodemailer-smtp-transport": "^2.7.5",
 		"@types/react": "^18.2.21",
