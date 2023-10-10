@@ -2672,6 +2672,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/gtag.js@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@types/gtag.js/-/gtag.js-0.0.16.tgz#c1a0867730e5f7454b210ea5a45dc07088105bb5"
+  integrity sha512-TefTCQWiQYc1F7zF7KKLOd5E645me+9CjfPwJLNxWxaTK3ITKmCxtHRVH7EhSo1dl+sVGmu2h2htCOZrjWQRrQ==
+
 "@types/hast@^2.0.0":
   version "2.3.5"
   resolved "https://registry.yarnpkg.com/@types/hast/-/hast-2.3.5.tgz#08caac88b44d0fdd04dc17a19142355f43bd8a7a"
@@ -3722,7 +3727,7 @@ classnames@2.3.2, classnames@^2.2.5:
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
-client-only@0.0.1:
+client-only@0.0.1, client-only@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
   integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==

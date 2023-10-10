@@ -7,6 +7,7 @@ import React from 'react'
 import Script from 'next/script'
 import StyledComponentsRegistry from 'lib/registry'
 import { Providers } from 'lib/providers'
+import GoogleAnalytics from 'components/utilityComponents/GoogleAnalytics'
 
 export const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -56,6 +57,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 								style={{ display: 'none', visibility: 'hidden' }}
 							/>
 						</noscript>
+						<GoogleAnalytics GA_MEASUREMENT_ID="G-9S443J1SCB" />
 						{children}
 					</body>
 				</Providers>
