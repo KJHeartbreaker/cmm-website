@@ -1,7 +1,12 @@
-import { SanityImageProps } from 'types'
+'use client'
 
+import React, { useState, useEffect } from 'react'
+import { SanityImageProps } from 'types'
+import SwiperCore from 'swiper'
+import Modal from 'components/modal/Modal'
 import SanityComponentImage from '../../images/SanityComponentImage'
 import { GalleryGridContainer, GridItemContainer } from './Gallery.styles'
+import { GalleryCarousel } from './GalleryCarousel'
 
 interface GalleryGridProps {
 	images: SanityImageProps[]
@@ -9,6 +14,33 @@ interface GalleryGridProps {
 
 export default function GalleryGrid(props: GalleryGridProps) {
 	const { images } = props
+
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+	const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0)
+	const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null)
+
+	const openModal = (index: number) => {
+		setSelectedImageIndex(index)
+		setIsModalOpen(true)
+
+		if (thumbsSwiper) {
+			thumbsSwiper.destroy(true, true)
+			setThumbsSwiper(null)
+		}
+	}
+
+	useEffect(() => {
+		if (isModalOpen) {
+			document.body.style.overflow = 'hidden'
+		} else {
+			document.body.style.overflow = 'auto'
+		}
+
+		// Cleanup function to reset overflow when component unmounts
+		return () => {
+			document.body.style.overflow = 'auto'
+		}
+	}, [isModalOpen])
 
 	const generateImagePositions = (index: number) => {
 		const imagePositions = [
@@ -32,12 +64,12 @@ export default function GalleryGrid(props: GalleryGridProps) {
 		<GalleryGridContainer className="max-w-screen-xl">
 			{images.map((image, index) => {
 				const { col, rowStart, height, classes } = generateImagePositions(index)
-
 				return (
 					<GridItemContainer
 						key={image.asset._id}
 						className={`col-start-${col} ${classes}`}
 						rowstart={rowStart}
+						onClick={() => openModal(index)}
 					>
 						<SanityComponentImage
 							alt={image.alt}
@@ -48,6 +80,22 @@ export default function GalleryGrid(props: GalleryGridProps) {
 					</GridItemContainer>
 				)
 			})}
+			{isModalOpen && (
+				<Modal
+					closeModal={() => {
+						setIsModalOpen(false)
+						setSelectedImageIndex(0)
+					}}
+				>
+					<GalleryCarousel
+						key={isModalOpen ? 'open' : 'closed'}
+						images={images}
+						selectedImageIndex={selectedImageIndex}
+						thumbsSwiper={thumbsSwiper}
+						setThumbsSwiper={setThumbsSwiper}
+					/>
+				</Modal>
+			)}
 		</GalleryGridContainer>
 	)
 }

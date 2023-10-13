@@ -72,3 +72,22 @@ export const GridItemContainer = styled.div<GridItemContainerProps>`
 		}
 	}
 `
+
+export const MainSwiper = styled.div`
+	width: 100%;
+	height: 350px;
+
+	@media ${device.md} {
+		height: 500px;
+	}
+`
+
+export const NavSwiper = styled.div`
+	box-sizing: border-box;
+	padding: 10px 0;
+	height: 100px;
+
+	@media ${device.md} {
+		height: 150px;
+	}
+`
