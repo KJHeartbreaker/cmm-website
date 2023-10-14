@@ -40,6 +40,7 @@ const PageQueryProjection = groq`
                 _id,
                 name,
                 trainingType,
+                customTrainingTitle,
                 price,
                 'upcoming22': upcoming22[]{
                     _key,
@@ -162,6 +163,7 @@ const PageQueryProjection = groq`
                     }
                 },
                 trainingType,
+                customTrainingTitle,
                 dogName,
                 namePlacement,
                 cardImage {
