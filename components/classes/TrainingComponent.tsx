@@ -28,6 +28,7 @@ const TrainingComponent: React.FC<TrainingSession> = ({
 	price,
 	takeaways,
 	trainingType,
+	customTrainingTitle,
 	slug,
 	cta,
 }: TrainingSession) => {
@@ -43,7 +44,7 @@ const TrainingComponent: React.FC<TrainingSession> = ({
 	return (
 		<TrainingContentContainer id={slug.current} className="has-bg">
 			<TrainingCopyBlock>
-				<h5>{type}</h5>
+				<h5>{customTrainingTitle || type}</h5>
 				<h2>{name}</h2>
 				{price ? (
 					<h4>${price}</h4>

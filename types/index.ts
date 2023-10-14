@@ -87,6 +87,7 @@ export type TrainingSession = {
 	takeaways: string[]
 	upcoming22: UpcomingTrainingDateTime[]
 	trainingType: string
+	customTrainingTitle?: string
 }
 
 export type PanelContent = {

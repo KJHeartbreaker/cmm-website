@@ -89,6 +89,13 @@ export default defineType({
 			validation: (rule) => rule.required(),
 		}),
 		defineField({
+			name: 'customTrainingTitle',
+			title: 'Custom Training Type Title',
+			description:
+				'If no title is provided, the default title will appear. The defaults are Group Class, and Private Training.',
+			type: 'string',
+		}),
+		defineField({
 			name: 'price',
 			title: 'Price',
 			description:
