@@ -8,12 +8,6 @@ export default defineType({
 	title: 'Carousel',
 	fields: [
 		defineField({
-			name: 'autoplay',
-			type: 'boolean',
-			title: 'Autoplay',
-			description: 'Would you like the carousel to scroll automatically?',
-		}),
-		defineField({
 			name: 'carouselImages',
 			type: 'array',
 			title: 'Carousel Images',

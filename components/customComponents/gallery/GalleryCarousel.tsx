@@ -56,6 +56,7 @@ export const GalleryCarousel: React.FC<GalleryCarouselProps> = ({
 			slidesPerView={4}
 			freeMode
 			watchSlidesProgress
+			className="navSwipe"
 			modules={[FreeMode, Navigation, Thumbs]}
 		>
 			{images.map((im, i) => (
