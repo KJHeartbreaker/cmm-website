@@ -23,7 +23,6 @@ export default function RowColumn(panel: PanelContent) {
 		landingPageRoute,
 		image,
 		centerCopy,
-		autoplay,
 		carouselImages,
 	} = panel
 
@@ -34,7 +33,7 @@ export default function RowColumn(panel: PanelContent) {
 			)}
 			{_type === 'carousel' && (
 				<CarouselContainer>
-					<Carousel autoTransition={autoplay} carouselImages={carouselImages} />
+					<Carousel carouselImages={carouselImages} />
 				</CarouselContainer>
 			)}
 			{_type === 'form' && <ContactFormPanel title={title} copy={copy} type="form" />}

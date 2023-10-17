@@ -7,7 +7,7 @@ export const CarouselContainer = styled.div`
 
 	.swiper-button-prev,
 	.swiper-button-next {
-		color: var(--blue-33);
+		color: var(--orange);
 
 		&:hover {
 			color: var(--blue-22);

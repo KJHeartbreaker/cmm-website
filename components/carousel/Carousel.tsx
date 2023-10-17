@@ -1,44 +1,27 @@
-import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import React, { useState } from 'react'
+import SwiperCore from 'swiper'
+import { SanityImageProps } from '@/types'
+import { GalleryCarousel } from '../customComponents/gallery/GalleryCarousel'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'
-import { SanityImageProps } from '@/types'
-import SanityComponentImage from '../images/SanityComponentImage'
-
 interface CarouselProps {
-	autoTransition: boolean
 	carouselImages: SanityImageProps[]
 }
 
-export const Carousel = ({ carouselImages, autoTransition }: CarouselProps) => {
-	const autoTransProps = {
-		delay: 2500,
-		disableOnInteraction: false,
-		pauseOnMouseEnter: true,
-	}
+export const Carousel = ({ carouselImages }: CarouselProps) => {
+	const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0)
+	const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null)
 
 	return (
-		<Swiper
-			pagination={{
-				dynamicBullets: true,
-				clickable: true,
-			}}
-			className="mySwiper"
-			autoplay={autoTransition ? autoTransProps : false}
-			loop
-			modules={[Autoplay, Navigation, Pagination]}
-			navigation
-		>
-			{carouselImages.map((image) => (
-				<SwiperSlide key={image.asset._id}>
-					<SanityComponentImage alt={image.alt} asset={image.asset} />
-				</SwiperSlide>
-			))}
-		</Swiper>
+		<GalleryCarousel
+			images={carouselImages}
+			selectedImageIndex={selectedImageIndex}
+			thumbsSwiper={thumbsSwiper}
+			setThumbsSwiper={setThumbsSwiper}
+		/>
 	)
 }

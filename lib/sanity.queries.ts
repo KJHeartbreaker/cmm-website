@@ -310,7 +310,6 @@ const PageQueryProjection = groq`
         'rowContent': rowContent[]{
             ...,
             _type == 'carousel' => {
-                autoplay,
                 carouselImages[]{
                     ${ImageProjection}
                 }
