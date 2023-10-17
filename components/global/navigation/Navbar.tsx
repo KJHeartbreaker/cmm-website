@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { MenuItemProps } from 'types'
-import { FaInstagram } from 'react-icons/fa'
+import { FaFacebook, FaInstagram } from 'react-icons/fa'
 
 import MobileHeaderDropdown from './MobileHeaderDropdown'
 import {
@@ -20,6 +20,8 @@ import {
 	MockButton,
 	Nav,
 	PrimaryNav,
+	SocialIcons,
+	SocialIconsMobile,
 	StickyContainer,
 	TopMenu,
 } from './Navbar.styles'
@@ -95,18 +97,26 @@ export function Navbar({ menuItems }: NavbarProps) {
 										</MenuLink>
 									)
 								})}
-							<MenuLink>
+							<SocialIcons>
+								<p>Follow Us:</p>
 								<InstaLink
 									href="https://www.instagram.com/canine.minds.and.manners/"
 									passHref
 									target="_blank"
 									rel="noopener noreferrer"
-									className="insta"
 								>
-									Insta
 									<FaInstagram size={24} />
 								</InstaLink>
-							</MenuLink>
+								<InstaLink
+									href="https://www.facebook.com/CanineMindsandManners/"
+									passHref
+									target="_blank"
+									rel="noopener noreferrer"
+									className="facebook"
+								>
+									<FaFacebook size={24} />
+								</InstaLink>
+							</SocialIcons>
 						</TopMenu>
 					) : (
 						<MobileMenuIcon onClick={openMenu} menuopen={menuOpen}>
@@ -150,16 +160,27 @@ export function Navbar({ menuItems }: NavbarProps) {
 										</Link>
 									)
 								})}
-							<InstaLink
-								href="https://www.instagram.com/canine.minds.and.manners/"
-								passHref
-								target="_blank"
-								rel="noopener noreferrer"
-								className="insta"
-							>
-								Insta
-								<FaInstagram size={24} />
-							</InstaLink>
+							<SocialIconsMobile>
+								<p>Follow us:</p>
+								<div className="icons">
+									<InstaLink
+										href="https://www.instagram.com/canine.minds.and.manners/"
+										passHref
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<FaInstagram size={36} />
+									</InstaLink>
+									<InstaLink
+										href="https://www.facebook.com/CanineMindsandManners/"
+										passHref
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<FaFacebook size={36} />
+									</InstaLink>
+								</div>
+							</SocialIconsMobile>
 							<Link href="tel:4038165629" passHref className="phone-button">
 								<button type="button" className="contact">
 									Kirsten Rose <br />
