@@ -45,6 +45,54 @@ export const InstaLink = styled(Link)`
 	}
 `
 
+export const SocialIcons = styled.div`
+	display: flex;
+	flex-direction: row;
+
+	p {
+		font-weight: 400;
+		font-family: var(--font-paytone-one), sans-serif;
+		color: var(--white);
+		width: max-content;
+		margin-bottom: 0;
+	}
+
+	svg {
+		color: var(--white);
+		margin-left: 12px;
+
+		&:hover {
+			color: var(--orange);
+		}
+	}
+`
+
+export const SocialIconsMobile = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	p {
+		font-weight: 600;
+		font-family: var(--font-paytone-one), sans-serif;
+		color: var(--white);
+		width: max-content;
+		margin-bottom: 0;
+	}
+
+	svg {
+		color: var(--white);
+		margin: 0;
+	}
+
+	.icons {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		gap: 15px;
+	}
+`
+
 export const MockButton = styled.div`
 	display: none;
 	flex-direction: row;
@@ -155,7 +203,7 @@ export const MenuLink = styled.li`
 	align-items: center;
 	justify-content: center;
 	height: 100%;
-	width: 100%;
+	width: unset;
 	list-style: none;
 	margin: 0;
 	transition: background-color 0.25s;
@@ -193,7 +241,7 @@ export const MenuLink = styled.li`
 export const TopMenu = styled.ul`
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	margin: 0;
 	padding: 0 20px;
 	width: 100%;
@@ -327,7 +375,7 @@ export const MobileMenuIcon: React.FC<MobileMenuIconProps> = styled.div<MobileMe
 
 	> div {
 		height: 2px;
-		background: #000;
+		background: var(--white);
 		margin: 5px 0;
 		width: 100%;
 	}
