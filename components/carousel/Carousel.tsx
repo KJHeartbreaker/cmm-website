@@ -3,11 +3,6 @@ import SwiperCore from 'swiper'
 import { SanityImageProps } from '@/types'
 import { GalleryCarousel } from '../customComponents/gallery/GalleryCarousel'
 
-// Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-
 interface CarouselProps {
 	carouselImages: SanityImageProps[]
 }

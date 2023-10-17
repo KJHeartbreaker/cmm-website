@@ -10,6 +10,11 @@ export const StyledRowColumn = styled.div`
 
 	&.carousel-wrapper {
 		overflow: hidden;
+		height: 500px;
+
+		@media ${device.md} {
+			height: 650px;
+		}
 	}
 
 	div.image-container {
