@@ -8,7 +8,7 @@ interface CarouselProps {
 }
 
 export const Carousel = ({ carouselImages }: CarouselProps) => {
-	const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0)
+	const [selectedImageIndex] = useState<number>(0)
 	const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null)
 
 	return (

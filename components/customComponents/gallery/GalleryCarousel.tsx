@@ -17,6 +17,7 @@ interface GalleryCarouselProps {
 	images: SanityImageProps[]
 	selectedImageIndex: number
 	thumbsSwiper: SwiperCore | null
+	// eslint-disable-next-line no-unused-vars
 	setThumbsSwiper: (swiper: SwiperCore) => void
 }
 
@@ -33,7 +34,7 @@ export const GalleryCarousel: React.FC<GalleryCarouselProps> = ({
 			loop
 			spaceBetween={10}
 			navigation
-			thumbs={{ swiper: thumbsSwiper }}
+			thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
 			modules={[FreeMode, Navigation, Thumbs]}
 		>
 			{images.map((im, i) => (
