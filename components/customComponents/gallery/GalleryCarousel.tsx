@@ -33,7 +33,7 @@ export const GalleryCarousel: React.FC<GalleryCarouselProps> = ({
 			loop
 			spaceBetween={10}
 			navigation
-			thumbs={{ swiper: thumbsSwiper }}
+			thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
 			modules={[FreeMode, Navigation, Thumbs]}
 		>
 			{images.map((im, i) => (
