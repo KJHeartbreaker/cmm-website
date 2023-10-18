@@ -17,6 +17,7 @@ interface GalleryCarouselProps {
 	images: SanityImageProps[]
 	selectedImageIndex: number
 	thumbsSwiper: SwiperCore | null
+	// eslint-disable-next-line no-unused-vars
 	setThumbsSwiper: (swiper: SwiperCore) => void
 }
 
