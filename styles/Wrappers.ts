@@ -48,11 +48,12 @@ export const Section = styled.section`
 export const ContentContainer = styled.div`
 	margin-left: auto;
 	margin-right: auto;
-	padding: 20px;
+	padding: 0;
+	padding: 0 20px;
 
 	@media ${device.sm} {
 		max-width: 720px;
-		padding: 35px 0;
+		padding: 0;
 	}
 
 	@media ${device.md} {

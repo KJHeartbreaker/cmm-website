@@ -93,6 +93,10 @@ export default defineType({
 					name: 'Class Row',
 					type: 'classRowsContainer',
 				}),
+				defineArrayMember({
+					name: 'Related Resources',
+					type: 'relatedResourcesRow',
+				}),
 			],
 		}),
 	],

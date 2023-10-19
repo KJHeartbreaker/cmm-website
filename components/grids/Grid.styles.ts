@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { device } from '@/styles/Breakpoints'
 import { ContentContainer } from '@/styles/Wrappers'
+import { PostCardContainer } from '../cards/Card.styles'
 
 export const TestimonialGridContainer = styled.div`
 	display: grid;
@@ -36,5 +37,41 @@ export const ProgramsGridContainer = styled(TrainersGridContainer)`
 
 	@media ${device.md} {
 		gap: 20px;
+	}
+`
+
+export const RelatedResourcesRowContainer = styled(ContentContainer)`
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 40px;
+`
+
+export const StyledTitle = styled.h2<{ titleColor: string }>`
+	color: ${(props) => props.titleColor};
+	margin-bottom: 20px;
+`
+
+export const RelatedResourcesGridContainer = styled.div`
+	display: grid;
+	grid-template-columns: auto;
+	gap: 20px;
+	width: 100%;
+	gap: 10px;
+
+	@media ${device.xs} {
+		gap: 20px;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media ${device.lg} {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	${PostCardContainer} {
+		height: 100%;
+
+		img.cardImage {
+			height: 200px;
+		}
 	}
 `

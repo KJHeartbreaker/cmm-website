@@ -170,6 +170,7 @@ export const PostCardContainer = styled(TrainerCardContainer)`
 			}
 
 			&:hover {
+				color: var(--orange-hover);
 				h4 {
 					color: var(--orange-hover);
 				}

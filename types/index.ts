@@ -15,6 +15,7 @@ export interface ProductCardProps {
 }
 
 export interface PostCardProps {
+	_type: string
 	_id: string
 	title: string
 	slug: { current: string }
@@ -26,6 +27,15 @@ export interface PostCardProps {
 		picture: SanityImageProps
 	}
 	excerpt: { portableTextBlock: PortableTextBlock[] }
+	image: SanityImageProps
+}
+
+export interface DownloadCardProps {
+	_type: string
+	_id: string
+	title: string
+	excerpt: { portableTextBlock: PortableTextBlock[] }
+	file: FileDownloadProps
 	image: SanityImageProps
 }
 

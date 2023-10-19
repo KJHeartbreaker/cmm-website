@@ -38,8 +38,8 @@ export const FooterIconRow = styled.div`
 	}
 
 	@media ${device.sm} {
-		flex-direction: row;
-		justify-content: space-around;
+		display: grid;
+		grid-template-columns: 40% 20% 40%;
 
 		svg {
 			order: unset;
@@ -66,6 +66,7 @@ export const FooterContent = styled(ContentContainer)`
 	max-width: 767px;
 	width: 100%;
 	min-height: 300px;
+	padding: 35px 20px;
 
 	svg.footerIcon {
 		width: 40px;
@@ -76,6 +77,10 @@ export const FooterContent = styled(ContentContainer)`
 		font-size: 12px;
 		color: var(--grey-22);
 		margin-top: 20px;
+	}
+
+	@media ${device.sm} {
+		padding: 35px 0;
 	}
 `
 

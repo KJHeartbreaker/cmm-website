@@ -10,7 +10,7 @@ export const StyledRowColumn = styled.div`
 
 	&.carousel-wrapper {
 		overflow: hidden;
-		height: 500px;
+		height: 450px;
 
 		@media ${device.md} {
 			height: 650px;
@@ -40,7 +40,7 @@ export const RowColumnCopy = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	width: 100%;
-	margin-bottom: 20px;
+	/* margin-bottom: 20px; */
 
 	h2 {
 		margin: 0 0 20px 0;

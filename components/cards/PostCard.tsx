@@ -21,7 +21,7 @@ const PostCard: React.FC<PostCardProps> = ({
 	return (
 		<PostCardContainer>
 			<Link href={hrefSlug} passHref>
-				<SanityComponentImage {...image} />
+				<SanityComponentImage {...image} className="cardImage" />
 			</Link>
 			<div className="copy-block">
 				<Link href={hrefSlug} passHref>
