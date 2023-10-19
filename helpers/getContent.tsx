@@ -22,6 +22,7 @@ import SingleColumnContentBlock from 'components/rows/SingleColumnBlock'
 import { PortableTextBlock } from 'sanity'
 import PostsGrid from 'components/grids/PostsGrid'
 import { IconCardProps } from 'components/cards/IconCard'
+import RelatedResourcesGrid from '@/components/grids/RelatedResourcesGrid'
 
 interface PageContent {
 	_key: string
@@ -62,6 +63,7 @@ interface PageContent {
 	map: string
 	mapLink: string
 	iconCards: IconCardProps[]
+	relatedResources: any
 }
 
 export function getContent(content: PageContent[]) {
@@ -169,6 +171,25 @@ export function getContent(content: PageContent[]) {
 							skinny={false}
 						>
 							<PostsGrid postsArr={c.posts} />
+						</ContentBlock>
+					)
+					break
+				case 'Related Resources':
+					el = (
+						<ContentBlock
+							key={c._key}
+							bgImage={null}
+							overlay="noOverlay"
+							bgColor={c.backgroundColor}
+							removeBottomPadding={c.removeBottomPadding}
+							skinny
+						>
+							<RelatedResourcesGrid
+								title={c.title}
+								titleColor={c.titleColor}
+								backgroundColor={c.backgroundColor!}
+								relatedResourcesArr={c.relatedResources}
+							/>
 						</ContentBlock>
 					)
 					break

@@ -121,6 +121,58 @@ const PageQueryProjection = groq`
                 }
             }
         },
+        'relatedResources': relatedResources[]{
+            _type == 'reference' => @-> {
+                _type == 'post' => {
+                    _type,
+                    _id,
+                    title,
+                    slug,
+                    author {
+                        _type == 'reference' => @-> {
+                            _id,
+                            name,
+                            slug,
+                            certifications,
+                            picture {
+                                ${ImageProjection}
+                            }
+                        }
+                    },
+                    excerpt {
+                        portableTextBlock[]{
+                            ...
+                        },
+                    },
+                    image {
+                        ${ImageProjection}
+                    }
+                },
+                _type == 'resource' => {
+                    _type,
+                    _id,
+                    title,
+                    'fileDownload': fileDownload {
+                        ...select(
+                            _type == 'file' => {
+                                asset-> {
+                                    url
+                                }
+                            },
+                            @
+                        )
+                    },
+                    excerpt {
+                        portableTextBlock[]{
+                            ...
+                        },
+                    },
+                    image {
+                        ${ImageProjection}
+                    }
+                }
+            }
+        },
         'posts': posts[]{
             _type == 'reference' => @-> {
                 _id,

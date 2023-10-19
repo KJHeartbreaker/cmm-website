@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity'
+import { GrResources as icon } from 'react-icons/gr'
 
 export default defineType({
 	type: 'document',
 	name: 'resource',
 	title: 'Resource',
+	icon,
 	fields: [
 		defineField({
 			name: 'title',

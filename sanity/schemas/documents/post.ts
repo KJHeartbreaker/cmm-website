@@ -1,11 +1,13 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { VscSettings } from 'react-icons/vsc'
 import { TbMeat } from 'react-icons/tb'
+import { FaBullhorn as icon } from 'react-icons/fa'
 
 export default defineType({
 	name: 'post',
 	title: 'Post',
 	type: 'document',
+	icon,
 	groups: [
 		{
 			title: 'Post Settings',
