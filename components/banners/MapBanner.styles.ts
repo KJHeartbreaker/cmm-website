@@ -46,7 +46,6 @@ export const ContactFormIconCardsContainer = styled.div`
 
 	${IconCardContainer} {
 		border-radius: 0;
-		/* width: 400px; */
 		flex: 1;
 		height: 100%;
 
