@@ -5,6 +5,7 @@ import { MdKeyboardArrowDown } from 'react-icons/md'
 import { MenuItemProps } from 'types'
 
 import { MobileMenuDropdownLink } from './Navbar.styles'
+import { usePathname } from 'next/navigation'
 
 interface MobileHeaderDropdownProps {
 	item: MenuItemProps
@@ -14,11 +15,19 @@ interface MobileHeaderDropdownProps {
 
 export default function MobileHeaderDropdown({ item, setMenuOpen }: MobileHeaderDropdownProps) {
 	const dropdownRef = useRef(null)
+	const pathname = usePathname()
 	const [mobileSubnavOpen, setMobileSubnavOpen] = useDetectOutsideClick(dropdownRef, false)
 
 	const showMobileSubnav = () => {
 		setMobileSubnavOpen(!mobileSubnavOpen)
 	}
+
+	// Check if the link, or any link in the submenu is active
+	const isNavMenuLinkActive =
+		pathname ===
+		`/${item.cta!.landingPageRoute ? item.cta!.landingPageRoute!.slug.current : item.cta!.link}`
+	const isSubMenuActive =
+		item.subnav && item.subnav.some((l: any) => pathname === `/${l.slug.current}`)
 
 	return (
 		<>
@@ -27,6 +36,7 @@ export default function MobileHeaderDropdown({ item, setMenuOpen }: MobileHeader
 					<Link
 						href={`/${item.cta!.landingPageRoute!.slug.current}`}
 						onClick={() => setMenuOpen(false)}
+						className={isNavMenuLinkActive || isSubMenuActive ? 'active' : ''}
 					>
 						{item.cta!.title}
 					</Link>

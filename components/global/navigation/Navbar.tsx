@@ -3,6 +3,7 @@
 import { useMediaQuery } from 'helpers/useMediaQuery'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { MenuItemProps } from 'types'
 import { FaFacebook, FaInstagram } from 'react-icons/fa'
@@ -37,6 +38,7 @@ export function Navbar({ menuItems }: NavbarProps) {
 	const openMenu = () => {
 		setMenuOpen(!menuOpen)
 	}
+	const pathname = usePathname()
 
 	useEffect(() => {
 		if (menuOpen) {
@@ -85,6 +87,17 @@ export function Navbar({ menuItems }: NavbarProps) {
 									return (
 										<MenuLink key={menuItem._key}>
 											<Link
+												className={`${
+													pathname ===
+													`/${
+														menuItem.cta!.landingPageRoute
+															? menuItem.cta!.landingPageRoute!.slug
+																	.current
+															: menuItem.cta!.link
+													}`
+														? 'active'
+														: ''
+												}`}
 												href={`/${
 													menuItem.cta!.landingPageRoute
 														? menuItem.cta!.landingPageRoute!.slug
@@ -153,6 +166,17 @@ export function Navbar({ menuItems }: NavbarProps) {
 											key={menuItem._key}
 											href={`/${
 												menuItem.cta!.landingPageRoute!.slug.current
+											}`}
+											className={`${
+												pathname ===
+												`/${
+													menuItem.cta!.landingPageRoute
+														? menuItem.cta!.landingPageRoute!.slug
+																.current
+														: menuItem.cta!.link
+												}`
+													? 'active'
+													: ''
 											}`}
 											onClick={() => setMenuOpen(false)}
 										>
