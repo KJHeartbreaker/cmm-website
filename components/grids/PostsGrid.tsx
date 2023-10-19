@@ -17,6 +17,7 @@ export default function PostsGrid(props: PostsGridProps) {
 		<ProgramsGridContainer>
 			{postsArr.map((post) => (
 				<PostCard
+					_type="post"
 					key={post._id}
 					title={post.title}
 					slug={post.slug}
