@@ -297,7 +297,9 @@ export const SubMenu = styled.ul`
 	display: none;
 	flex-direction: column;
 	align-items: flex-start;
-	box-shadow: rgb(0 0 0 / 20%) 0px 3px 7px, rgb(0 0 0 / 30%) 0px 0.6px 2px;
+	box-shadow:
+		rgb(0 0 0 / 20%) 0px 3px 7px,
+		rgb(0 0 0 / 30%) 0px 0.6px 2px;
 	border-radius: 5px;
 	position: absolute;
 	top: 20px;
