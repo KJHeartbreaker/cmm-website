@@ -21,7 +21,15 @@ export function CustomPortableText({
 }) {
 	const components: PortableTextComponents = {
 		block: {
-			normal: ({ children }) => <p className={paragraphClasses}>{children}</p>,
+			normal: ({ children }) => {
+				// Check if children is an array with a single empty string
+				if (Array.isArray(children) && children.length === 1 && children[0] === '') {
+					return <br />
+				}
+
+				// Render the <p> element with the specified paragraphClasses
+				return <p className={paragraphClasses}>{children}</p>
+			},
 		},
 		marks: {
 			internalLink: ({ children, value }) => {
