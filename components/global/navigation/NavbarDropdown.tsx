@@ -5,9 +5,11 @@ import { IoIosArrowDown } from 'react-icons/io'
 import { MenuItemProps } from 'types'
 
 import { MenuLink, NavbarDropdownContainer, NavMenuLink, SubMenu } from './Navbar.styles'
+import { usePathname } from 'next/navigation'
 
-export default function HeaderDropdown(props: MenuItemProps) {
+export default function NavbarDropdown(props: MenuItemProps) {
 	const { subnav, cta } = props
+	const pathname = usePathname()
 
 	const dropdownRef = useRef(null)
 	const [subnavState, setSubnavState] = useDetectOutsideClick(dropdownRef, false)
@@ -23,6 +25,11 @@ export default function HeaderDropdown(props: MenuItemProps) {
 		setSubnavState(false)
 	}
 
+	// Check if the link, or any link in the submenu is active
+	const isNavMenuLinkActive =
+		pathname === `/${cta!.landingPageRoute ? cta!.landingPageRoute!.slug.current : cta!.link}`
+	const isSubMenuActive = subnav && subnav.some((l: any) => pathname === `/${l.slug.current}`)
+
 	return (
 		<NavbarDropdownContainer
 			ref={dropdownRef}
@@ -33,16 +40,26 @@ export default function HeaderDropdown(props: MenuItemProps) {
 		>
 			<NavMenuLink>
 				{cta!.landingPageRoute ? (
-					<Link href={`/${cta!.landingPageRoute!.slug.current}`}>{cta!.title}</Link>
+					<Link
+						className={isNavMenuLinkActive || isSubMenuActive ? 'active' : ''}
+						href={`/${cta!.landingPageRoute!.slug.current}`}
+					>
+						{cta!.title}
+					</Link>
 				) : (
 					<a className="no-hover">{cta!.title}</a>
 				)}
-				<IoIosArrowDown fontSize="1.3em" />
+				<IoIosArrowDown fontSize="1.3em" className={isSubMenuActive ? 'active' : ''} />
 			</NavMenuLink>
 			<SubMenu style={subnavState ? { display: 'flex' } : { display: 'none' }}>
 				{subnav!.map((l: any) => (
 					<MenuLink key={l._id}>
-						<Link href={`/${l.slug.current}`}>{l.title}</Link>
+						<Link
+							className={`${pathname === `/${l.slug.current}` ? 'active' : ''}`}
+							href={`/${l.slug.current}`}
+						>
+							{l.title}
+						</Link>
 					</MenuLink>
 				))}
 			</SubMenu>

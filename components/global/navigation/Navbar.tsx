@@ -3,6 +3,7 @@
 import { useMediaQuery } from 'helpers/useMediaQuery'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { MenuItemProps } from 'types'
 import { FaFacebook, FaInstagram } from 'react-icons/fa'
@@ -37,6 +38,7 @@ export function Navbar({ menuItems }: NavbarProps) {
 	const openMenu = () => {
 		setMenuOpen(!menuOpen)
 	}
+	const pathname = usePathname()
 
 	useEffect(() => {
 		if (menuOpen) {
@@ -85,12 +87,20 @@ export function Navbar({ menuItems }: NavbarProps) {
 									return (
 										<MenuLink key={menuItem._key}>
 											<Link
-												href={`/${
-													menuItem.cta!.landingPageRoute
-														? menuItem.cta!.landingPageRoute!.slug
+												className={`${pathname ===
+														`/${menuItem.cta!.landingPageRoute
+															? menuItem.cta!.landingPageRoute!.slug
 																.current
+															: menuItem.cta!.link
+														}`
+														? 'active'
+														: ''
+													}`}
+												href={`/${menuItem.cta!.landingPageRoute
+														? menuItem.cta!.landingPageRoute!.slug
+															.current
 														: menuItem.cta!.link
-												}`}
+													}`}
 											>
 												{menuItem.cta!.title}
 											</Link>
@@ -151,9 +161,17 @@ export function Navbar({ menuItems }: NavbarProps) {
 									return (
 										<Link
 											key={menuItem._key}
-											href={`/${
-												menuItem.cta!.landingPageRoute!.slug.current
-											}`}
+											href={`/${menuItem.cta!.landingPageRoute!.slug.current
+												}`}
+											className={`${pathname ===
+													`/${menuItem.cta!.landingPageRoute
+														? menuItem.cta!.landingPageRoute!.slug
+															.current
+														: menuItem.cta!.link
+													}`
+													? 'active'
+													: ''
+												}`}
 											onClick={() => setMenuOpen(false)}
 										>
 											{menuItem.cta!.title}

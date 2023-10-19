@@ -215,18 +215,18 @@ export const MenuLink = styled.li`
 		font-family: var(--font-paytone-one), sans-serif;
 		color: var(--white);
 
+		&:hover,
+		&.active,
+		&[aria-current='page'] {
+			color: var(--orange);
+		}
+
 		&.no-hover {
 			cursor: default;
 			&:hover {
 				color: var(--white);
 			}
 		}
-	}
-
-	&:hover,
-	&.active,
-	&[aria-current='page'] {
-		color: springgreen;
 	}
 
 	a.button {
@@ -278,6 +278,10 @@ export const NavbarDropdownContainer = styled.div`
 		transition: transform 0.05s;
 		color: var(--white);
 		margin-left: 8px;
+
+		&.active {
+			color: var(--orange);
+		}
 	}
 
 	&.active {
@@ -297,9 +301,7 @@ export const SubMenu = styled.ul`
 	display: none;
 	flex-direction: column;
 	align-items: flex-start;
-	box-shadow:
-		rgb(0 0 0 / 20%) 0px 3px 7px,
-		rgb(0 0 0 / 30%) 0px 0.6px 2px;
+	box-shadow: rgb(0 0 0 / 20%) 0px 3px 7px, rgb(0 0 0 / 30%) 0px 0.6px 2px;
 	border-radius: 5px;
 	position: absolute;
 	top: 20px;
@@ -321,6 +323,10 @@ export const SubMenu = styled.ul`
 			display: flex;
 			height: 100%;
 			width: 100%;
+
+			&.active {
+				color: var(--orange);
+			}
 		}
 
 		&:hover {
@@ -456,7 +462,7 @@ export const MobileMenuDropdown = styled.div`
 		padding: 10px 0;
 
 		&.active {
-			color: var(--green);
+			color: var(--orange);
 		}
 	}
 
