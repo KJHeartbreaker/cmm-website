@@ -87,20 +87,23 @@ export function Navbar({ menuItems }: NavbarProps) {
 									return (
 										<MenuLink key={menuItem._key}>
 											<Link
-												className={`${pathname ===
-														`/${menuItem.cta!.landingPageRoute
+												className={`${
+													pathname ===
+													`/${
+														menuItem.cta!.landingPageRoute
 															? menuItem.cta!.landingPageRoute!.slug
-																.current
+																	.current
 															: menuItem.cta!.link
-														}`
+													}`
 														? 'active'
 														: ''
-													}`}
-												href={`/${menuItem.cta!.landingPageRoute
+												}`}
+												href={`/${
+													menuItem.cta!.landingPageRoute
 														? menuItem.cta!.landingPageRoute!.slug
-															.current
+																.current
 														: menuItem.cta!.link
-													}`}
+												}`}
 											>
 												{menuItem.cta!.title}
 											</Link>
@@ -161,17 +164,20 @@ export function Navbar({ menuItems }: NavbarProps) {
 									return (
 										<Link
 											key={menuItem._key}
-											href={`/${menuItem.cta!.landingPageRoute!.slug.current
-												}`}
-											className={`${pathname ===
-													`/${menuItem.cta!.landingPageRoute
+											href={`/${
+												menuItem.cta!.landingPageRoute!.slug.current
+											}`}
+											className={`${
+												pathname ===
+												`/${
+													menuItem.cta!.landingPageRoute
 														? menuItem.cta!.landingPageRoute!.slug
-															.current
+																.current
 														: menuItem.cta!.link
-													}`
+												}`
 													? 'active'
 													: ''
-												}`}
+											}`}
 											onClick={() => setMenuOpen(false)}
 										>
 											{menuItem.cta!.title}

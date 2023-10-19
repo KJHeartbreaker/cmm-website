@@ -9,6 +9,7 @@ import { MenuItemProps, SanityLogoProps } from 'types'
 import LogoRow from 'components/logoRow/LogoRow'
 import { FooterContainer, FooterContent, FooterIconRow, FooterMenu } from './Footer.styles'
 import FooterIcon from './FooterIcon'
+import { usePathname } from 'next/navigation'
 
 interface FooterProps {
 	menuItems?: MenuItemProps[]
@@ -18,6 +19,7 @@ interface FooterProps {
 export function Footer({ menuItems, logos }: FooterProps) {
 	const isMobile = useMediaQuery('(max-width: 576px)')
 	const currentYr = new Date().getFullYear()
+	const pathname = usePathname()
 
 	return (
 		<FooterContainer>
@@ -57,6 +59,17 @@ export function Footer({ menuItems, logos }: FooterProps) {
 												menuItem.cta!.landingPageRoute
 													? menuItem.cta!.landingPageRoute!.slug.current
 													: menuItem.cta!.link
+											}`}
+											className={`${
+												pathname ===
+												`/${
+													menuItem.cta!.landingPageRoute
+														? menuItem.cta!.landingPageRoute!.slug
+																.current
+														: menuItem.cta!.link
+												}`
+													? 'active'
+													: ''
 											}`}
 										>
 											{menuItem.cta!.title}
