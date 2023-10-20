@@ -1,7 +1,7 @@
 import { Page } from 'components/pages/page/Page'
 import PagePreview from 'components/pages/page/PagePreview'
 import { toPlainText } from '@portabletext/react'
-import { readToken } from 'lib/sanity.api'
+import { readToken, siteUrl } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
 import { homePageQuery, settingsQuery } from 'lib/sanity.queries'
 import { defineMetadata } from 'lib/utils.metadata'
@@ -23,6 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 		description: page?.overview ? toPlainText(page.overview) : '',
 		image: settings?.ogImage,
 		title: page?.title,
+		canonical: siteUrl,
 	})
 }
 

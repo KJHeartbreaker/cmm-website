@@ -11,11 +11,13 @@ export function defineMetadata({
 	description,
 	image,
 	title,
+	canonical,
 }: {
 	baseTitle?: string
 	description?: string
 	image?: Image
 	title?: string
+	canonical?: string
 }) {
 	const metaTitle = [...(title ? [title] : []), ...(baseTitle ? [baseTitle] : [])].join(' | ')
 
@@ -25,6 +27,9 @@ export function defineMetadata({
 		title: metaTitle || demo.title,
 		themeColor: '#000',
 		description,
+		alternates: {
+			canonical: canonical,
+		},
 		openGraph: imageUrl
 			? {
 					images: [imageUrl],
