@@ -1,7 +1,7 @@
 import { Post } from 'components/pages/post/Post'
 import PostPreview from 'components/pages/post/PostPreview'
 import { toPlainText } from '@portabletext/react'
-import { readToken } from 'lib/sanity.api'
+import { readToken, siteUrl } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
 import { homePageTitleQuery, postPaths, postsBySlugQuery } from 'lib/sanity.queries'
 import { defineMetadata } from 'lib/utils.metadata'
@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		description: post?.overview ? toPlainText(post.overview) : '',
 		image: post?.image,
 		title: post?.title,
+		canonical: `${siteUrl}/blog/${slug}`,
 	})
 }
 
