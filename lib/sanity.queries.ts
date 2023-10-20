@@ -452,6 +452,14 @@ const PageQueryProjection = groq`
     },
 `
 
+const SiteMapProjection = groq`
+    _id,
+    _updatedAt,
+    slug {
+        current
+    }
+`
+
 export const homePageQuery = groq`
     *[_type == "home"][0]{
         ${PageQueryProjection}
@@ -477,6 +485,25 @@ export const contactPageQuery = groq`
 export const pagesBySlugQuery = groq`
     *[_type == "page" && slug.current == $slug][0] {
         ${PageQueryProjection}
+    }
+`
+
+export const pagesSitemap = groq`
+    *[_type == "page" || _type == "blogLandingPage" || _type == "contactPage"] {
+        ${SiteMapProjection}
+    }
+`
+
+export const homePageSitemap = groq`
+    *[_type == "home"] {
+        _id,
+        _updatedAt
+    }
+`
+
+export const postsSitemap = groq`
+    *[_type == "post" ] {
+        ${SiteMapProjection}
     }
 `
 
