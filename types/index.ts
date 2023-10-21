@@ -220,13 +220,6 @@ export interface BlogLandingPagePayload {
 	content?: any
 }
 
-export interface ContactPagePayload {
-	name?: string
-	overview?: PortableTextBlock[]
-	title?: string
-	content?: any
-}
-
 export interface PagePayload {
 	name?: string
 	overview?: PortableTextBlock[]

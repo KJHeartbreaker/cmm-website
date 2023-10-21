@@ -4,8 +4,6 @@ export function resolveHref(documentType?: string, slug?: string): string | unde
 			return '/'
 		case 'blogLandingPage':
 			return '/blog'
-		case 'contactPage':
-			return '/contact'
 		case 'page':
 			return slug ? `/${slug}` : undefined
 		case 'post':

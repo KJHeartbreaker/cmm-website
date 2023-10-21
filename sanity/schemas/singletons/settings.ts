@@ -3,7 +3,7 @@ import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'settings',
-	title: 'Settings',
+	title: 'Settings and Menus',
 	type: 'document',
 	icon,
 	// Uncomment below to have edits publish automatically as you type
@@ -17,7 +17,7 @@ export default defineType({
 			of: [
 				defineArrayMember({ type: 'navCTA' }),
 				defineArrayMember({ type: 'navDropdownCTA' }),
-				defineArrayMember({ type: 'contactPage' }),
+				defineArrayMember({ type: 'blogLandingPage' }),
 			],
 		}),
 		defineField({

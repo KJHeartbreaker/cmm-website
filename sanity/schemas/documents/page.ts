@@ -97,6 +97,10 @@ export default defineType({
 					name: 'Related Resources',
 					type: 'relatedResourcesRow',
 				}),
+				defineArrayMember({
+					name: 'Contact Page Map',
+					type: 'contactPageMap',
+				}),
 			],
 		}),
 	],
