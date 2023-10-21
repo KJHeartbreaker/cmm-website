@@ -97,17 +97,22 @@ export default defineType({
 					name: 'Related Resources',
 					type: 'relatedResourcesRow',
 				}),
+				defineArrayMember({
+					name: 'Contact Page Map',
+					type: 'contactPageMap',
+				}),
 			],
 		}),
 	],
 	preview: {
 		select: {
 			title: 'title',
+			slug: 'slug.current',
 		},
-		prepare({ title }) {
+		prepare({ title, slug }) {
 			return {
-				subtitle: 'Page',
 				title,
+				subtitle: `/${slug}`,
 			}
 		},
 	},

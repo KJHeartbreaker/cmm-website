@@ -32,6 +32,9 @@ export default async function IndexRoute() {
 	const client = getClient(preview)
 	const data = await client.fetch<HomePagePayload | null>(homePageQuery)
 
+	console.log('preview: ', preview)
+	console.log('data: ', data)
+
 	if (!data && !preview) {
 		notFound()
 	}

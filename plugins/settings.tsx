@@ -7,7 +7,7 @@ import { CgShoppingCart } from 'react-icons/cg'
 import { GiCobweb, GiGraduateCap, GiSittingDog } from 'react-icons/gi'
 import { SlSpeech } from 'react-icons/sl'
 import { RiStackFill } from 'react-icons/ri'
-import { BsSignpostSplit } from 'react-icons/bs'
+import { BsSignpostSplit, BsTelephone } from 'react-icons/bs'
 import { type DocumentDefinition } from 'sanity'
 import { type StructureResolver } from 'sanity/desk'
 
@@ -79,10 +79,17 @@ export const pageStructure =
 			.title('Content')
 			.items([
 				...singletonItems,
-				S.listItem()
-					.title('Pages')
-					.icon(GiCobweb)
-					.child(S.documentTypeList('page').title('Pages')),
+				S.listItem().title('Contact').icon(BsTelephone).child(
+					S.editor()
+						.id('contactPage')
+						.schemaType('page')
+						.documentId('169e36ec-e78e-438b-9a51-800da17be6b6') // Assuming the document ID for your contact page is 'contact'
+				),
+				S.listItem().title('Pages').icon(GiCobweb).child(
+					S.documentTypeList('page')
+						.title('Pages')
+						.filter('_type == "page" && slug.current != "contact"') // This filter excludes the contact page
+				),
 				S.listItem()
 					.title('Posts')
 					.icon(BsSignpostSplit)

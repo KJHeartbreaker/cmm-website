@@ -476,12 +476,6 @@ export const blogPageQuery = groq`
     }
 `
 
-export const contactPageQuery = groq`
-    *[_type == "contactPage"][0]{
-        ${PageQueryProjection}
-    }
-`
-
 export const pagesBySlugQuery = groq`
     *[_type == "page" && slug.current == $slug][0] {
         ${PageQueryProjection}
@@ -489,7 +483,7 @@ export const pagesBySlugQuery = groq`
 `
 
 export const pagesSitemap = groq`
-    *[_type == "page" || _type == "blogLandingPage" || _type == "contactPage"] {
+    *[_type == "page" || _type == "blogLandingPage"] {
         ${SiteMapProjection}
     }
 `

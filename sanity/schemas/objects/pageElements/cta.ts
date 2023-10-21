@@ -49,7 +49,7 @@ export default defineType({
 			type: 'reference',
 			description: 'This links to another page within the site',
 			fieldset: 'link',
-			to: [{ type: 'page' }, { type: 'contactPage' }, { type: 'blogLandingPage' }],
+			to: [{ type: 'page' }, { type: 'blogLandingPage' }],
 		},
 		{
 			title: 'External link',
