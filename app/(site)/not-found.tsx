@@ -71,7 +71,7 @@ export default function NotFound() {
 					<FourOhFourColumn>
 						<h1>404: Not Found</h1>
 						<h2>I beg your pardon!</h2>
-						<p>I don't think that this is what you're looking for!</p>
+						<p>I don&apos;t think that this is what you&apos;re looking for!</p>
 						<p>You can try one of these instead:</p>
 						<ul>
 							<li>

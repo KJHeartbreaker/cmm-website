@@ -110,6 +110,11 @@ const config = {
 				destination: '/outdoor-and-advanced-dog-training',
 				permanent: true,
 			},
+			{
+				source: '/group-training',
+				destination: '/dog-and-puppy-training',
+				permanent: true,
+			},
 		]
 	},
 	images: {
