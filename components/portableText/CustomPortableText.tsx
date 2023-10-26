@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { PortableTextBlock } from 'sanity'
 import { SanityImageProps } from 'types'
 import getYouTubeID from 'get-youtube-id'
-import YouTubePlayer from './YouTubePlayer'
+import YouTubePlayer from '../video/YouTubePlayer'
 import LogoRow from '../logoRow/LogoRow'
 
 export function CustomPortableText({

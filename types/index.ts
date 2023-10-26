@@ -150,6 +150,7 @@ export type SanityImageProps = {
 	asset: ImageAsset
 	image?: any
 	className?: string
+	loading?: 'lazy' | 'eager'
 }
 
 export interface HeroBannerProps {
