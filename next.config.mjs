@@ -12,27 +12,27 @@ const config = {
 			},
 			{
 				source: '/puppy-training-classes.html',
-				destination: '/group-training#polite-puppies',
+				destination: '/puppy-training-classes',
 				permanent: true,
 			},
 			{
 				source: '/obedience-dog-training-classes.html',
-				destination: '/group-training#good-dogs-have-more-fun',
+				destination: '/dog-obedience-training',
 				permanent: true,
 			},
 			{
 				source: '/reactive-dog-training.html',
-				destination: '/group-training#reactive-rescue',
+				destination: '/reactivity',
 				permanent: true,
 			},
 			{
 				source: '/outdoor-and-advanced-dog-training.html',
-				destination: '/group-training#tails-on-the-trails',
+				destination: '/outdoor-and-advanced-dog-training',
 				permanent: true,
 			},
 			{
 				source: '/on-demand-puppy-class.html',
-				destination: '/group-training#polite-puppies',
+				destination: '/puppy-training-classes',
 				permanent: true,
 			},
 			{
@@ -113,6 +113,41 @@ const config = {
 			{
 				source: '/group-training',
 				destination: '/dog-and-puppy-training',
+				permanent: true,
+			},
+			{
+				source: '/payment-options.html',
+				destination: '/contact',
+				permanent: true,
+			},
+			{
+				source: '/outdoor-dog-training.html',
+				destination: '/outdoor-and-advanced-dog-training',
+				permanent: true,
+			},
+			{
+				source: '/think-leaving-your-dog-in-the-back-yard-all-day-is-a-good-thing-think-again',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/new-training-alternatives.html',
+				destination: '/dog-and-puppy-training',
+				permanent: true,
+			},
+			{
+				source: '/frdqvsr/link.php',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/missing_page.html',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/the-dangers-of-treat-training',
+				destination: '/',
 				permanent: true,
 			},
 		]
