@@ -3,11 +3,19 @@
 import { SanityImage } from 'sanity-image'
 import { SanityImageProps } from 'types'
 
-const SanityComponentImage = (props: SanityImageProps) => {
+const SanityComponentImage = ({
+	alt,
+	crop,
+	hotspot,
+	asset,
+	width,
+	height,
+	image,
+	className,
+	loading,
+}: SanityImageProps) => {
 	const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 	const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
-
-	const { alt, crop, hotspot, asset, width, height, image, className } = props
 
 	let imageId
 	let preview
@@ -37,7 +45,7 @@ const SanityComponentImage = (props: SanityImageProps) => {
 			crop={crop}
 			preview={preview}
 			alt={alt}
-			loading="lazy"
+			loading={loading || 'lazy'}
 			className={className || ''}
 		/>
 	)
