@@ -13,8 +13,6 @@ const LazyYouTubePlayer: React.FC<LazyYouTubePlayerProps> = ({ videoId }) => {
 	const containerRef = useRef<HTMLDivElement | null>(null)
 
 	useEffect(() => {
-		console.log('running')
-
 		const currentRef = containerRef.current // Capture the current ref value
 
 		const observer = new IntersectionObserver(
