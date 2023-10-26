@@ -72,6 +72,10 @@ export function CustomPortableText({
 
 				const id = getYouTubeID(url)
 
+				if (!id) {
+					return <div>Missing YouTube URL</div>
+				}
+
 				return <YouTubePlayer videoId={id} />
 			},
 			logoRow: ({ value }) => <LogoRow logos={value.logoRow} />,
