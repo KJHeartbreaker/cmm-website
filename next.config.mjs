@@ -141,7 +141,7 @@ const config = {
 				permanent: true,
 			},
 			{
-				source: '/missing_page.html?page=bb495528-d255-453f-9992-432d54e8983d',
+				source: '/missing_page.html',
 				destination: '/',
 				permanent: true,
 			},
