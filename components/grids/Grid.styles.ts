@@ -3,7 +3,15 @@ import { device } from '@/styles/Breakpoints'
 import { ContentContainer } from '@/styles/Wrappers'
 import { PostCardContainer } from '../cards/Card.styles'
 
-export const TestimonialGridContainer = styled.div`
+export const TestimonialsContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 0;
+`
+
+export const TestimonialsGridContainer = styled.div`
 	display: grid;
 	grid-template-columns: 1;
 	padding: 20px;

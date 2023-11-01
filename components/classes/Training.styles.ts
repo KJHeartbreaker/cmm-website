@@ -24,6 +24,15 @@ export const TrainingContentContainer = styled(ContentContainer)`
 		grid-template-columns: repeat(2, 1fr);
 		padding-top: 100px;
 		padding-bottom: 100px;
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+
+		&:only-child {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
 	}
 `
 
