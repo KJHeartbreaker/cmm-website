@@ -225,9 +225,13 @@ export function getContent(content: PageContent[]) {
 							overlay={c.overlay}
 							bgColor={c.backgroundColor}
 							removeBottomPadding={c.removeBottomPadding}
-							skinny={false}
+							skinny={c.skinny}
 						>
-							<TestimonialsGrid panels={transformedTestimonials} />
+							<TestimonialsGrid
+								panels={transformedTestimonials}
+								title={c.title}
+								titleColor={c.titleColor}
+							/>
 						</ContentBlock>
 					)
 					break

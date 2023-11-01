@@ -15,11 +15,45 @@ export default defineType({
 				collapsed: false,
 			},
 		},
+		{
+			title: 'Title Options',
+			name: 'titleOptions',
+			options: {
+				collapsible: true,
+				collapsed: true,
+			},
+		},
 	],
 	initialValue: {
+		titleColor: '#333333',
 		backgroundColor: '#ffffff',
 	},
 	fields: [
+		defineField({
+			title: 'Title',
+			name: 'title',
+			type: 'string',
+			description:
+				'This is an optional field. It might say something like "What people are saying".',
+		}),
+		defineField({
+			name: 'titleColor',
+			title: 'Title Colour',
+			type: 'string',
+			description: 'Default is Dark Grey.',
+			options: {
+				list: [
+					{ title: 'Orange', value: '#ee6d08' },
+					{ title: 'Dark Grey', value: '#333333' },
+					{ title: 'Blue', value: '#16abcc' },
+					{ title: 'Yellow', value: '#feca2d' },
+					{ title: 'White', value: '#ffffff' },
+				],
+				layout: 'radio',
+				direction: 'horizontal',
+			},
+			fieldset: 'titleOptions',
+		}),
 		defineField({
 			name: 'backgroundColor',
 			title: 'Optional Background Colour',
@@ -35,6 +69,14 @@ export default defineType({
 				layout: 'radio',
 				direction: 'horizontal',
 			},
+			fieldset: 'rowParams',
+		}),
+		defineField({
+			name: 'skinny',
+			title: 'Skinny',
+			type: 'boolean',
+			description:
+				'This option significantly reduces the top and bottom padding for all screen sizes.',
 			fieldset: 'rowParams',
 		}),
 		defineField({
