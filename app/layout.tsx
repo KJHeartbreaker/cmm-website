@@ -3,7 +3,7 @@ import 'tailwindcss/tailwind.css'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { Montserrat, Paytone_One, Kalam } from 'next/font/google'
-import React from 'react'
+import React, { Suspense } from 'react'
 import Script from 'next/script'
 import StyledComponentsRegistry from 'lib/registry'
 import { Providers } from 'lib/providers'
@@ -57,7 +57,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 								style={{ display: 'none', visibility: 'hidden' }}
 							/>
 						</noscript>
-						<GoogleAnalytics GA_MEASUREMENT_ID="G-9S443J1SCB" />
+						<Suspense fallback={<div>Loading...</div>}>
+							<GoogleAnalytics GA_MEASUREMENT_ID="G-9S443J1SCB" />
+						</Suspense>
 						{children}
 					</body>
 				</Providers>
