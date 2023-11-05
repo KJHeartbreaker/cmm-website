@@ -25,7 +25,6 @@ export function defineMetadata({
 
 	return {
 		title: metaTitle || demo.title,
-		themeColor: '#000',
 		description,
 		alternates: {
 			canonical: canonical,
