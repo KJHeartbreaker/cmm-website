@@ -61,8 +61,8 @@ export function Navbar({ menuItems }: NavbarProps) {
 								height="75"
 							/>
 							<LogoCopyContainer>
-								<h4>Canine Minds & Manners</h4>
-								<h5>Professional Dog Training</h5>
+								<p className="cmm-top">Canine Minds & Manners</p>
+								<p className="cmm-bottom">Professional Dog Training</p>
 							</LogoCopyContainer>
 						</Link>
 					</LogoContainer>
@@ -117,6 +117,7 @@ export function Navbar({ menuItems }: NavbarProps) {
 									passHref
 									target="_blank"
 									rel="noopener noreferrer"
+									aria-label="Follow us on Instagram"
 								>
 									<FaInstagram size={24} />
 								</InstaLink>
@@ -125,7 +126,7 @@ export function Navbar({ menuItems }: NavbarProps) {
 									passHref
 									target="_blank"
 									rel="noopener noreferrer"
-									className="facebook"
+									aria-label="Follow us on Facebook"
 								>
 									<FaFacebook size={24} />
 								</InstaLink>
