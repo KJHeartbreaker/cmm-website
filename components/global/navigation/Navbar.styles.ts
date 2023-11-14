@@ -183,14 +183,17 @@ export const LogoCopyContainer = styled.div`
 	align-items: center;
 	width: 250px;
 
-	h4 {
+	p.cmm-top {
+		font-family: var(--font-paytone-one), sans-serif;
 		font-size: 14px;
 		color: var(--white);
+		margin-bottom: 0;
 	}
 
-	h5 {
-		font-size: 11px;
+	p.cmm-bottom {
+		font-size: 12px;
 		color: var(--white);
+		margin-bottom: 0;
 	}
 
 	@media ${device.md} {
@@ -215,10 +218,13 @@ export const MenuLink = styled.li`
 		font-family: var(--font-paytone-one), sans-serif;
 		color: var(--white);
 
-		&:hover,
 		&.active,
 		&[aria-current='page'] {
 			color: var(--orange);
+		}
+
+		&:hover {
+			color: var(--orange-hover);
 		}
 
 		&.no-hover {
@@ -304,9 +310,10 @@ export const SubMenu = styled.ul`
 	border-radius: 5px;
 	position: absolute;
 	top: 20px;
-	width: 200px;
+	width: 250px;
 	padding: 6px 0;
 	background-color: var(--white);
+	border: 2px solid var(--yellow);
 	z-index: 2;
 	margin: 0;
 
