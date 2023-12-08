@@ -150,6 +150,16 @@ const config = {
 				destination: '/',
 				permanent: true,
 			},
+			{
+				source: '/good-dogs',
+				destination: '/dog-obedience-training',
+				permanent: true,
+			},
+			{
+				source: '/tails-on-the-trails',
+				destination: '/outdoor-and-advanced-dog-training#tails-on-the-trails',
+				permanent: true,
+			},
 		]
 	},
 	images: {
