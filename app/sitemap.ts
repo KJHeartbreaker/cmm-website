@@ -27,11 +27,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const preview = { token: readToken! }
 	const changeFrequency = 'weekly' as changeFrequency
 	const client = getClient(preview)
-	const [homepage, pages, posts] = await Promise.all([
-		client.fetch<HomepageMetadataPayload[]>(homePageSitemap),
-		client.fetch<MetadataPayload[]>(pagesSitemap),
-		client.fetch<MetadataPayload[]>(postsSitemap),
-	])
+
+	let homepage: HomepageMetadataPayload[] = []
+	let pages: MetadataPayload[] = []
+	let posts: MetadataPayload[] = []
+
+	try {
+		;[homepage, pages, posts] = await Promise.all([
+			client.fetch<HomepageMetadataPayload[]>(homePageSitemap).catch(() => []),
+			client.fetch<MetadataPayload[]>(pagesSitemap).catch(() => []),
+			client.fetch<MetadataPayload[]>(postsSitemap).catch(() => []),
+		])
+	} catch (error) {
+		console.error('Error fetching sitemap data:', error)
+		return []
+	}
 
 	// Handle the case where there is nothing to fetch
 	if (!homepage || homepage.length === 0) {

@@ -19,34 +19,60 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const preview = draftMode().isEnabled ? { token: readToken! } : undefined
 	const client = getClient(preview)
 
-	const [settings, page, homePageTitle] = await Promise.all([
-		client.fetch<SettingsPayload | null>(settingsQuery),
-		client.fetch<PagePayload | null>(pagesBySlugQuery, { slug }),
-		client.fetch<string | null>(homePageTitleQuery),
-	])
+	try {
+		const [settings, page, homePageTitle] = await Promise.all([
+			client.fetch<SettingsPayload | null>(settingsQuery).catch(() => null),
+			client.fetch<PagePayload | null>(pagesBySlugQuery, { slug }).catch(() => null),
+			client.fetch<string | null>(homePageTitleQuery).catch(() => null),
+		])
 
-	return defineMetadata({
-		baseTitle: homePageTitle ?? undefined,
-		description: page?.overview ? toPlainText(page.overview) : '',
-		image: settings?.ogImage,
-		title: page?.title,
-		canonical: `${siteUrl}/${slug}`,
-	})
+		return defineMetadata({
+			baseTitle: homePageTitle ?? undefined,
+			description: page?.overview ? toPlainText(page.overview) : '',
+			image: settings?.ogImage,
+			title: page?.title,
+			canonical: `${siteUrl}/${slug}`,
+		})
+	} catch (error) {
+		console.error(`Error generating metadata for ${slug}:`, error)
+		return defineMetadata({
+			title: 'Page',
+			canonical: `${siteUrl}/${slug}`,
+		})
+	}
 }
 
 export async function generateStaticParams() {
-	const client = getClient()
-	const slugs = await client.fetch<string[]>(pagePaths)
-	return slugs.map((slug) => ({ slug }))
+	try {
+		const client = getClient()
+		const slugs = await client.fetch<string[]>(pagePaths).catch((error) => {
+			console.error('Error fetching page paths:', error)
+			return [] as string[]
+		})
+		return slugs.map((slug) => ({ slug }))
+	} catch (error) {
+		console.error('Error in generateStaticParams:', error)
+		return []
+	}
 }
 
 export default async function PageSlugRoute({ params }: Props) {
 	const { slug } = params
 	const preview = draftMode().isEnabled ? { token: readToken! } : undefined
 	const client = getClient(preview)
-	const data = await client.fetch<PagePayload | null>(pagesBySlugQuery, {
-		slug,
-	})
+
+	let data: PagePayload | null = null
+	try {
+		data = await client.fetch<PagePayload | null>(pagesBySlugQuery, {
+			slug,
+		})
+	} catch (error) {
+		console.error(`Error fetching page data for ${slug}:`, error)
+		// If it's a network error or query error, log it but don't crash the build
+		if (!preview) {
+			notFound()
+		}
+	}
 
 	if (!data && !preview) {
 		notFound()

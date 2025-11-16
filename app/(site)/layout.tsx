@@ -22,7 +22,16 @@ const fallbackSettings: SettingsPayload = {
 export default async function IndexRoute({ children }: { children: React.ReactNode }) {
 	const preview = draftMode().isEnabled ? { token: readToken! } : undefined
 	const client = getClient(preview)
-	const settings = (await client.fetch<SettingsPayload | null>(settingsQuery)) ?? fallbackSettings
+
+	let settings: SettingsPayload = fallbackSettings
+	try {
+		settings =
+			(await client.fetch<SettingsPayload | null>(settingsQuery).catch(() => null)) ??
+			fallbackSettings
+	} catch (error) {
+		console.error('Error fetching settings in layout:', error)
+		// Use fallback settings if fetch fails
+	}
 
 	const layout = (
 		<StyledComponentsRegistry>

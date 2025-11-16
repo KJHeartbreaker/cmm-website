@@ -11,6 +11,9 @@ export function getClient(preview?: { token: string }): SanityClient {
 		dataset,
 		apiVersion,
 		useCdn,
+		requestTagPrefix: 'cmm-website',
+		// Add timeout to prevent hanging requests
+		timeout: 30000, // 30 seconds
 	})
 	if (preview) {
 		if (!preview.token) {
@@ -20,6 +23,7 @@ export function getClient(preview?: { token: string }): SanityClient {
 			token: preview.token,
 			useCdn: false,
 			ignoreBrowserTokenWarning: true,
+			timeout: 30000, // 30 seconds
 		})
 	}
 	return client

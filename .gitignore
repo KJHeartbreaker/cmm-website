@@ -42,3 +42,13 @@ yarn-error.log*
 # Env files created by scripts for working locally
 .env
 studio/.env.development
+
+# Build logs
+build.log
+build-*.log
+
+# IDE workspace files
+*.code-workspace
+
+# Local helper scripts
+test-build.sh
