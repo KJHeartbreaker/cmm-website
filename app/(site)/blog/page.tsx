@@ -42,6 +42,11 @@ export default async function BlogPageRoute() {
 	let data: BlogLandingPagePayload | null = null
 	try {
 		data = await client.fetch<BlogLandingPagePayload | null>(blogPageQuery)
+
+		// Debug logging - remove after fixing
+		if (process.env.NODE_ENV === 'development') {
+			console.log('Blog page data:', JSON.stringify(data, null, 2))
+		}
 	} catch (error) {
 		console.error('Error fetching blog page data:', error)
 		if (!preview) {

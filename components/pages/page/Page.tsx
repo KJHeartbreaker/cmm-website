@@ -1,8 +1,8 @@
 import { getContent } from 'helpers/getContent'
-import type { PagePayload } from 'types'
+import type { PagePayload, BlogLandingPagePayload, HomePagePayload } from 'types'
 
 export interface PageProps {
-	data: PagePayload | null
+	data: PagePayload | BlogLandingPagePayload | HomePagePayload | null
 }
 
 export function Page({ data }: PageProps) {
