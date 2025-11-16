@@ -88,7 +88,7 @@ const PageQueryProjection = groq`
                     ${ImageProjection}
                 },
             }
-        },
+        }[_type != 'reference' || @->._id != null],
         'image': image {
             ${ImageProjection}
         },
@@ -109,7 +109,7 @@ const PageQueryProjection = groq`
             'image': image {
                 ${ImageProjection}
             },
-        },
+        }[defined(_id)],
         'trainers': trainers[]{
             _type == 'reference' => @-> {
                 _id,
@@ -120,7 +120,7 @@ const PageQueryProjection = groq`
                     ${ImageProjection}
                 }
             }
-        },
+        }[_type != 'reference' || @->._id != null],
         'relatedResources': relatedResources[]{
             _type == 'reference' => @-> {
                 _type == 'post' => {
@@ -172,7 +172,7 @@ const PageQueryProjection = groq`
                     }
                 }
             }
-        },
+        }[_type != 'reference' || @->._id != null],
         'posts': posts[]{
             _type == 'reference' => @-> {
                 _id,
@@ -203,7 +203,7 @@ const PageQueryProjection = groq`
                     ${ImageProjection}
                 }
             }
-        },
+        }[_type != 'reference' || @->._id != null],
         'programs': programs[]{
             _type == 'reference' => @-> {
                 _id,
@@ -222,7 +222,7 @@ const PageQueryProjection = groq`
                     ${ImageProjection}
                 }
             }
-        },
+        }[_type != 'reference' || @->._id != null],
         'testimonialsArr': testimonialsArr[] -> {
             _key,
             heading,
@@ -278,7 +278,7 @@ const PageQueryProjection = groq`
                         ${ImageProjection}
                     }
                 }
-            },
+            }[_type != 'reference' || @->._id != null],
             'groupClasses': classesArr[]{
                 _type == 'reference' => @-> {
                     _id,
@@ -303,7 +303,7 @@ const PageQueryProjection = groq`
                     oDDescription,
                     oDCTA
                 }
-            },
+            }[_type != 'reference' || @->._id != null],
             'galleryArr': galleryArr[] {
                 alt,
                 crop,

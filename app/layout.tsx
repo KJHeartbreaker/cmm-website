@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import 'tailwindcss/tailwind.css'
+import 'styles/globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { Montserrat, Paytone_One, Kalam } from 'next/font/google'

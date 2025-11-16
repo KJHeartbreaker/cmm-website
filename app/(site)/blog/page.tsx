@@ -14,23 +14,40 @@ export async function generateMetadata(): Promise<Metadata> {
 	const preview = draftMode().isEnabled ? { token: readToken! } : undefined
 	const client = getClient(preview)
 
-	const [settings, page] = await Promise.all([
-		client.fetch<SettingsPayload | null>(settingsQuery),
-		client.fetch<BlogLandingPagePayload | null>(blogPageQuery),
-	])
+	try {
+		const [settings, page] = await Promise.all([
+			client.fetch<SettingsPayload | null>(settingsQuery).catch(() => null),
+			client.fetch<BlogLandingPagePayload | null>(blogPageQuery).catch(() => null),
+		])
 
-	return defineMetadata({
-		description: page?.overview ? toPlainText(page.overview) : '',
-		image: settings?.ogImage,
-		title: page?.title,
-		canonical: `${siteUrl}/blog`,
-	})
+		return defineMetadata({
+			description: page?.overview ? toPlainText(page.overview) : '',
+			image: settings?.ogImage,
+			title: page?.title,
+			canonical: `${siteUrl}/blog`,
+		})
+	} catch (error) {
+		console.error('Error generating metadata for blog page:', error)
+		return defineMetadata({
+			title: 'Blog',
+			canonical: `${siteUrl}/blog`,
+		})
+	}
 }
 
 export default async function BlogPageRoute() {
 	const preview = draftMode().isEnabled ? { token: readToken! } : undefined
 	const client = getClient(preview)
-	const data = await client.fetch<BlogLandingPagePayload | null>(blogPageQuery)
+
+	let data: BlogLandingPagePayload | null = null
+	try {
+		data = await client.fetch<BlogLandingPagePayload | null>(blogPageQuery)
+	} catch (error) {
+		console.error('Error fetching blog page data:', error)
+		if (!preview) {
+			notFound()
+		}
+	}
 
 	if (!data && !preview) {
 		notFound()
