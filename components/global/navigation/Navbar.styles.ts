@@ -201,6 +201,38 @@ export const LogoCopyContainer = styled.div`
 	}
 `
 
+export const ContactIcons = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+	flex: 1;
+
+	@media ${device.sm} {
+		display: none;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		background-color: var(--orange);
+		border-radius: 50%;
+		transition: background-color 0.25s;
+
+		&:hover {
+			background-color: var(--orange-hover);
+		}
+
+		svg {
+			color: var(--white);
+		}
+	}
+`
+
 export const MenuLink = styled.li`
 	display: flex;
 	align-items: center;
@@ -350,12 +382,12 @@ export const SubMenu = styled.ul`
 
 interface MobileMenuIconProps {
 	children?: React.ReactNode
-	menuopen: boolean
+	$menuopen: boolean
 	onClick: () => void
 }
 
-const hamburger = ({ menuopen }: { menuopen: boolean }) => {
-	if (menuopen) {
+const hamburger = ({ $menuopen }: { $menuopen: boolean }) => {
+	if ($menuopen) {
 		return css`
 			> div {
 				transition: all 0.35s linear;
@@ -394,8 +426,8 @@ export const MobileMenuIcon: React.FC<MobileMenuIconProps> = styled.div<MobileMe
 		width: 100%;
 	}
 
-	// Conditionally apply the hamburger style when menuopen is true
-	${(props) => (props.menuopen ? hamburger(props) : null)}
+	// Conditionally apply the hamburger style when $menuopen is true
+	${(props) => (props.$menuopen ? hamburger(props) : null)}
 `
 
 export const DropdownGroup = styled.div`
