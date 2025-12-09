@@ -15,12 +15,7 @@ export interface TrainerCardProps {
 	image: SanityImageProps
 }
 
-const TrainerCard: React.FC<TrainerCardProps> = ({
-	name,
-	slug,
-	certs,
-	image,
-}: TrainerCardProps) => (
+const TrainerCard: React.FC<TrainerCardProps> = ({ name, slug, certs, image }: TrainerCardProps) => (
 	<TrainerCardContainer>
 		<Link href={`/our-team#${slug.current}`} passHref>
 			<SanityComponentImage {...image} />

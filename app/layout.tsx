@@ -31,10 +31,7 @@ const kalam = Kalam({
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html
-			lang="en"
-			className={`${paytone_one.variable} ${montserrat.variable} ${kalam.variable}`}
-		>
+		<html lang="en" className={`${paytone_one.variable} ${montserrat.variable} ${kalam.variable}`}>
 			<head>
 				<Script id="gtm-script" strategy="afterInteractive">
 					{`

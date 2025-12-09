@@ -23,12 +23,7 @@ import settings from './sanity/schemas/singletons/settings'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'CMM v2.0'
 
-export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
-	home.name,
-	page.name,
-	blogLandingPage.name,
-	post.name,
-]
+export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [home.name, page.name, blogLandingPage.name, post.name]
 
 export default defineConfig({
 	basePath: '/studio',

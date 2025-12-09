@@ -33,9 +33,7 @@ export default function CustomComponentContainer(props: CustomComponentContainer
 				let component
 				switch (row._type) {
 					case 'trainerRows':
-						component = (
-							<TrainersCustomComponent key={row._key} trainers={row.trainers!} />
-						)
+						component = <TrainersCustomComponent key={row._key} trainers={row.trainers!} />
 						break
 					case 'galleryGrid':
 						component = (

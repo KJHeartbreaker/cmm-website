@@ -25,9 +25,7 @@ export default async function IndexRoute({ children }: { children: React.ReactNo
 
 	let settings: SettingsPayload = fallbackSettings
 	try {
-		settings =
-			(await client.fetch<SettingsPayload | null>(settingsQuery).catch(() => null)) ??
-			fallbackSettings
+		settings = (await client.fetch<SettingsPayload | null>(settingsQuery).catch(() => null)) ?? fallbackSettings
 	} catch (error) {
 		console.error('Error fetching settings in layout:', error)
 		// Use fallback settings if fetch fails
