@@ -248,12 +248,20 @@ const PageQueryProjection = groq`
                         lqip
                     }
                 },
-                'landingPageRoute': landingPageRoute->
+                'landingPageRoute': landingPageRoute-> {
+                    slug {
+                        current
+                    }
+                }
             },
             'copy': copy {
                 portableTextBlock[]{
                     ...,
-                    'landingPageRoute': landingPageRoute->
+                    'landingPageRoute': landingPageRoute-> {
+                        slug {
+                            current
+                        }
+                    }
                 }
             },
             'iconCards': iconCards[] {
@@ -294,7 +302,11 @@ const PageQueryProjection = groq`
                         title,
                         arrow,
                         kind,
-                        landingPageRoute ->
+                        landingPageRoute -> {
+                            slug {
+                                current
+                            }
+                        }
                     },
                     'picture': picture {
                         ${ImageProjection}
@@ -335,7 +347,11 @@ const PageQueryProjection = groq`
                         lqip
                     }
                 },
-                'landingPageRoute': landingPageRoute->,
+                'landingPageRoute': landingPageRoute-> {
+                    slug {
+                        current
+                    }
+                },
                 markDefs[]{
                     ...,
                     item -> {
@@ -425,7 +441,11 @@ const PageQueryProjection = groq`
                         lqip
                     }
                 },
-                'landingPageRoute': landingPageRoute->,
+                'landingPageRoute': landingPageRoute-> {
+                    slug {
+                        current
+                    }
+                },
                 markDefs[]{
                     ...,
                     item -> {
@@ -521,7 +541,12 @@ export const postsBySlugQuery = groq`
         },
         body {
             portableTextBlock[]{
-                ...
+                ...,
+                landingPageRoute-> {
+                    slug {
+                        current
+                    }
+                }
             },
         },
         excerpt {
