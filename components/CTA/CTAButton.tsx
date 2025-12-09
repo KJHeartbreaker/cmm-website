@@ -44,9 +44,14 @@ const CTAButton: React.FC<CTAProps> = ({
 	}
 
 	if (landingPageRoute) {
+		// Ensure the slug starts with / to make it an absolute path
+		const href = landingPageRoute.slug.current.startsWith('/')
+			? landingPageRoute.slug.current
+			: `/${landingPageRoute.slug.current}`
+
 		if (kind === 'button') {
 			return (
-				<Link href={landingPageRoute.slug.current} passHref rel="noopener noreferrer">
+				<Link href={href} passHref rel="noopener noreferrer">
 					<button
 						type="button"
 						className="items-center justify-center rounded bg-orange px-4 py-2 font-bold text-white transition-colors hover:bg-grey33"
@@ -59,7 +64,7 @@ const CTAButton: React.FC<CTAProps> = ({
 
 		return (
 			<Link
-				href={landingPageRoute.slug.current}
+				href={href}
 				rel="noopener noreferrer"
 				className="flex flex-row items-center justify-center"
 			>
