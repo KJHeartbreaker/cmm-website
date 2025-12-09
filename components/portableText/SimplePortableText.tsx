@@ -14,9 +14,7 @@ export function SimplePortableText({
 	const components: PortableTextComponents = {
 		types: {
 			// @ts-ignore
-			simplePortableTextBlock: ({ children }) => (
-				<p className={paragraphClasses}>{children}</p>
-			),
+			simplePortableTextBlock: ({ children }) => <p className={paragraphClasses}>{children}</p>,
 		},
 		block: {
 			normal: ({ children }) => <p className={paragraphClasses}>{children}</p>,
@@ -27,11 +25,7 @@ export function SimplePortableText({
 				return <Link href={internalSlug}>{children}</Link>
 			},
 			link: ({ children, value }) => (
-				<a
-					className="transition hover:opacity-50"
-					href={value?.href}
-					rel="noreferrer noopener"
-				>
+				<a className="transition hover:opacity-50" href={value?.href} rel="noreferrer noopener">
 					{children}
 				</a>
 			),

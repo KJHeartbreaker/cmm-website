@@ -8,12 +8,7 @@ import { PostCardContainer } from './Card.styles'
 import { SimplePortableText } from '../portableText/SimplePortableText'
 import CTAButton from '../CTA/CTAButton'
 
-const DownloadCard: React.FC<DownloadCardProps> = ({
-	title,
-	excerpt,
-	image,
-	file,
-}: DownloadCardProps) => (
+const DownloadCard: React.FC<DownloadCardProps> = ({ title, excerpt, image, file }: DownloadCardProps) => (
 	<PostCardContainer>
 		<SanityComponentImage {...image} className="cardImage" />
 		<div className="copy-block">

@@ -24,10 +24,8 @@ export default function MobileHeaderDropdown({ item, setMenuOpen }: MobileHeader
 
 	// Check if the link, or any link in the submenu is active
 	const isNavMenuLinkActive =
-		pathname ===
-		`/${item.cta!.landingPageRoute ? item.cta!.landingPageRoute!.slug.current : item.cta!.link}`
-	const isSubMenuActive =
-		item.subnav && item.subnav.some((l: any) => pathname === `/${l.slug.current}`)
+		pathname === `/${item.cta!.landingPageRoute ? item.cta!.landingPageRoute!.slug.current : item.cta!.link}`
+	const isSubMenuActive = item.subnav && item.subnav.some((l: any) => pathname === `/${l.slug.current}`)
 
 	return (
 		<>
@@ -43,9 +41,7 @@ export default function MobileHeaderDropdown({ item, setMenuOpen }: MobileHeader
 				)}
 				<button type="button" ref={dropdownRef} onClick={showMobileSubnav}>
 					{!item.cta!.landingPageRoute && <a>{item.cta!.title}</a>}
-					<MdKeyboardArrowDown
-						className={`arrowDown ${mobileSubnavOpen ? 'rotate' : ''}`}
-					/>
+					<MdKeyboardArrowDown className={`arrowDown ${mobileSubnavOpen ? 'rotate' : ''}`} />
 				</button>
 			</MobileMenuDropdownLink>
 			<ul style={mobileSubnavOpen ? { display: 'block' } : { display: 'none' }}>

@@ -24,9 +24,9 @@ const ContentBlock: React.FC<ContentBlockProps> = (props) => {
 
 	return (
 		<Section
-			className={`${removeBottomPadding ? 'short' : ''} ${skinny ? 'skinny' : ''} ${
-				hasBg ? 'has-bg' : ''
-			} ${classes || ''}`}
+			className={`${removeBottomPadding ? 'short' : ''} ${skinny ? 'skinny' : ''} ${hasBg ? 'has-bg' : ''} ${
+				classes || ''
+			}`}
 			id={id || ''}
 			style={{ backgroundColor: bgColor }}
 		>

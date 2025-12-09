@@ -28,9 +28,7 @@ export default function RowColumn(panel: PanelContent) {
 
 	return (
 		<StyledRowColumn className={_type === 'carousel' ? 'carousel-wrapper' : ''}>
-			{_type === 'acuityForm' && (
-				<ContactFormPanel title={title} copy={copy} type="acuityForm" />
-			)}
+			{_type === 'acuityForm' && <ContactFormPanel title={title} copy={copy} type="acuityForm" />}
 			{_type === 'carousel' && (
 				<CarouselContainer>
 					<Carousel carouselImages={carouselImages} />
@@ -43,12 +41,7 @@ export default function RowColumn(panel: PanelContent) {
 			)}
 			{_type === 'imageButtonCard' && (
 				// @ts-ignore
-				<ImageButton
-					image={image!}
-					heading={heading!}
-					copy={copy!}
-					landingPageRoute={landingPageRoute!}
-				/>
+				<ImageButton image={image!} heading={heading!} copy={copy!} landingPageRoute={landingPageRoute!} />
 			)}
 			{_type === 'mainImage' && asset && (
 				<div className="image-container">

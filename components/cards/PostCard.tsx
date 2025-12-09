@@ -8,13 +8,7 @@ import SanityComponentImage from '../images/SanityComponentImage'
 import { AuthorContainer, PostCardContainer } from './Card.styles'
 import { SimplePortableText } from '../portableText/SimplePortableText'
 
-const PostCard: React.FC<PostCardProps> = ({
-	title,
-	slug,
-	author,
-	excerpt,
-	image,
-}: PostCardProps) => {
+const PostCard: React.FC<PostCardProps> = ({ title, slug, author, excerpt, image }: PostCardProps) => {
 	const hrefSlug = `/blog/${slug.current}`
 	const authorSlug = `/our-team#${author.slug.current}`
 

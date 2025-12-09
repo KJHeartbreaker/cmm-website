@@ -2,11 +2,7 @@
 
 import React from 'react'
 import { PostCardProps, DownloadCardProps } from '@/types'
-import {
-	RelatedResourcesGridContainer,
-	RelatedResourcesRowContainer,
-	StyledTitle,
-} from './Grid.styles'
+import { RelatedResourcesGridContainer, RelatedResourcesRowContainer, StyledTitle } from './Grid.styles'
 import PostCard from '../cards/PostCard'
 import DownloadCard from '../cards/DownloadCard'
 

@@ -10,8 +10,7 @@ export default defineType({
 		defineField({
 			name: 'logoRow',
 			title: 'Logo Row',
-			description:
-				'Technically, these could be any image or icon, but this is meant for accrediations.',
+			description: 'Technically, these could be any image or icon, but this is meant for accrediations.',
 			type: 'array',
 			of: [defineArrayMember({ type: 'logo' })],
 		}),

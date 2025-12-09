@@ -4,23 +4,11 @@ import { HiOutlineArrowNarrowRight } from 'react-icons/hi'
 import { MdFileDownload } from 'react-icons/md'
 import { CTAProps } from 'types'
 
-const CTAButton: React.FC<CTAProps> = ({
-	title,
-	kind,
-	landingPageRoute,
-	link,
-	fileDownload,
-	arrow,
-}) => {
+const CTAButton: React.FC<CTAProps> = ({ title, kind, landingPageRoute, link, fileDownload, arrow }) => {
 	if (fileDownload) {
 		if (kind === 'button') {
 			return (
-				<Link
-					href={fileDownload.asset.url}
-					passHref
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<Link href={fileDownload.asset.url} passHref target="_blank" rel="noopener noreferrer">
 					<button
 						type="button"
 						className="flex flex-row items-center justify-center rounded bg-orange px-4 py-2 font-bold text-white transition-colors hover:bg-grey33"

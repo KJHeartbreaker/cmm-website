@@ -28,10 +28,7 @@ export default function TrainersCustomComponent({ trainers }: TrainersCustomComp
 							<div className="mt-5">
 								{tr.certifications ? (
 									<SimplePortableText
-										value={
-											tr.certifications
-												.portableTextBlock as PortableTextBlock[]
-										}
+										value={tr.certifications.portableTextBlock as PortableTextBlock[]}
 									/>
 								) : null}
 							</div>
@@ -42,9 +39,7 @@ export default function TrainersCustomComponent({ trainers }: TrainersCustomComp
 						<h3 className="text-orange">{tr.role}</h3>
 						<div className="mt-5">
 							{tr.bio ? (
-								<SimplePortableText
-									value={tr.bio.portableTextBlock as PortableTextBlock[]}
-								/>
+								<SimplePortableText value={tr.bio.portableTextBlock as PortableTextBlock[]} />
 							) : null}
 						</div>
 					</TrainerRowRightSide>

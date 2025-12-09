@@ -68,12 +68,7 @@ const MapBanner: React.FC<MapBannerProps> = (props: MapBannerProps) => {
 			</MapContainer>
 			<ContactFormIconCardsContainer>
 				{iconCards.map((iC, i) => (
-					<IconCard
-						key={`${iC.icon.asset._id}+${i}`}
-						icon={iC.icon}
-						heading={iC.heading}
-						copy={iC.copy}
-					/>
+					<IconCard key={`${iC.icon.asset._id}+${i}`} icon={iC.icon} heading={iC.heading} copy={iC.copy} />
 				))}
 			</ContactFormIconCardsContainer>
 		</ContactPageContainer>

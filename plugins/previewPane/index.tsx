@@ -25,11 +25,7 @@ export const previewDocumentNode =
 				// Preview
 				S.view
 					.component((props) => (
-						<PreviewPane
-							previewSecretId={previewSecretId}
-							apiVersion={apiVersion}
-							{...props}
-						/>
+						<PreviewPane previewSecretId={previewSecretId} apiVersion={apiVersion} {...props} />
 					))
 					.title('Preview'),
 			])

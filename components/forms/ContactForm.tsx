@@ -122,9 +122,7 @@ const ContactForm = () => {
 				theme="light"
 			/>
 
-			{showConfetti && (
-				<Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} />
-			)}
+			{showConfetti && <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} />}
 		</FormContainer>
 	)
 }

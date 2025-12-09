@@ -108,8 +108,7 @@ export default defineType({
 			name: 'centerCopy',
 			type: 'boolean',
 			title: 'Centered Copy',
-			description:
-				'Selecting this checkbox will center align the text within the copy block.',
+			description: 'Selecting this checkbox will center align the text within the copy block.',
 			fieldset: 'rowParams',
 		}),
 		defineField({
@@ -220,9 +219,7 @@ export default defineType({
 						break
 
 					case 'imageButtonCard':
-						conditionalSub = sub.heading
-							? `Button Heading: ${sub.heading}`
-							: 'Update this!'
+						conditionalSub = sub.heading ? `Button Heading: ${sub.heading}` : 'Update this!'
 						break
 
 					case 'form':

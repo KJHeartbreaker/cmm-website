@@ -27,8 +27,7 @@ export default defineType({
 			title: 'Title',
 			name: 'title',
 			type: 'string',
-			description:
-				'This field is only for the studio, and previewing content. It will not appear on your site.',
+			description: 'This field is only for the studio, and previewing content. It will not appear on your site.',
 		}),
 		defineField({
 			name: 'backgroundColor',
@@ -61,8 +60,7 @@ export default defineType({
 			name: 'skinny',
 			title: 'Skinny',
 			type: 'boolean',
-			description:
-				'This option significantly reduces the top and bottom padding for all screen sizes.',
+			description: 'This option significantly reduces the top and bottom padding for all screen sizes.',
 			fieldset: 'rowParams',
 		}),
 		defineField({

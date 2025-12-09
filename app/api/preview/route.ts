@@ -17,9 +17,7 @@ export async function GET(request: Request) {
 
 	const token = readToken
 	if (!token) {
-		throw new Error(
-			'A secret is provided but there is no `SANITY_API_READ_TOKEN` environment variable setup.'
-		)
+		throw new Error('A secret is provided but there is no `SANITY_API_READ_TOKEN` environment variable setup.')
 	}
 	const client = getClient().withConfig({ useCdn: false, token })
 	const generatedSecret = await getSecret(client, previewSecretId)
@@ -30,12 +28,9 @@ export async function GET(request: Request) {
 	const href = resolveHref(documentType!, slug!)
 
 	if (!href) {
-		return new Response(
-			'Unable to resolve preview URL based on the current document type and slug',
-			{
-				status: 400,
-			}
-		)
+		return new Response('Unable to resolve preview URL based on the current document type and slug', {
+			status: 400,
+		})
 	}
 
 	draftMode().enable()
