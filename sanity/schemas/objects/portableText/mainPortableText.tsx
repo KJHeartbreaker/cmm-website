@@ -4,22 +4,16 @@ import { defineArrayMember, defineField, defineType } from 'sanity'
 import { LiaExternalLinkSquareAltSolid as internalLinkIcon } from 'react-icons/lia'
 
 const cmmYellowIcon = () => <BsCircleFill color="#feca2d" />
-const cmmYellowDecorator = (props: any) => (
-	<span style={{ color: '#feca2d' }}>{props.children}</span>
-)
+const cmmYellowDecorator = (props: any) => <span style={{ color: '#feca2d' }}>{props.children}</span>
 
 const cmmBlueIcon = () => <BsCircleFill color="#057198" />
 const cmmBlueDecorator = (props: any) => <span style={{ color: '#057198' }}>{props.children}</span>
 
 const cmmDarkBlueIcon = () => <BsCircleFill color="#013b63" />
-const cmmDarkBlueDecorator = (props: any) => (
-	<span style={{ color: '#013b63' }}>{props.children}</span>
-)
+const cmmDarkBlueDecorator = (props: any) => <span style={{ color: '#013b63' }}>{props.children}</span>
 
 const cmmOrangeIcon = () => <BsCircleFill color="#ee6d08" />
-const cmmOrangeDecorator = (props: any) => (
-	<span style={{ color: '#ee6d08' }}>{props.children}</span>
-)
+const cmmOrangeDecorator = (props: any) => <span style={{ color: '#ee6d08' }}>{props.children}</span>
 
 const cmmWhiteIcon = () => <BsCircle />
 const cmmWhiteDecorator = (props: any) => (
@@ -27,9 +21,7 @@ const cmmWhiteDecorator = (props: any) => (
 )
 
 const HighlightIcon = () => <span style={{ fontWeight: 'bold', color: 'yellow' }}> H </span>
-const HighlightDecorator = (props: any) => (
-	<span style={{ backgroundColor: 'yellow' }}>{props.children}</span>
-)
+const HighlightDecorator = (props: any) => <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>
 
 export default defineType({
 	type: 'object',
@@ -163,8 +155,7 @@ export default defineType({
 						defineField({
 							name: 'size',
 							type: 'string',
-							description:
-								'This value determines the spacing above and below the line.',
+							description: 'This value determines the spacing above and below the line.',
 							initialValue: '25',
 						}),
 						defineField({

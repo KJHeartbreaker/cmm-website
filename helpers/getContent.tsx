@@ -8,14 +8,7 @@ import ProductGrid from 'components/grids/ProductGrid'
 import TestimonialsGrid from 'components/grids/TestimonialsGrid'
 import RowContainer from 'components/rows/RowContainer'
 import ContentBlock from 'components/utilityComponents/ContentBlock'
-import {
-	PanelContent,
-	ProductCardProps,
-	ProgramCardProps,
-	TestimonialCardProps,
-	Trainer,
-	TrainingSession,
-} from 'types'
+import { PanelContent, ProductCardProps, ProgramCardProps, TestimonialCardProps, Trainer, TrainingSession } from 'types'
 import TrainingRow from 'components/classes/TrainingRow'
 import ProgramsGrid from 'components/grids/ProgramsGrid'
 import SingleColumnContentBlock from 'components/rows/SingleColumnBlock'
@@ -248,14 +241,7 @@ export function getContent(content: PageContent[]) {
 					)
 					break
 				case 'Contact Page Map':
-					el = (
-						<MapBanner
-							map={c.map}
-							mapLink={c.mapLink}
-							copy={c.copy}
-							iconCards={c.iconCards}
-						/>
-					)
+					el = <MapBanner map={c.map} mapLink={c.mapLink} copy={c.copy} iconCards={c.iconCards} />
 					break
 				default:
 					el = null

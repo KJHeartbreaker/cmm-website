@@ -54,12 +54,7 @@ export function Navbar({ menuItems }: NavbarProps) {
 				<PrimaryNav>
 					<LogoContainer>
 						<Link href="/" onClick={() => setMenuOpen(false)}>
-							<Image
-								src="/CMMPDT_Logo-type.png"
-								alt="CMM Logo"
-								width="75"
-								height="75"
-							/>
+							<Image src="/CMMPDT_Logo-type.png" alt="CMM Logo" width="75" height="75" />
 							<LogoCopyContainer>
 								<p className="cmm-top">Canine Minds & Manners</p>
 								<p className="cmm-bottom">Professional Dog Training</p>
@@ -70,10 +65,7 @@ export function Navbar({ menuItems }: NavbarProps) {
 						<TopMenu>
 							{menuItems &&
 								menuItems.map((menuItem: MenuItemProps) => {
-									if (
-										menuItem._type === 'navDropdownCTA' &&
-										menuItem.subnav!.length > 0
-									) {
+									if (menuItem._type === 'navDropdownCTA' && menuItem.subnav!.length > 0) {
 										return (
 											<MenuLink key={menuItem._key}>
 												<NavbarDropdown
@@ -91,8 +83,7 @@ export function Navbar({ menuItems }: NavbarProps) {
 													pathname ===
 													`/${
 														menuItem.cta!.landingPageRoute
-															? menuItem.cta!.landingPageRoute!.slug
-																	.current
+															? menuItem.cta!.landingPageRoute!.slug.current
 															: menuItem.cta!.link
 													}`
 														? 'active'
@@ -100,8 +91,7 @@ export function Navbar({ menuItems }: NavbarProps) {
 												}`}
 												href={`/${
 													menuItem.cta!.landingPageRoute
-														? menuItem.cta!.landingPageRoute!.slug
-																.current
+														? menuItem.cta!.landingPageRoute!.slug.current
 														: menuItem.cta!.link
 												}`}
 											>
@@ -143,15 +133,10 @@ export function Navbar({ menuItems }: NavbarProps) {
 				{isMobile && (
 					<>
 						{menuOpen && <DarkFrozen />}
-						<MobileMenuDropdown
-							style={menuOpen ? { display: 'flex' } : { display: 'none' }}
-						>
+						<MobileMenuDropdown style={menuOpen ? { display: 'flex' } : { display: 'none' }}>
 							{menuItems &&
 								menuItems.map((menuItem: MenuItemProps) => {
-									if (
-										menuItem._type === 'navDropdownCTA' &&
-										menuItem.subnav!.length > 0
-									) {
+									if (menuItem._type === 'navDropdownCTA' && menuItem.subnav!.length > 0) {
 										return (
 											<DropdownGroup key={menuItem._key}>
 												<MobileHeaderDropdown
@@ -165,15 +150,12 @@ export function Navbar({ menuItems }: NavbarProps) {
 									return (
 										<Link
 											key={menuItem._key}
-											href={`/${
-												menuItem.cta!.landingPageRoute!.slug.current
-											}`}
+											href={`/${menuItem.cta!.landingPageRoute!.slug.current}`}
 											className={`${
 												pathname ===
 												`/${
 													menuItem.cta!.landingPageRoute
-														? menuItem.cta!.landingPageRoute!.slug
-																.current
+														? menuItem.cta!.landingPageRoute!.slug.current
 														: menuItem.cta!.link
 												}`
 													? 'active'

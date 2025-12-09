@@ -71,12 +71,7 @@ export default function GalleryGrid(props: GalleryGridProps) {
 						rowstart={rowStart}
 						onClick={() => openModal(index)}
 					>
-						<SanityComponentImage
-							alt={image.alt}
-							asset={image.asset}
-							width={400}
-							height={height}
-						/>
+						<SanityComponentImage alt={image.alt} asset={image.asset} width={400} height={height} />
 					</GridItemContainer>
 				)
 			})}

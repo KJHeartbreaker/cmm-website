@@ -80,29 +80,18 @@ export const pageStructure =
 			.items([
 				...singletonItems,
 				S.listItem().title('Contact').icon(BsTelephone).child(
-					S.editor()
-						.id('contactPage')
-						.schemaType('page')
-						.documentId('169e36ec-e78e-438b-9a51-800da17be6b6') // Assuming the document ID for your contact page is 'contact'
+					S.editor().id('contactPage').schemaType('page').documentId('169e36ec-e78e-438b-9a51-800da17be6b6') // Assuming the document ID for your contact page is 'contact'
 				),
 				S.listItem().title('Pages').icon(GiCobweb).child(
-					S.documentTypeList('page')
-						.title('Pages')
-						.filter('_type == "page" && slug.current != "contact"') // This filter excludes the contact page
+					S.documentTypeList('page').title('Pages').filter('_type == "page" && slug.current != "contact"') // This filter excludes the contact page
 				),
-				S.listItem()
-					.title('Posts')
-					.icon(BsSignpostSplit)
-					.child(S.documentTypeList('post').title('Posts')),
+				S.listItem().title('Posts').icon(BsSignpostSplit).child(S.documentTypeList('post').title('Posts')),
 				S.divider(),
 				S.listItem()
 					.title('Our Team')
 					.icon(GiSittingDog)
 					.child(S.documentTypeList('trainer').title('Trainers')),
-				S.listItem()
-					.title('Classes')
-					.icon(GiGraduateCap)
-					.child(S.documentTypeList('class').title('Classes')),
+				S.listItem().title('Classes').icon(GiGraduateCap).child(S.documentTypeList('class').title('Classes')),
 				S.listItem()
 					.title('Resources')
 					.icon(RiStackFill)

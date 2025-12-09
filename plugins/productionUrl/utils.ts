@@ -1,8 +1,7 @@
 import type { SanityClient } from '@sanity/client'
 
 // updated within the hour, if it's older it'll create a new secret or return null
-const query = (ttl: number) =>
-	/* groq */ `*[_id == $id && dateTime(_updatedAt) > dateTime(now()) - ${ttl}][0].secret`
+const query = (ttl: number) => /* groq */ `*[_id == $id && dateTime(_updatedAt) > dateTime(now()) - ${ttl}][0].secret`
 
 const tag = 'preview.secret'
 
@@ -19,15 +18,10 @@ export async function getSecret(
 		{ id }
 	)
 	if (!secret && createIfNotExists) {
-		const newSecret =
-			createIfNotExists === true ? Math.random().toString(36).slice(2) : createIfNotExists()
+		const newSecret = createIfNotExists === true ? Math.random().toString(36).slice(2) : createIfNotExists()
 		try {
 			const patch = client.patch(id).set({ secret: newSecret })
-			await client
-				.transaction()
-				.createIfNotExists({ _id: id, _type: id })
-				.patch(patch)
-				.commit({ tag })
+			await client.transaction().createIfNotExists({ _id: id, _type: id }).patch(patch).commit({ tag })
 			return newSecret
 		} catch (err) {
 			console.error(

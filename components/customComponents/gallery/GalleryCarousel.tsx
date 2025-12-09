@@ -39,13 +39,7 @@ export const GalleryCarousel: React.FC<GalleryCarouselProps> = ({
 		>
 			{images.map((im, i) => (
 				<SwiperSlide key={i}>
-					<SanityComponentImage
-						alt={im.alt}
-						asset={im.asset}
-						width={800}
-						height={500}
-						hotspot={im.hotspot}
-					/>
+					<SanityComponentImage alt={im.alt} asset={im.asset} width={800} height={500} hotspot={im.hotspot} />
 				</SwiperSlide>
 			))}
 		</MainSwiper>

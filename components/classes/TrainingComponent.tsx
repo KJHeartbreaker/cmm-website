@@ -77,14 +77,9 @@ const TrainingComponent: React.FC<TrainingSession> = ({
 							<h2>Upcoming Classes</h2>
 							{upcoming22.map((uC) => (
 								<p key={uC._key}>
-									{formatStartDate(uC.startDate)} at {uC.startTime}{' '}
-									{uC.amPm.toUpperCase()}
-									{uC.availability === 'full' && (
-										<span className="red">FULL</span>
-									)}
-									{uC.availability === 'nearlyFull' && (
-										<span className="yellow">FEW SPOTS LEFT</span>
-									)}
+									{formatStartDate(uC.startDate)} at {uC.startTime} {uC.amPm.toUpperCase()}
+									{uC.availability === 'full' && <span className="red">FULL</span>}
+									{uC.availability === 'nearlyFull' && <span className="yellow">FEW SPOTS LEFT</span>}
 								</p>
 							))}
 						</>

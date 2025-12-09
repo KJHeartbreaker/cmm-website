@@ -32,10 +32,7 @@ export default function StyledComponentsRegistry({ children }: { children: React
 	if (typeof window !== 'undefined') return <>{children}</>
 
 	return (
-		<StyleSheetManager
-			sheet={styledComponentsStyleSheet.instance}
-			shouldForwardProp={shouldForwardProp}
-		>
+		<StyleSheetManager sheet={styledComponentsStyleSheet.instance} shouldForwardProp={shouldForwardProp}>
 			{children}
 		</StyleSheetManager>
 	)

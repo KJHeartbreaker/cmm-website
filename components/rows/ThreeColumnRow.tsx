@@ -33,12 +33,7 @@ export default function ThreeColumnRow({
 			)}
 			<div className="columns">
 				{panels.map((panel) => (
-					<RowColumn
-						key={panel._key}
-						condensedCopy={condensedCopy}
-						centerCopy={centerCopy}
-						{...panel}
-					/>
+					<RowColumn key={panel._key} condensedCopy={condensedCopy} centerCopy={centerCopy} {...panel} />
 				))}
 			</div>
 		</ThreeColumnRowContainer>

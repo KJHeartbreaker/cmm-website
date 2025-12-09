@@ -12,13 +12,9 @@ export default function PagePreview({ data: initialData }: PageProps) {
 	const hasSlug = initialData && 'slug' in initialData && initialData.slug
 
 	// Always call the hook, but only use it for pages with slugs
-	const [data] = useLiveQuery<PagePayload | null>(
-		hasSlug ? (initialData as PagePayload) : null,
-		pagesBySlugQuery,
-		{
-			slug: hasSlug ? (initialData as PagePayload).slug : undefined,
-		}
-	)
+	const [data] = useLiveQuery<PagePayload | null>(hasSlug ? (initialData as PagePayload) : null, pagesBySlugQuery, {
+		slug: hasSlug ? (initialData as PagePayload).slug : undefined,
+	})
 
 	// For pages without slugs, use initialData directly
 	const finalData = hasSlug ? data ?? initialData : initialData
