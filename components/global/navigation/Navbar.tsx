@@ -6,10 +6,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { MenuItemProps } from 'types'
-import { FaFacebook, FaInstagram } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaPhone, FaEnvelope } from 'react-icons/fa'
 
 import MobileHeaderDropdown from './MobileHeaderDropdown'
 import {
+	ContactIcons,
 	DarkFrozen,
 	DropdownGroup,
 	InstaLink,
@@ -66,6 +67,17 @@ export function Navbar({ menuItems }: NavbarProps) {
 							</LogoCopyContainer>
 						</Link>
 					</LogoContainer>
+					<ContactIcons>
+						<Link href="tel:4038165629" aria-label="Call us at 403-816-5629">
+							<FaPhone size={24} />
+						</Link>
+						<Link
+							href="mailto:cmm_info@shaw.ca"
+							aria-label="Email us at cmm_info@shaw.ca"
+						>
+							<FaEnvelope size={24} />
+						</Link>
+					</ContactIcons>
 					{!isMobile && isMobile !== null ? (
 						<TopMenu>
 							{menuItems &&
@@ -87,23 +99,20 @@ export function Navbar({ menuItems }: NavbarProps) {
 									return (
 										<MenuLink key={menuItem._key}>
 											<Link
-												className={`${
-													pathname ===
-													`/${
-														menuItem.cta!.landingPageRoute
+												className={`${pathname ===
+														`/${menuItem.cta!.landingPageRoute
 															? menuItem.cta!.landingPageRoute!.slug
-																	.current
+																.current
 															: menuItem.cta!.link
-													}`
+														}`
 														? 'active'
 														: ''
-												}`}
-												href={`/${
-													menuItem.cta!.landingPageRoute
+													}`}
+												href={`/${menuItem.cta!.landingPageRoute
 														? menuItem.cta!.landingPageRoute!.slug
-																.current
+															.current
 														: menuItem.cta!.link
-												}`}
+													}`}
 											>
 												{menuItem.cta!.title}
 											</Link>
@@ -165,20 +174,17 @@ export function Navbar({ menuItems }: NavbarProps) {
 									return (
 										<Link
 											key={menuItem._key}
-											href={`/${
-												menuItem.cta!.landingPageRoute!.slug.current
-											}`}
-											className={`${
-												pathname ===
-												`/${
-													menuItem.cta!.landingPageRoute
+											href={`/${menuItem.cta!.landingPageRoute!.slug.current
+												}`}
+											className={`${pathname ===
+													`/${menuItem.cta!.landingPageRoute
 														? menuItem.cta!.landingPageRoute!.slug
-																.current
+															.current
 														: menuItem.cta!.link
-												}`
+													}`
 													? 'active'
 													: ''
-											}`}
+												}`}
 											onClick={() => setMenuOpen(false)}
 										>
 											{menuItem.cta!.title}

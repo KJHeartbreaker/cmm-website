@@ -201,6 +201,38 @@ export const LogoCopyContainer = styled.div`
 	}
 `
 
+export const ContactIcons = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+	flex: 1;
+
+	@media ${device.sm} {
+		display: none;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		background-color: var(--orange);
+		border-radius: 50%;
+		transition: background-color 0.25s;
+
+		&:hover {
+			background-color: var(--orange-hover);
+		}
+
+		svg {
+			color: var(--white);
+		}
+	}
+`
+
 export const MenuLink = styled.li`
 	display: flex;
 	align-items: center;
